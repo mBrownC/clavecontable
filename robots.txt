@@ -1,0 +1,21 @@
+# robots.txt para ClaveContable
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.clavecontable.cl/sitemap.xml
+
+# Bloquear archivos innecesarios
+Disallow: /assets/docs/
+Disallow: /*.json$
+
+# Permitir crawlers importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Crawl-delay (opcional)
+Crawl-delay: 1
