@@ -85,7 +85,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="#inicio">
-                    <img src="assets/img/logo/logo-full.png" alt="ClaveContable"
+                    <img src="assets/img/logo/logo-full.svg" alt="ClaveContable"
                         height="60">
                 </a>
                 <button class="navbar-toggler" type="button"
@@ -200,7 +200,8 @@
 
                     <!-- Servicio 1 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-clickable"
+                            data-filter="contables">
                             <div class="card-body">
                                 <div class="text-center mb-3">
                                     <i
@@ -222,13 +223,19 @@
                                             class="fas fa-check text-primary-color me-2"></i>
                                         Asesoría tributaria</li>
                                 </ul>
+                                <div class="text-center mt-3">
+                                    <span class="text-primary-color fw-bold">Ver
+                                        más detalles <i
+                                            class="fas fa-arrow-down"></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Servicio 2 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-clickable"
+                            data-filter="rrhhs">
                             <div class="card-body">
                                 <div class="text-center mb-3">
                                     <i
@@ -250,13 +257,19 @@
                                             class="fas fa-check text-primary-color me-2"></i>
                                         Finiquitos</li>
                                 </ul>
+                                <div class="text-center mt-3">
+                                    <span class="text-primary-color fw-bold">Ver
+                                        más detalles <i
+                                            class="fas fa-arrow-down"></i></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Servicio 3 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100">
+                        <div class="card h-100 card-clickable"
+                            data-filter="planes">
                             <div class="card-body">
                                 <div class="text-center mb-3">
                                     <i
@@ -278,6 +291,337 @@
                                             class="fas fa-check text-primary-color me-2"></i>
                                         Asesoría inicial</li>
                                 </ul>
+                                <div class="text-center mt-3">
+                                    <span class="text-primary-color fw-bold">Ver
+                                        más detalles <i
+                                            class="fas fa-arrow-down"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Detallados con Filtros -->
+        <section id="servicios-detallados" class="py-5" style="display: none;">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <button class="btn-filter active" data-filter="todos">Todos
+                        los Servicios</button>
+                    <button class="btn-filter" data-filter="planes">Planes
+                        Contables</button>
+                    <button class="btn-filter" data-filter="contables">Servicios
+                        Contables</button>
+                    <button class="btn-filter" data-filter="rrhhs">Servicios
+                        RR.HH.</button>
+                </div>
+
+                <div class="servicios-grid row g-4">
+
+                    <!-- PLANES -->
+                    <div class="col-md-6 col-lg-3 servicio-item"
+                        data-categoria="planes">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Plan Inicia</h4>
+                                <ul class="list-unstyled small">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Inicio de Actividades</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Declaración mensual F29</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Libros Electrónicos</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Compras, Ventas y Honorarios</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <p class="h4 text-primary-color fw-bold">1
+                                        UF</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 servicio-item"
+                        data-categoria="planes">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Plan Crea</h4>
+                                <ul class="list-unstyled small">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Todo lo del Plan Inicia</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Asesoría Contable</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Declaración de Rentas</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Balance Anual</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Remuneraciones (2 trabajadores)</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Emisión de Facturas (hasta 5/mes)</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <p class="h4 text-primary-color fw-bold">2.5
+                                        UF</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 servicio-item"
+                        data-categoria="planes">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Pyme Pro</h4>
+                                <ul class="list-unstyled small">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Todo lo del Plan Crea</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Declaración Socio DN8</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Pre-Balance</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Remuneraciones (20 trabajadores)</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Emisión de Facturas (hasta 20/mes)</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <p class="h4 text-primary-color fw-bold">3.5
+                                        UF</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Plan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3 servicio-item"
+                        data-categoria="planes">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Servicios
+                                    Adicionales</h4>
+                                <ul class="list-unstyled small">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Asesoría Contable 1 Hora - $35.000</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Tramitación Patente - $40.000</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Remuneraciones 1 Trabajador -
+                                        $10.000</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Término de Giro - Desde $100.000</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-1"></i>
+                                        Constitución Empresas - $50.000</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SERVICIOS CONTABLES -->
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="contables">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Servicios Contables
+                                    Mensuales</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Libros de Compra, Venta y
+                                        Honorarios</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Realización de Formulario 29</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Asesoría Constante</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Emisión de Facturas</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="contables">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Servicios Contables Anual
+                                    Personas</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Declaración Anual Personal</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Formulario 22</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Rectificatorias F22</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="contables">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Servicios Contables Anual
+                                    Empresas</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Declaración Anual Empresas</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Declaraciones Juradas</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Formulario 22</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Balance y Estado de Resultados</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SERVICIOS RRHH -->
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="rrhhs">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">RRHH</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Contratos</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Liquidaciones de Sueldos</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Carga Previred</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Finiquitos</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Libro de Remuneraciones</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="rrhhs">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Dirección del
+                                    Trabajo</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Subida de Libro de Remuneraciones</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Finiquitos</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Cartas</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Formularios F30 y F30-1</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Notificaciones</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 servicio-item"
+                        data-categoria="rrhhs">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">Trámites</h4>
+                                <ul class="list-unstyled">
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Tramitación Licencias Médicas</li>
+                                    <li><i
+                                            class="fas fa-check text-primary-color me-2"></i>
+                                        Subida de Información a Sistemas de
+                                        Subcontratistas</li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm w-100">Solicita
+                                        tu Servicio</a>
+                                </div>
                             </div>
                         </div>
                     </div>

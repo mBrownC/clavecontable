@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   initSwiper();
   initFormValidation();
   initSmoothScroll();
+  initServiceFilters();
 });
 
 /* === Navbar Scroll Effect === */
@@ -379,3 +380,81 @@ console.log(
   "%cSi alguien te dijo que copiaras y pegaras algo aquí, es un fraude.",
   "font-size: 16px;"
 );
+
+/* === Service Filters === */
+function initServiceFilters() {
+  const serviceCards = document.querySelectorAll(".card-clickable");
+  const filterButtons = document.querySelectorAll(".btn-filter");
+  const serviciosDetallados = document.getElementById("servicios-detallados");
+  const servicioItems = document.querySelectorAll(".servicio-item");
+
+  // Click en tarjetas principales para mostrar servicios filtrados
+  serviceCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      const filter = this.getAttribute("data-filter");
+      serviciosDetallados.style.display = "block";
+
+      // Scroll suave a la sección de servicios detallados
+      serviciosDetallados.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      // Aplicar filtro
+      filterServices(filter);
+
+      // Activar botón correspondiente
+      filterButtons.forEach((btn) => {
+        if (btn.getAttribute("data-filter") === filter) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      });
+    });
+  });
+
+  // Click en botones de filtro
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const filter = this.getAttribute("data-filter");
+
+      // Remover clase active de todos
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+
+      // Agregar clase active al botón clickeado
+      this.classList.add("active");
+
+      // Filtrar servicios
+      filterServices(filter);
+    });
+  });
+
+  function filterServices(filter) {
+    servicioItems.forEach((item) => {
+      const categoria = item.getAttribute("data-categoria");
+
+      if (filter === "todos") {
+        item.classList.remove("hidden");
+        // Animación de entrada
+        gsap.from(item, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else if (categoria === filter) {
+        item.classList.remove("hidden");
+        // Animación de entrada
+        gsap.from(item, {
+          opacity: 0,
+          y: 20,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      } else {
+        item.classList.add("hidden");
+      }
+    });
+  }
+}
