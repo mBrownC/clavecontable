@@ -6,6 +6,18 @@
     background-color: #ffffff;
 }
 
+/* Aumentar espacio entre tarjetas 50% más que g-5 */
+#planes .row {
+    --bs-gutter-x: 4.5rem;
+    --bs-gutter-y: 4.5rem;
+}
+
+/* Forzar ancho de columnas para tarjetas más anchas */
+#planes .row > div {
+    flex: 0 0 auto !important;
+    width: auto !important;
+}
+
 /* Pricing Cards */
 .pricing-card {
     background: var(--light-color);
@@ -17,7 +29,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    max-width: 380px;
+    max-width: 525px;
     margin: 0 auto;
 }
 

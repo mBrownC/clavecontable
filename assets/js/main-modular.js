@@ -1,7 +1,3 @@
-/* ==========================================
-   ClaveContable - Main JavaScript (Modular)
-   ========================================== */
-
 "use strict";
 
 import { initNavbar } from "./modules/navigation.js";
@@ -15,7 +11,6 @@ import { initNoticiasToggle } from "./modules/noticiasToggle.js";
 // Component Loader
 async function loadComponent(containerId, componentPath) {
   try {
-    console.log(`📦 Cargando: ${componentPath}`);
     const response = await fetch(componentPath);
     if (!response.ok)
       throw new Error(`Error loading ${componentPath}: ${response.status}`);
@@ -23,18 +18,14 @@ async function loadComponent(containerId, componentPath) {
     const container = document.getElementById(containerId);
     if (container) {
       container.innerHTML = html;
-      console.log(`✅ Cargado: ${componentPath}`);
-    } else {
-      console.error(`❌ Container no encontrado: ${containerId}`);
     }
   } catch (error) {
-    console.error(`❌ Error cargando ${componentPath}:`, error);
+    console.error(`Error cargando ${componentPath}:`, error);
   }
 }
 
 // Load all components
 async function loadAllComponents() {
-  console.log("🔄 Iniciando carga de componentes...");
   await Promise.all([
     loadComponent("navbar-container", "components/navbar.html"),
     loadComponent("hero-container", "components/hero-section.html"),
@@ -49,41 +40,18 @@ async function loadAllComponents() {
     loadComponent("contacto-container", "components/contact-section.html"),
     loadComponent("footer-container", "components/footer.html"),
   ]);
-  console.log("✅ Todos los componentes cargados");
 }
 
 // Document Ready
 document.addEventListener("DOMContentLoaded", async function () {
-  console.log("🚀 ClaveContable iniciando...");
-
-  // Load components first
   await loadAllComponents();
-
-  console.log("🔧 Inicializando módulos...");
-
-  // Then initialize modules
   initNavbar();
-  console.log("✅ Navbar inicializado");
-
   initAnimations();
-  console.log("✅ Animaciones inicializadas");
-
   initSwiper();
-  console.log("✅ Swiper inicializado");
-
   initFormValidation();
-  console.log("✅ Validación de formularios inicializada");
-
   initSmoothScroll();
-  console.log("✅ Smooth scroll inicializado");
-
   initServiceFilters();
-  console.log("✅ Filtros de servicios inicializados");
-
   initNoticiasToggle();
-  console.log("✅ Toggle de noticias inicializado");
-
-  console.log("🎉 ClaveContable initialized successfully");
 });
 
 // Performance Optimizations
