@@ -118,7 +118,7 @@
 }
 
 /* Responsive - Tablet: Reducir margen para que quepan 3 tarjetas */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1399px) {
     #planes .row {
         --bs-gutter-x: 1.5rem !important;
         --bs-gutter-y: 1.5rem !important;
