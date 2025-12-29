@@ -116,3 +116,22 @@
 .pricing-card.featured:hover {
     transform: translateY(-5px);
 }
+
+/* Responsive - Tablet: Reducir margen para que quepan 3 tarjetas */
+@media (min-width: 768px) and (max-width: 1199px) {
+    #planes .row {
+        --bs-gutter-x: 1.5rem !important;
+        --bs-gutter-y: 1.5rem !important;
+    }
+    
+    #planes .row > div {
+        flex: 0 0 auto !important;
+        width: auto !important;
+        max-width: calc(33.333% - 1rem) !important;
+    }
+    
+    .pricing-card {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+}
