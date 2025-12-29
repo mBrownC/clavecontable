@@ -10,6 +10,7 @@ import { initSwiper } from "./modules/swiperConfig.js";
 import { initFormValidation } from "./modules/formValidation.js";
 import { initSmoothScroll } from "./modules/smoothScroll.js";
 import { initServiceFilters } from "./modules/serviceFilters.js";
+import { initNoticiasToggle } from "./modules/noticiasToggle.js";
 
 // Component Loader
 async function loadComponent(containerId, componentPath) {
@@ -78,6 +79,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   initServiceFilters();
   console.log("✅ Filtros de servicios inicializados");
+
+  initNoticiasToggle();
+  console.log("✅ Toggle de noticias inicializado");
 
   console.log("🎉 ClaveContable initialized successfully");
 });

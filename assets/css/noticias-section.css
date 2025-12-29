@@ -49,7 +49,7 @@
     backdrop-filter: blur(15px);
     box-shadow: 0 10px 30px rgba(0, 206, 209, 0.3);
     position: relative;
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
@@ -150,8 +150,37 @@
     color: var(--dark-color);
 }
 
+/* Botón Ver más (solo visible en mobile/tablet) */
+#btn-ver-mas-noticias {
+    display: none;
+    font-weight: 700;
+}
+
+#btn-ver-mas-noticias i {
+    transition: all 0.3s ease;
+}
+
+/* Ocultar noticias 3-6 en mobile/tablet */
+.news-item-hidden {
+    display: none;
+}
+
 /* Responsive */
 @media (max-width: 991px) {
+    /* En tablet: mostrar botón y ocultar noticias 3-6 */
+    #btn-ver-mas-noticias {
+        display: inline-block;
+    }
+    
+    .news-item-hidden {
+        display: none;
+    }
+    
+    .news-item-hidden.show {
+        display: block;
+        animation: fadeInUp 0.5s ease;
+    }
+    
     #noticias .container {
         padding-left: 3rem;
         padding-right: 3rem;
@@ -159,6 +188,17 @@
     
     .news-card-full {
         max-width: 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -186,5 +226,16 @@
     #noticias .container {
         padding-left: 1rem;
         padding-right: 1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    /* En desktop: mostrar todas las noticias */
+    .news-item-hidden {
+        display: block !important;
+    }
+    
+    #btn-ver-mas-noticias {
+        display: none !important;
     }
 }

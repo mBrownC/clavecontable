@@ -1,14 +1,14 @@
 <!-- Noticias y Actualizaciones -->
 <section id="noticias" class="py-5">
-    <div class="noticias-container">
+    <div class="container">
         <div class="text-center mb-5">
             <h2 class="mb-3">Noticias y Actualizaciones</h2>
             <p class="lead">Mantente informado sobre cambios tributarios y
                 novedades</p>
         </div>
 
-        <div class="row g-4">
-            <!-- Noticia 1 - SII -->
+        <div class="row g-4" id="noticias-grid">
+            <!-- Noticia 1 - SII (SIEMPRE VISIBLE) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
@@ -28,13 +28,12 @@
                             la declaración mensual y evita multas. El SII ha
                             modificado los plazos para inicio de año.</p>
                         <a href="#contacto"
-                            class="btn btn-outline-primary btn-sm">Consultar
-                            ahora</a>
+                            class="btn btn-primary btn-sm">Consultar ahora</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Noticia 2 - Previred -->
+            <!-- Noticia 2 - Previred (SIEMPRE VISIBLE) -->
             <div class="col-md-6 col-lg-4">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
@@ -52,15 +51,14 @@
                         <p class="card-text">Nuevos topes imponibles y cambios
                             en el sistema de declaración de remuneraciones.
                             Prepárate para el nuevo año fiscal.</p>
-                        <a href="#contacto"
-                            class="btn btn-outline-primary btn-sm">Más
+                        <a href="#contacto" class="btn btn-primary btn-sm">Más
                             información</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Noticia 3 - Dirección del Trabajo -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Noticia 3 - Dirección del Trabajo (OCULTA EN MOBILE) -->
+            <div class="col-md-6 col-lg-4 news-item-hidden">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
                         <img src="assets/img/institucionales/dt.png"
@@ -79,14 +77,13 @@
                             nuevas normativas sobre teletrabajo y jornada
                             laboral. Conoce cómo afecta a tu empresa.</p>
                         <a href="#contacto"
-                            class="btn btn-outline-primary btn-sm">Asesoría
-                            laboral</a>
+                            class="btn btn-primary btn-sm">Asesoría laboral</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Noticia 4 - SVG DT -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Noticia 4 - SVG DT (OCULTA EN MOBILE) -->
+            <div class="col-md-6 col-lg-4 news-item-hidden">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
                         <img src="assets/img/institucionales/dt.svg"
@@ -104,14 +101,14 @@
                             pequeñas y medianas empresas. Descubre si tu empresa
                             califica para estos beneficios.</p>
                         <a href="#contacto"
-                            class="btn btn-outline-primary btn-sm">Evaluar mi
+                            class="btn btn-primary btn-sm">Evaluar mi
                             empresa</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Noticia 5 - Promoción -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Noticia 5 - Promoción (OCULTA EN MOBILE) -->
+            <div class="col-md-6 col-lg-4 news-item-hidden">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
                         <img src="assets/img/institucionales/SII.png"
@@ -136,8 +133,8 @@
                 </div>
             </div>
 
-            <!-- Noticia 6 - General -->
-            <div class="col-md-6 col-lg-4">
+            <!-- Noticia 6 - General (OCULTA EN MOBILE) -->
+            <div class="col-md-6 col-lg-4 news-item-hidden">
                 <div class="card h-100 news-card-full">
                     <div class="news-image-container">
                         <img src="assets/img/institucionales/logo-previred.webp"
@@ -155,11 +152,17 @@
                             de año fiscal. Te ayudamos con balance, inventarios
                             y declaraciones anuales.</p>
                         <a href="#contacto"
-                            class="btn btn-outline-primary btn-sm">Agendar
-                            asesoría</a>
+                            class="btn btn-primary btn-sm">Agendar asesoría</a>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Botón Ver más (solo visible en mobile/tablet) -->
+        <div class="text-center mt-4">
+            <button id="btn-ver-mas-noticias" class="btn btn-primary btn-lg">
+                Ver más noticias <i class="fas fa-chevron-down ms-2"></i>
+            </button>
         </div>
     </div>
 </section>
