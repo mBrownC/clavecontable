@@ -1,0 +1,87 @@
+<!-- Contacto Section con Mapa -->
+<section id="contacto" class="contact-section">
+    <div class="contact-container">
+        <!-- Redes Sociales en la parte superior -->
+        <div class="social-header">
+            <h4>Redes Sociales</h4>
+            <div class="social-links-top">
+                <a href="https://www.facebook.com/clavecontable" target="_blank"
+                    aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.instagram.com/clavecontable"
+                    target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/clavecontable"
+                    target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:contabilidad@clavecontable.cl"
+                    aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mapa de fondo -->
+        <div class="contact-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.3891899256305!2d-70.62804492329356!3d-33.517265500938755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662da9ccd4bed67%3A0x81d9885619822ef1!2sQuince%20Ote.%206400%2C%208780919%20La%20Granja%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1767018060375!5m2!1ses-419!2scl"
+                width="600" height="450" style="border:0;" allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <!-- Formulario superpuesto con degradado turquesa/verde -->
+        <div class="contact-form-overlay">
+            <div class="contact-form-card">
+                <h2 class="form-title">Contáctanos</h2>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre"
+                            placeholder="Nombre Completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email"
+                            placeholder="correo@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono"
+                            placeholder="+56 9 XXXX XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servicio">Servicio de Interés:</label>
+                        <select id="servicio" name="servicio">
+                            <option value>Seleccione un servicio</option>
+                            <option value="plan-inicia">Plan Inicia</option>
+                            <option value="plan-crea">Plan Crea</option>
+                            <option value="pyme-pro">Pyme Pro</option>
+                            <option value="contabilidad">Servicios
+                                Contables</option>
+                            <option value="rrhh">Servicios RRHH</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="3"
+                            placeholder="Ingrese su mensaje"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>

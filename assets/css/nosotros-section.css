@@ -1,0 +1,28 @@
+/* ==========================================
+   Nosotros Section Styles
+   ========================================== */
+
+/* Stats Boxes */
+.stats-box {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-normal);
+}
+
+.stats-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#nosotros {
+    background-color: #ffffff;
+}
+
+#nosotros .lead {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+#nosotros p {
+    color: #555;
+    line-height: 1.8;
+}
