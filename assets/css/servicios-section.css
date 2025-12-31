@@ -54,3 +54,29 @@
 #servicios-detallados {
     background-color: #f8f9fa;
 }
+
+/* Botón Ver más detalles */
+.text-primary-color.fw-bold {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.text-primary-color.fw-bold:hover {
+    transform: translateY(-3px) scale(1.05);
+    text-shadow: 0 2px 8px rgba(0, 206, 209, 0.4);
+}
+
+.text-primary-color.fw-bold:hover i {
+    transform: translateY(3px);
+    animation: bounce 0.6s ease infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}

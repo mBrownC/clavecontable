@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mensaje Enviado - ClaveContable</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        :root {
+            --primary-color: #00CED1;
+            --secondary-color: #0a1f1f;
+            --dark-color: #000000;
+            --light-color: #ffffff;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a1f1f 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .success-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 206, 209, 0.3);
+            border: 3px solid var(--primary-color);
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            animation: checkmark 0.8s ease-in-out;
+        }
+        
+        @keyframes checkmark {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); opacity: 1; }
+        }
+        
+        .success-card h1 {
+            color: var(--secondary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .success-card p {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            color: var(--dark-color);
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary:hover {
+            background-color: #00b8bb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 206, 209, 0.4);
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="success-card">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h1>¡Mensaje Enviado!</h1>
+            <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos
+                pondremos en contacto contigo a la brevedad.</p>
+            <p><strong>Tiempo de respuesta:</strong> Dentro de las próximas 24
+                horas hábiles.</p>
+
+            <a href="../index.html" class="btn btn-primary">
+                <i class="fas fa-home me-2"></i>Volver al Inicio
+            </a>
+
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +56 9 99306087</p>
+                <p><i class="fas fa-envelope"></i>
+                    contabilidad@clavecontable.cl</p>
+            </div>
+        </div>
+
+        <script>
+        // Redirección automática después de 10 segundos
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 10000);
+    </script>
+    </body>
+</html>

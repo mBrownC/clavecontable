@@ -1,3 +1,7 @@
+/* ==========================================
+   ClaveContable - Main JavaScript (Modular)
+   ========================================== */
+
 "use strict";
 
 import { initNavbar } from "./modules/navigation.js";
@@ -7,6 +11,7 @@ import { initFormValidation } from "./modules/formValidation.js";
 import { initSmoothScroll } from "./modules/smoothScroll.js";
 import { initServiceFilters } from "./modules/serviceFilters.js";
 import { initNoticiasToggle } from "./modules/noticiasToggle.js";
+import { initContactForm } from "./modules/contactForm.js";
 
 // Component Loader
 async function loadComponent(containerId, componentPath) {
@@ -18,9 +23,11 @@ async function loadComponent(containerId, componentPath) {
     const container = document.getElementById(containerId);
     if (container) {
       container.innerHTML = html;
+    } else {
+      console.error(`❌ Container no encontrado: ${containerId}`);
     }
   } catch (error) {
-    console.error(`Error cargando ${componentPath}:`, error);
+    console.error(`❌ Error cargando ${componentPath}:`, error);
   }
 }
 
@@ -44,7 +51,10 @@ async function loadAllComponents() {
 
 // Document Ready
 document.addEventListener("DOMContentLoaded", async function () {
+  // Load components first
   await loadAllComponents();
+
+  // Then initialize modules
   initNavbar();
   initAnimations();
   initSwiper();
@@ -52,6 +62,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   initSmoothScroll();
   initServiceFilters();
   initNoticiasToggle();
+  initContactForm();
 });
 
 // Performance Optimizations
@@ -92,14 +103,3 @@ function throttle(func, limit) {
     }
   };
 }
-
-// Console Warning
-console.log("%c¡Detente!", "color: red; font-size: 50px; font-weight: bold;");
-console.log(
-  "%cEsta función del navegador está destinada para desarrolladores.",
-  "font-size: 16px;"
-);
-console.log(
-  "%cSi alguien te dijo que copiaras y pegaras algo aquí, es un fraude.",
-  "font-size: 16px;"
-);
