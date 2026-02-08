@@ -40,13 +40,13 @@ async function loadAllComponents() {
     loadComponent("nosotros-container", "components/nosotros-section.html"),
     loadComponent(
       "vision-mision-container",
-      "components/vision-mision-section.html"
+      "components/vision-mision-section.html",
     ),
     loadComponent("noticias-container", "components/noticias-section.html"),
     loadComponent("servicios-container", "components/servicios-section.html"),
     loadComponent(
       "servicios-detallados-container",
-      "components/servicios-detallados.html"
+      "components/servicios-detallados.html",
     ),
     loadComponent("planes-container", "components/planes-section.html"),
     loadComponent("contacto-container", "components/contact-section.html"),
@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Inicializar enlaces de redes sociales desde config.js
     initializeSocialLinks();
-    console.log("✅ Enlaces de redes sociales inicializados desde CONFIG");
   }, 300);
 });
 

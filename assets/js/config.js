@@ -20,7 +20,7 @@ export const CONFIG = {
   // Horarios
   schedule: {
     weekdays: "Lunes a Viernes: 9:00 - 18:00",
-    saturday: "Sábados: 10:00 - 14:00",
+    // saturday: "Sábados: 10:00 - 14:00",
   },
 
   // Información de la empresa
