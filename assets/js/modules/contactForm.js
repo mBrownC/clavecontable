@@ -6,10 +6,10 @@
 // 🔥 CONFIGURACIÓN EMAILJS - CAMBIAR AQUÍ 🔥
 // ============================================
 const EMAILJS_CONFIG = {
-  SERVICE_ID: "service_y8ca8tb", // ✅ Tu Service ID
-  TEMPLATE_ID: "template_cyt7pw7", // ✅ Tu Template ID
-  PUBLIC_KEY: "ZAMDfEcte5Y4ld38a", // ✅ Tu Public Key
-  DEBUG: true,
+  SERVICE_ID: "service_y8ca8tb",
+  TEMPLATE_ID: "template_cyt7pw7",
+  PUBLIC_KEY: "ZAMDfEcte5Y4ld38a",
+  DEBUG: false,
 };
 
 function log(mensaje, data = null) {
@@ -19,15 +19,11 @@ function log(mensaje, data = null) {
 }
 
 function initContactForm() {
-  log("🚀 Iniciando EmailJS...");
-
-  // Cargar el SDK de EmailJS
   const script = document.createElement("script");
   script.src =
     "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
   script.onload = function () {
     emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-    log("✅ EmailJS SDK cargado");
     setupForm();
   };
   document.head.appendChild(script);
@@ -41,19 +37,14 @@ function setupForm() {
     return;
   }
 
-  log("✅ Formulario encontrado");
-
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    log("📤 Enviando email...");
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
     submitBtn.textContent = "Enviando...";
     submitBtn.disabled = true;
 
-    // Agregar fecha y hora actual
     const now = new Date();
     const fechaHora = now.toLocaleString("es-CL", {
       dateStyle: "full",
@@ -61,9 +52,6 @@ function setupForm() {
       timeZone: "America/Santiago",
     });
 
-    log(`📅 Fecha/Hora generada: ${fechaHora}`);
-
-    // Crear campo oculto con fecha/hora
     let timeInput = form.querySelector('input[name="time"]');
     if (!timeInput) {
       timeInput = document.createElement("input");
@@ -73,16 +61,10 @@ function setupForm() {
     }
     timeInput.value = fechaHora;
 
-    log(`✅ Campo time agregado con valor: ${timeInput.value}`);
-
-    // Enviar con EmailJS
     emailjs
       .sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
       .then(
         function (response) {
-          log("✅ Email enviado exitosamente!", response);
-
-          // Redirigir a página de agradecimiento
           setTimeout(() => {
             window.location.href = "/components/gracias.html";
           }, 1000);
@@ -101,8 +83,6 @@ function setupForm() {
         }
       );
   });
-
-  log("✅ EmailJS configurado correctamente");
 }
 
 function mostrarMensaje(texto, tipo) {
@@ -131,7 +111,6 @@ function mostrarMensaje(texto, tipo) {
   }, 5000);
 }
 
-// CSS para animaciones
 const style = document.createElement("style");
 style.textContent = `
     @keyframes slideIn {
@@ -145,5 +124,4 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// NO auto-inicializar, esperar llamada desde main-modular.js
 export { initContactForm };

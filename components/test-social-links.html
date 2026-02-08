@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test Redes Sociales - ClaveContable</title>
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1f1f 0%, #000000 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 206, 209, 0.3);
+        }
+        
+        h1 {
+            color: #00ced1;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .test-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .test-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 206, 209, 0.2);
+            border: 3px solid #00ced1;
+            border-radius: 50%;
+            color: #00ced1;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: #00ced1;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 206, 209, 0.5);
+        }
+        
+        .whatsapp-float {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            background: #25d366;
+            border-radius: 50%;
+            color: white;
+            font-size: 2.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+        }
+        
+        .info-box {
+            background: rgba(0, 206, 209, 0.1);
+            border: 1px solid rgba(0, 206, 209, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .info-box h4 {
+            color: #00ced1;
+            margin-bottom: 15px;
+        }
+        
+        .info-box p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .info-box code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #00ced1;
+            font-size: 0.9rem;
+        }
+        
+        #console-output {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 25px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        #console-output h4 {
+            color: #00ced1;
+            margin-bottom: 15px;
+        }
+        
+        .log-entry {
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .log-entry.success {
+            background: rgba(0, 206, 209, 0.2);
+            color: #00ced1;
+            border-left: 3px solid #00ced1;
+        }
+        
+        .log-entry.info {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            border-left: 3px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .log-entry.error {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ff6b6b;
+            border-left: 3px solid #ff6b6b;
+        }
+        
+        .test-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .test-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .test-btn.primary {
+            background: #00ced1;
+            color: #000;
+        }
+        
+        .test-btn.primary:hover {
+            background: #00b8bb;
+            transform: translateY(-2px);
+        }
+        
+        .test-btn.secondary {
+            background: transparent;
+            border: 2px solid #00ced1;
+            color: #00ced1;
+        }
+        
+        .test-btn.secondary:hover {
+            background: rgba(0, 206, 209, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+    </head>
+    <body>
+        <div class="test-container">
+            <h1>🔗 Test de Redes Sociales</h1>
+
+            <!-- Footer Social Links -->
+            <div class="test-section">
+                <h3>Footer Social Links</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank" class="social-link"
+                        data-network="facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-link"
+                        data-network="instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-link"
+                        data-network="linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" target="_blank" class="social-link"
+                        data-network="whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+
+                <div class="info-box">
+                    <h4>📋 URLs Configuradas:</h4>
+                    <p>🔵 Facebook: <code id="test-facebook">No
+                            configurado</code></p>
+                    <p>🟣 Instagram: <code id="test-instagram">No
+                            configurado</code></p>
+                    <p>🔷 LinkedIn: <code id="test-linkedin">No
+                            configurado</code></p>
+                    <p>🟢 WhatsApp: <code id="test-whatsapp">No
+                            configurado</code></p>
+                </div>
+            </div>
+
+            <!-- WhatsApp Float -->
+            <div class="test-section">
+                <h3>Botón WhatsApp Flotante</h3>
+                <a href="#" class="whatsapp-float" target="_blank"
+                    aria-label="Contactar por WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <!-- Test Buttons -->
+            <div class="test-buttons">
+                <button class="test-btn primary" onclick="runTest()">
+                    <i class="fas fa-play"></i> Ejecutar Test
+                </button>
+                <button class="test-btn secondary" onclick="clearConsole()">
+                    <i class="fas fa-trash"></i> Limpiar Consola
+                </button>
+            </div>
+
+            <!-- Console Output -->
+            <div id="console-output">
+                <h4>📊 Consola de Pruebas</h4>
+                <div id="console-logs"></div>
+            </div>
+        </div>
+
+        <!-- Configuración embebida -->
+        <script>
+        // Configuración inline para测试
+        const CONFIG = {
+            social: {
+                facebook: "https://www.facebook.com/share/1A8UKXC39C/",
+                instagram: "https://www.instagram.com/clavecontable1/",
+                linkedin: "https://www.linkedin.com/company/clavecontable",
+                whatsapp: "https://wa.me/56956746853",
+                whatsappMessage: "Hola%20ClaveContable%20quisiera%20cotizar%20un%20servicio",
+            }
+        };
+        
+        // Función para agregar logs
+        function addLog(message, type = 'info') {
+            const consoleLogs = document.getElementById('console-logs');
+            const logEntry = document.createElement('div');
+            logEntry.className = `log-entry ${type}`;
+            logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            consoleLogs.appendChild(logEntry);
+            consoleLogs.scrollTop = consoleLogs.scrollHeight;
+        }
+        
+        // Función principal de test
+        function runTest() {
+            addLog('🚀 Iniciando test de redes sociales...', 'info');
+            
+            // Mostrar URLs configuradas
+            document.getElementById('test-facebook').textContent = CONFIG.social.facebook;
+            document.getElementById('test-instagram').textContent = CONFIG.social.instagram;
+            document.getElementById('test-linkedin').textContent = CONFIG.social.linkedin;
+            document.getElementById('test-whatsapp').textContent = CONFIG.social.whatsapp;
+            
+            // Footer social links
+            const footerSocialLinks = document.querySelectorAll(".social-links a.social-link");
+            addLog(`📱 Footer social links encontrados: ${footerSocialLinks.length}`, 'info');
+            
+            footerSocialLinks.forEach((link) => {
+                const icon = link.querySelector("i");
+                if (icon) {
+                    let network = 'desconocido';
+                    if (icon.classList.contains("fa-facebook")) {
+                        link.href = CONFIG.social.facebook;
+                        network = 'Facebook';
+                    } else if (icon.classList.contains("fa-instagram")) {
+                        link.href = CONFIG.social.instagram;
+                        network = 'Instagram';
+                    } else if (icon.classList.contains("fa-linkedin")) {
+                        link.href = CONFIG.social.linkedin;
+                        network = 'LinkedIn';
+                    } else if (icon.classList.contains("fa-whatsapp")) {
+                        link.href = CONFIG.social.whatsapp;
+                        network = 'WhatsApp';
+                    }
+                    
+                    addLog(`✅ ${network} link configurado: ${link.href}`, 'success');
+                }
+            });
+            
+            // Botón flotante de WhatsApp
+            const whatsappFloat = document.querySelector(".whatsapp-float");
+            addLog(`📱 WhatsApp float encontrado: ${whatsappFloat !== null}`, 'info');
+            
+            if (whatsappFloat) {
+                const whatsappUrl = `${CONFIG.social.whatsapp}?text=${CONFIG.social.whatsappMessage}`;
+                whatsappFloat.href = whatsappUrl;
+                addLog(`✅ WhatsApp float configurado: ${whatsappUrl}`, 'success');
+            }
+            
+            addLog('✅ Test completado exitosamente!', 'success');
+        }
+        
+        // Limpiar consola
+        function clearConsole() {
+            document.getElementById('console-logs').innerHTML = '';
+            addLog('🗑️ Consola limpiada', 'info');
+        }
+        
+        // Auto-run test on load
+        document.addEventListener('DOMContentLoaded', function() {
+            addLog('📄 Página de test cargada', 'info');
+            addLog('💡 Haz clic en "Ejecutar Test" para verificar los enlaces', 'info');
+        });
+    </script>
+    </body>
+</html>

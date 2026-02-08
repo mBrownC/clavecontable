@@ -12,6 +12,7 @@ import { initSmoothScroll } from "./modules/smoothScroll.js";
 import { initServiceFilters } from "./modules/serviceFilters.js";
 import { initNoticiasToggle } from "./modules/noticiasToggle.js";
 import { initContactForm } from "./modules/contactForm.js";
+import { initializeSocialLinks } from "./config.js";
 
 // Component Loader
 async function loadComponent(containerId, componentPath) {
@@ -37,6 +38,10 @@ async function loadAllComponents() {
     loadComponent("navbar-container", "components/navbar.html"),
     loadComponent("hero-container", "components/hero-section.html"),
     loadComponent("nosotros-container", "components/nosotros-section.html"),
+    loadComponent(
+      "vision-mision-container",
+      "components/vision-mision-section.html"
+    ),
     loadComponent("noticias-container", "components/noticias-section.html"),
     loadComponent("servicios-container", "components/servicios-section.html"),
     loadComponent(
@@ -54,15 +59,22 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Load components first
   await loadAllComponents();
 
-  // Then initialize modules
-  initNavbar();
-  initAnimations();
-  initSwiper();
-  initFormValidation();
-  initSmoothScroll();
-  initServiceFilters();
-  initNoticiasToggle();
-  initContactForm();
+  // Esperar a que los componentes se renderizen completamente
+  setTimeout(() => {
+    // Initialize modules
+    initNavbar();
+    initAnimations();
+    initSwiper();
+    initFormValidation();
+    initSmoothScroll();
+    initServiceFilters();
+    initNoticiasToggle();
+    initContactForm();
+
+    // Inicializar enlaces de redes sociales desde config.js
+    initializeSocialLinks();
+    console.log("✅ Enlaces de redes sociales inicializados desde CONFIG");
+  }, 300);
 });
 
 // Performance Optimizations

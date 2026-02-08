@@ -70,6 +70,8 @@
     box-shadow: 0 10px 30px rgba(0, 206, 209, 0.3);
     position: relative;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .news-card-full::before {
@@ -99,6 +101,7 @@
     justify-content: center;
     padding: 1.5rem;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .news-image-container img {
@@ -114,6 +117,9 @@
 
 .news-card-full .card-body {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .news-card-full .card-title {
@@ -129,6 +135,7 @@
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 1rem;
+    flex: 1;
 }
 
 .news-card-full .badge {
@@ -138,7 +145,7 @@
     letter-spacing: 0.5px;
 }
 
-/* Botones estilo "¡Aprovechar ahora!" */
+/* Botones alineados al fondo */
 .news-card-full .btn {
     background-color: var(--primary-color);
     color: var(--dark-color);
@@ -149,6 +156,8 @@
     border-radius: 8px;
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 206, 209, 0.3);
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .news-card-full .btn:hover {

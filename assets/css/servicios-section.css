@@ -55,6 +55,23 @@
     background-color: #f8f9fa;
 }
 
+/* ===== ALINEAR BOTONES AL PIE DE LAS TARJETAS ===== */
+#servicios-detallados .card {
+    height: 100%;
+}
+
+#servicios-detallados .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#servicios-detallados .card-body > div.mt-3 {
+    margin-top: auto !important;
+}
+
+/* ================================================== */
+
 /* Botón Ver más detalles */
 .text-primary-color.fw-bold {
     cursor: pointer;
