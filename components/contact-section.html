@@ -3,22 +3,25 @@
 
     <!-- Redes Sociales en la parte superior -->
     <div class="social-header">
-        <h4>Redes Sociales</h4>
+        <h4>Síguenos en Redes Sociales</h4>
         <div class="social-links">
             <a href="javascript:void(0)" target="_blank"
                 rel="noopener noreferrer"
-                class="social-link">
-                <i class="fab fa-facebook fa-2x"></i>
+                class="social-link"
+                aria-label="Visitar ClaveContable en Facebook">
+                <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0)" target="_blank"
                 rel="noopener noreferrer"
-                class="social-link">
-                <i class="fab fa-instagram fa-2x"></i>
+                class="social-link"
+                aria-label="Visitar ClaveContable en Instagram">
+                <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
             </a>
             <a href="javascript:void(0)" target="_blank"
                 rel="noopener noreferrer"
-                class="social-link">
-                <i class="fab fa-whatsapp fa-2x"></i>
+                class="social-link"
+                aria-label="Contactar ClaveContable por WhatsApp">
+                <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
             </a>
         </div>
     </div>
@@ -35,17 +38,17 @@
 
                 <div class="info-items">
                     <div class="info-item">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                         <a href="javascript:void(0)">Cargando...</a>
                     </div>
 
                     <div class="info-item">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                         <a href="javascript:void(0)">Cargando...</a>
                     </div>
 
                     <div class="info-item">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-clock" aria-hidden="true"></i>
                         <div>
                             <p><strong>Horario de Atención</strong></p>
                             <p class="schedule-weekdays">Cargando...</p>
@@ -54,46 +57,56 @@
                     </div>
 
                     <div class="info-item">
-                        <i class="fas fa-check-circle"></i>
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
                         <div>
-                            <p><strong>Respuesta rápida</strong></p>
+                            <p><strong>Respuesta rápida garantizada</strong></p>
                             <p>Te contactaremos en menos de 24 horas</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Lado Derecho - Formulario con degradado -->
+            <!-- Lado Derecho - Formulario -->
             <div class="contact-form-card-right">
-                <h2 class="form-title">Envíanos un mensaje</h2>
+                <h2 class="form-title">Cotiza tu Servicio Contable</h2>
 
-                <form class="contact-form" id="contactForm" method="POST">
+                <form class="contact-form" id="contactForm" method="POST"
+                    aria-label="Formulario de contacto ClaveContable">
 
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" id="nombre" name="nombre"
-                            placeholder="Nombre Completo" required>
+                            placeholder="Nombre Completo"
+                            autocomplete="name"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email"
-                            placeholder="correo@ejemplo.com" required>
+                            placeholder="correo@ejemplo.com"
+                            autocomplete="email"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="telefono">Teléfono:</label>
                         <input type="tel" id="telefono" name="telefono"
-                            placeholder="+56 9 XXXX XXXX" required>
+                            placeholder="+56 9 XXXX XXXX"
+                            autocomplete="tel"
+                            required>
                     </div>
 
                     <div class="form-group">
                         <label for="servicio">Servicio de Interés:</label>
                         <select id="servicio" name="servicio" required>
                             <option value>Seleccione un servicio</option>
-                            <option value="plan-inicia">Plan Inicia</option>
-                            <option value="plan-crea">Plan Crea</option>
-                            <option value="pyme-pro">Pyme Pro</option>
+                            <option value="plan-inicia">Plan Inicia - 1
+                                UF/mes</option>
+                            <option value="plan-crea">Plan Crea - 2.5
+                                UF/mes</option>
+                            <option value="pyme-pro">Pyme Pro - 3.5
+                                UF/mes</option>
                             <option value="contabilidad">Servicios
                                 Contables</option>
                             <option value="rrhh">Servicios RRHH</option>
@@ -104,11 +117,13 @@
                     <div class="form-group">
                         <label for="mensaje">Mensaje:</label>
                         <textarea id="mensaje" name="mensaje" rows="3"
-                            placeholder="Ingrese su mensaje"
+                            placeholder="Cuéntanos sobre tu empresa y qué servicio necesitas"
                             required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">Enviar</button>
+                    <button type="submit" class="submit-btn">
+                        Solicitar Asesoría Contable Gratis
+                    </button>
                 </form>
             </div>
 
