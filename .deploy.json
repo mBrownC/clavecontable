@@ -1,0 +1,9 @@
+{
+  "DEPLOYPATH": "/home/aiywtehn/public_html/",
+  "task": [
+    "index.html",
+    "assets",
+    "robots.txt",
+    "sitemap.xml"
+  ]
+}
