@@ -3,7 +3,7 @@ export const CONFIG = {
   // Redes Sociales
   social: {
     facebook: "https://www.facebook.com/share/1A8UKXC39C/",
-    instagram: "https://www.instagram.com/clavecontable1/",
+    instagram: "https://www.instagram.com/clavecontablechile/",
     linkedin: "https://www.linkedin.com/company/clavecontable",
     whatsapp: "https://wa.me/56956746853",
     whatsappMessage:

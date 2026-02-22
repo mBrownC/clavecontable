@@ -6,32 +6,40 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification"
+            content="Dv9qewx1zESjcYukhxiJGfijITE3BO9mxCMRc-KopcE" />
 
         <!-- SEO Meta Tags -->
         <title>ClaveContable - Servicios Contables Profesionales | Planes desde
             1 UF</title>
         <meta name="description"
-            content="Servicios contables profesionales para tu empresa. Planes desde 1 UF. Asesoría tributaria, remuneraciones, declaración impuestos. Contadores expertos en Chile.">
-        <meta name="keywords"
-            content="servicios contables, contador pymes, asesoría tributaria, remuneraciones chile, declaración impuestos, inicio actividades">
+            content="Servicios contables profesionales para PyMEs en Chile. Planes desde 1 UF. Asesoría tributaria, remuneraciones, declaración de impuestos. Llámanos: +56 9 5674 6853.">
         <meta name="author" content="ClaveContable">
+
+        <!-- Canonical -->
+        <link rel="canonical" href="https://www.clavecontable.cl/">
 
         <!-- Open Graph -->
         <meta property="og:title"
             content="ClaveContable - Servicios Contables Profesionales">
         <meta property="og:description"
-            content="Servicios contables profesionales para tu empresa. Planes desde 1 UF. Asesoría tributaria, remuneraciones, declaración impuestos.">
+            content="Servicios contables profesionales para PyMEs en Chile. Planes desde 1 UF. Asesoría tributaria, remuneraciones, declaración de impuestos.">
         <meta property="og:image"
             content="https://www.clavecontable.cl/assets/img/logo/social/og-image.jpg">
-        <meta property="og:url" content="https://www.clavecontable.cl">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:url" content="https://www.clavecontable.cl/">
         <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_CL">
+        <meta property="og:site_name" content="ClaveContable">
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title"
-            content="ClaveContable - Servicios Contables">
+            content="ClaveContable - Servicios Contables Profesionales">
         <meta name="twitter:description"
-            content="Servicios contables profesionales para tu empresa">
+            content="Servicios contables profesionales para PyMEs en Chile. Planes desde 1 UF.">
         <meta name="twitter:image"
             content="https://www.clavecontable.cl/assets/img/logo/social/twitter-card.jpg">
 
@@ -44,13 +52,26 @@
             href="assets/img/favicon/favicon-16x16.png">
         <link rel="apple-touch-icon" sizes="180x180"
             href="assets/img/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
 
-        <!-- Google Fonts -->
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="CL-RM">
+        <meta name="geo.placename" content="Santiago, Chile">
+        <meta name="geo.position" content="-33.4489;-70.6693">
+        <meta name="ICBM" content="-33.4489, -70.6693">
+
+        <!-- Preconnect recursos externos -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+        <!-- Bootstrap -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
             rel="stylesheet">
+
+        <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=Lato:wght@400;700&display=swap"
             rel="stylesheet">
@@ -73,62 +94,158 @@
         <link rel="stylesheet" href="assets/css/planes-section.css">
         <link rel="stylesheet" href="assets/css/contact-section.css">
 
-        <!-- Geo Tags -->
-        <meta name="geo.region" content="CL-RM">
-        <meta name="geo.placename" content="Santiago, Chile">
-        <meta name="geo.position" content="-33.4489;-70.6693">
+        <!-- Schema Markup JSON-LD -->
+        <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AccountingService",
+        "name": "ClaveContable",
+        "alternateName": "Clave Contable Chile",
+        "slogan": "La Clave de Tus Cuentas",
+        "url": "https://www.clavecontable.cl",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.clavecontable.cl/assets/img/logo/logo-full.png"
+        },
+        "image": "https://www.clavecontable.cl/assets/img/logo/social/og-image.jpg",
+        "description": "Servicios contables profesionales para PyMEs en Chile. Planes desde 1 UF. Asesoría tributaria, remuneraciones y declaración de impuestos.",
+        "priceRange": "desde 1 UF",
+        "telephone": "+56956746853",
+        "email": "contacto@clavecontable.cl",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Santiago",
+            "addressRegion": "Región Metropolitana",
+            "addressCountry": "CL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -33.4489,
+            "longitude": -70.6693
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Chile"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Planes Contables",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Asesoría Tributaria"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Gestión de Remuneraciones"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Declaración de Impuestos"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Inicio de Actividades"
+                    }
+                }
+            ]
+        },
+        "sameAs": [
+            "https://www.facebook.com/share/1A8UKXC39C/",
+            "https://www.instagram.com/clavecontablechile/",
+            "https://www.linkedin.com/company/clavecontable"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+56956746853",
+            "contactType": "customer service",
+            "contactOption": "TollFree",
+            "areaServed": "CL",
+            "availableLanguage": "Spanish",
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        }
+    }
+    </script>
     </head>
 
     <body>
-        <!-- Navbar Component -->
-        <div id="navbar-container"></div>
+        <header role="banner">
+            <nav id="navbar-container"
+                aria-label="Navegación principal"
+                role="navigation">
+            </nav>
+        </header>
 
-        <!-- Main Content -->
-        <main>
-            <!-- Hero Component -->
-            <div id="hero-container"></div>
+        <main role="main" id="main-content">
+            <section id="inicio" aria-labelledby="hero-heading">
+                <div id="hero-container"></div>
+            </section>
 
-            <!-- Nosotros Component -->
-            <div id="nosotros-container"></div>
+            <section id="nosotros" aria-labelledby="nosotros-heading">
+                <div id="nosotros-container"></div>
+            </section>
 
-            <!-- Visión y Misión Component -->
-            <div id="vision-mision-container"></div>
+            <section id="vision-mision" aria-labelledby="vision-heading">
+                <div id="vision-mision-container"></div>
+            </section>
 
-            <!-- Noticias Component -->
-            <div id="noticias-container"></div>
+            <section id="noticias" aria-labelledby="noticias-heading">
+                <div id="noticias-container"></div>
+            </section>
 
-            <!-- Servicios Component -->
-            <div id="servicios-container"></div>
+            <section id="servicios" aria-labelledby="servicios-heading">
+                <div id="servicios-container"></div>
+                <div id="servicios-detallados-container"></div>
+            </section>
 
-            <!-- Servicios Detallados Component -->
-            <div id="servicios-detallados-container"></div>
+            <section id="planes" aria-labelledby="planes-heading">
+                <div id="planes-container"></div>
+            </section>
 
-            <!-- Planes Component -->
-            <div id="planes-container"></div>
-
-            <!-- Contacto Component -->
-            <div id="contacto-container"></div>
+            <section id="contacto" aria-labelledby="contacto-heading">
+                <div id="contacto-container"></div>
+            </section>
         </main>
 
-        <!-- Footer Component -->
-        <div id="footer-container"></div>
+        <footer role="contentinfo">
+            <div id="footer-container"></div>
+        </footer>
 
         <!-- Scripts -->
-        <!-- Bootstrap -->
         <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- GSAP -->
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            defer></script>
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+            defer></script>
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-        <!-- Swiper -->
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+            defer></script>
         <script
-            src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-        <!-- Main JavaScript Modular -->
+            src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
+            defer></script>
         <script type="module" src="assets/js/main-modular.js"></script>
     </body>
 
