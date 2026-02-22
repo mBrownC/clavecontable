@@ -27,3 +27,4 @@ jobs:
             .github/**
             README.md
             .deploy.json
+            docs/**
