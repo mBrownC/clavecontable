@@ -1,7 +1,7 @@
-# ClaveContable - Sitio Web Oficial
+# ClaveContable Ltda. - Sitio Web Oficial
 
 ## Descripción
-Sitio web profesional para ClaveContable, empresa de servicios contables y de recursos humanos en Chile. Especialistas en asesoría tributaria, remuneraciones y declaración de impuestos para PyMEs.
+Sitio web profesional para ClaveContable Ltda., empresa de servicios contables y de recursos humanos en Chile. Especialistas en asesoría tributaria, remuneraciones y declaración de impuestos para PyMEs.
 
 ## Stack Tecnológico
 - **HTML5** - Estructura semántica optimizada para SEO
@@ -127,5 +127,5 @@ Cada sección tiene su propio archivo CSS en `assets/css/`. Variables globales e
 - **WhatsApp:** https://wa.me/56956746853
 
 ## Licencia
-Copyright © 2026 ClaveContable. Todos los derechos reservados.
+Copyright © 2026 ClaveContable Ltda.. Todos los derechos reservados.
 Diseñado por MBrownC, Exoweb_chile®

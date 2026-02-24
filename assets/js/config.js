@@ -25,7 +25,7 @@ export const CONFIG = {
 
   // Información de la empresa
   company: {
-    name: "ClaveContable",
+    name: "ClaveContable Ltda",
     slogan: "La Clave de Tus Cuentas",
     description: "Servicios contables profesionales para tu empresa en Chile.",
     year: new Date().getFullYear(),
