@@ -1,12 +1,12 @@
 # ClaveContable Ltda. - Sitio Web Oficial
 
 ## Descripción
-Sitio web profesional para ClaveContable Ltda., empresa de servicios contables y de recursos humanos en Chile. Especialistas en asesoría tributaria, remuneraciones y declaración de impuestos para PyMEs.
+Sitio web profesional para ClaveContable Ltda., empresa de servicios contables, tecnológicos y de recursos humanos en Chile. Especialistas en asesoría tributaria, remuneraciones, declaración de impuestos, desarrollo web y software a medida para PyMEs.
 
 ## Stack Tecnológico
 - **HTML5** - Estructura semántica optimizada para SEO
 - **Bootstrap 5.3** - Framework CSS responsive
-- **GSAP 3.x** - Animaciones profesionales
+- **GSAP 3.x** - Animaciones profesionales y contadores numéricos
 - **Swiper.js** - Carruseles y sliders
 - **JavaScript Vanilla (ES Modules)** - Funcionalidad modular
 - **Font Awesome 6.4** - Iconos
@@ -27,6 +27,7 @@ ClaveContable/
 │   │   ├── noticias-section.css
 │   │   ├── servicios-section.css
 │   │   ├── planes-section.css
+│   │   ├── tecnologia-section.css
 │   │   └── contact-section.css
 │   ├── js/
 │   │   ├── config.js
@@ -55,6 +56,7 @@ ClaveContable/
     ├── servicios-section.html
     ├── servicios-detallados.html
     ├── planes-section.html
+    ├── tecnologia-section.html
     ├── contact-section.html
     ├── footer.html
     └── gracias.html
@@ -64,8 +66,9 @@ ClaveContable/
 - Diseño responsive (mobile-first)
 - Arquitectura modular con componentes HTML
 - Animaciones suaves con GSAP y ScrollTrigger
+- Contadores numéricos animados (stats 500+, 10+)
 - SEO técnico completo (Schema markup, Open Graph, Geo tags)
-- Formulario de contacto funcional
+- Formulario de contacto funcional con servicios tecnológicos
 - Integración con WhatsApp
 - Google Search Console verificado
 - Sitemap.xml y robots.txt configurados
@@ -103,7 +106,7 @@ Cada sección tiene su propio archivo CSS en `assets/css/`. Variables globales e
 
 ## SEO Implementado
 - Meta tags completos (description, robots, author)
-- Schema markup JSON-LD (AccountingService)
+- Schema markup JSON-LD (AccountingService + servicios tecnológicos)
 - Open Graph y Twitter Cards
 - Canonical URL
 - Geo tags (Santiago, Chile)
@@ -113,6 +116,31 @@ Cada sección tiene su propio archivo CSS en `assets/css/`. Variables globales e
 - H1-H6 semánticos con keywords
 - Alt descriptivos en imágenes
 - Aria labels en elementos interactivos
+
+## Servicios
+
+### Contables y Tributarios
+- Inicio de Actividades SII
+- Declaración mensual F29
+- Libros Electrónicos
+- Balance Anual
+- Asesoría Tributaria
+
+### Recursos Humanos
+- Contratos laborales
+- Liquidaciones de sueldo
+- Carga Previred
+- Finiquitos
+
+### Tecnología
+- Creación de Páginas Web
+- Administración de Servidores (Linux, Docker)
+- Desarrollo de Software a Medida (APIs, automatización, facturación electrónica SII)
+
+## Planes Contables
+- **Plan Inicia** - 1 UF/mes
+- **Plan Crea** - 2.5 UF/mes
+- **Pyme Pro** - 3.5 UF/mes
 
 ## Información de Contacto
 - **Email:** contacto@clavecontable.cl
@@ -127,5 +155,5 @@ Cada sección tiene su propio archivo CSS en `assets/css/`. Variables globales e
 - **WhatsApp:** https://wa.me/56956746853
 
 ## Licencia
-Copyright © 2026 ClaveContable Ltda.. Todos los derechos reservados.
+Copyright © 2026 ClaveContable Ltda. Todos los derechos reservados.
 Diseñado por MBrownC, Exoweb_chile®

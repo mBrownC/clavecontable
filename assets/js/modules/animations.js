@@ -15,7 +15,7 @@ function initAnimations() {
   // Animate cards on scroll - MÁS RÁPIDO
   if (typeof ScrollTrigger !== "undefined") {
     const cards = document.querySelectorAll(
-      ".card, .pricing-card, .news-card-full, .stats-box"
+      ".card, .pricing-card, .news-card-full, .stats-box",
     );
 
     cards.forEach((card, index) => {
@@ -35,10 +35,42 @@ function initAnimations() {
   } else {
     // Fallback si no hay ScrollTrigger
     const cards = document.querySelectorAll(
-      ".card, .pricing-card, .news-card-full, .stats-box"
+      ".card, .pricing-card, .news-card-full, .stats-box",
     );
     cards.forEach((card) => {
       card.style.opacity = "1";
+    });
+  }
+
+  // Animación de contadores numéricos en stats-box
+  if (typeof ScrollTrigger !== "undefined") {
+    const counters = document.querySelectorAll(".stats-box h3");
+
+    counters.forEach((el) => {
+      // Extraer número final y sufijo ("500+" → target=500, suffix="+")
+      const rawText = el.innerText.trim();
+      const suffix = rawText.replace(/[0-9]/g, "");
+      const target = parseInt(rawText.replace(/\D/g, ""), 10);
+
+      if (isNaN(target)) return;
+
+      el.innerText = "0" + suffix;
+
+      const obj = { val: 0 };
+
+      gsap.to(obj, {
+        val: target,
+        duration: 2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        onUpdate: function () {
+          el.innerText = Math.ceil(obj.val) + suffix;
+        },
+      });
     });
   }
 }

@@ -14,6 +14,10 @@ function initServiceFilters() {
   serviceCards.forEach((card) => {
     card.addEventListener("click", function () {
       const filter = this.getAttribute("data-filter");
+
+      // Ignorar cards sin data-filter (ej: sección tecnología)
+      if (!filter) return;
+
       serviciosDetallados.style.display = "block";
 
       serviciosDetallados.scrollIntoView({

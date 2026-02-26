@@ -1,0 +1,62 @@
+/* ==========================================
+   Tecnología Section Styles
+   ========================================== */
+
+#tecnologia {
+    background-color: var(--secondary-color);
+}
+
+#tecnologia h2 {
+    color: var(--light-color);
+}
+
+#tecnologia .text-muted {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Card Tecnología */
+.tecnologia-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 206, 209, 0.2);
+    transition: all var(--transition-normal);
+}
+
+.tecnologia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 206, 209, 0.3);
+    border-color: var(--primary-color);
+    background-color: rgba(0, 206, 209, 0.05);
+}
+
+.tecnologia-card .card-title {
+    color: var(--light-color);
+    font-size: 1.1rem;
+}
+
+.tecnologia-card .list-unstyled li {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.92rem;
+}
+
+.tecnologia-card .card-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Botón Cotizar */
+.btn-tecnologia {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.6rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+}
+
+.btn-tecnologia:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}

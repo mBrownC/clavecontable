@@ -49,6 +49,7 @@ async function loadAllComponents() {
       "components/servicios-detallados.html",
     ),
     loadComponent("planes-container", "components/planes-section.html"),
+    loadComponent("tecnologia-container", "components/tecnologia-section.html"),
     loadComponent("contacto-container", "components/contact-section.html"),
     loadComponent("footer-container", "components/footer.html"),
   ]);
