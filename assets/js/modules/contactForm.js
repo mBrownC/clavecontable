@@ -1,5 +1,5 @@
 /* ==========================================
-   EmailJS Contact Form Handler
+   EmailJS Contact Form Handler + Cloudflare Turnstile
    ========================================== */
 
 // ============================================
@@ -12,13 +12,96 @@ const EMAILJS_CONFIG = {
   DEBUG: false,
 };
 
+// ============================================
+// 🔐 VARIABLE GLOBAL PARA TOKEN DE TURNSTILE
+// ============================================
+let turnstileToken = null;
+
 function log(mensaje, data = null) {
   if (EMAILJS_CONFIG.DEBUG) {
     console.log(`[EmailJS] ${mensaje}`, data || "");
   }
 }
 
+// ============================================
+// 🔐 CALLBACKS DE CLOUDFLARE TURNSTILE
+// ============================================
+window.onTurnstileSuccess = function (token) {
+  turnstileToken = token;
+  const submitBtn = document.getElementById("submitBtn");
+  const statusDiv = document.getElementById("turnstileStatus");
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+  }
+
+  if (statusDiv) {
+    statusDiv.className = "turnstile-status verified";
+    statusDiv.innerHTML =
+      '<i class="fas fa-check-circle"></i>Verificación exitosa';
+  }
+
+  console.log("✅ Turnstile verificado exitosamente");
+};
+
+window.onTurnstileError = function () {
+  turnstileToken = null;
+  const submitBtn = document.getElementById("submitBtn");
+  const statusDiv = document.getElementById("turnstileStatus");
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+  }
+
+  if (statusDiv) {
+    statusDiv.className = "turnstile-status error";
+    statusDiv.innerHTML =
+      '<i class="fas fa-exclamation-circle"></i>Error en la verificación. Por favor recarga la página.';
+  }
+
+  console.error("❌ Error en Turnstile");
+};
+
+window.onTurnstileExpired = function () {
+  turnstileToken = null;
+  const submitBtn = document.getElementById("submitBtn");
+  const statusDiv = document.getElementById("turnstileStatus");
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+  }
+
+  if (statusDiv) {
+    statusDiv.className = "turnstile-status error";
+    statusDiv.innerHTML =
+      '<i class="fas fa-clock"></i>Verificación expirada. Por favor complete nuevamente.';
+  }
+
+  console.warn("⏰ Token de Turnstile expirado");
+
+  // Resetear el widget automáticamente
+  if (typeof turnstile !== "undefined") {
+    turnstile.reset();
+  }
+};
+
+// ============================================
+// 🔐 CARGAR SCRIPT DE TURNSTILE
+// ============================================
+function loadTurnstileScript() {
+  const script = document.createElement("script");
+  script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+  console.log("🔐 Script de Turnstile cargado");
+}
+
 function initContactForm() {
+  // 🔐 Cargar Turnstile primero
+  loadTurnstileScript();
+
+  // Cargar EmailJS
   const script = document.createElement("script");
   script.src =
     "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
@@ -37,8 +120,30 @@ function setupForm() {
     return;
   }
 
+  // 🔐 Deshabilitar botón por defecto hasta que se complete Turnstile
+  const submitBtn = document.getElementById("submitBtn");
+  if (submitBtn) {
+    submitBtn.disabled = true;
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    // 🔐 VALIDAR QUE TURNSTILE ESTÉ COMPLETADO
+    if (!turnstileToken) {
+      const statusDiv = document.getElementById("turnstileStatus");
+      if (statusDiv) {
+        statusDiv.className = "turnstile-status error";
+        statusDiv.innerHTML =
+          '<i class="fas fa-exclamation-triangle"></i>Por favor complete la verificación de seguridad.';
+      }
+
+      mostrarMensaje(
+        "⚠️ Por favor complete la verificación de seguridad antes de enviar.",
+        "error",
+      );
+      return;
+    }
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.textContent;
@@ -61,10 +166,28 @@ function setupForm() {
     }
     timeInput.value = fechaHora;
 
+    // 🔐 AGREGAR TOKEN DE TURNSTILE AL FORMULARIO (opcional para logging)
+    let turnstileInput = form.querySelector('input[name="turnstile_token"]');
+    if (!turnstileInput) {
+      turnstileInput = document.createElement("input");
+      turnstileInput.type = "hidden";
+      turnstileInput.name = "turnstile_token";
+      form.appendChild(turnstileInput);
+    }
+    turnstileInput.value = turnstileToken.substring(0, 20) + "..."; // Solo los primeros caracteres para el log
+
     emailjs
       .sendForm(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, form)
       .then(
         function (response) {
+          console.log("✅ Email enviado exitosamente:", response);
+
+          // Resetear Turnstile después del envío exitoso
+          if (typeof turnstile !== "undefined") {
+            turnstile.reset();
+          }
+          turnstileToken = null;
+
           setTimeout(() => {
             window.location.href = "/components/gracias.html";
           }, 1000);
@@ -74,13 +197,25 @@ function setupForm() {
 
           // Mostrar mensaje de error
           mostrarMensaje(
-            "Error al enviar. Por favor intenta de nuevo.",
-            "error"
+            "❌ Error al enviar. Por favor intenta de nuevo.",
+            "error",
           );
 
           submitBtn.textContent = originalText;
           submitBtn.disabled = false;
-        }
+
+          // Resetear Turnstile en caso de error
+          if (typeof turnstile !== "undefined") {
+            turnstile.reset();
+          }
+          turnstileToken = null;
+
+          const statusDiv = document.getElementById("turnstileStatus");
+          if (statusDiv) {
+            statusDiv.className = "turnstile-status";
+            statusDiv.innerHTML = "";
+          }
+        },
       );
   });
 }

@@ -1,4 +1,4 @@
-<!-- Contacto Section - Diseño Completo -->
+<!-- Contacto Section - Diseño Completo con Cloudflare Turnstile -->
 <section id="contacto" class="contact-section-complete">
 
     <!-- Redes Sociales en la parte superior -->
@@ -126,7 +126,21 @@
                             required></textarea>
                     </div>
 
-                    <button type="submit" class="submit-btn">
+                    <!-- 🔐 CLOUDFLARE TURNSTILE WIDGET -->
+                    <div class="form-group turnstile-container">
+                        <div class="cf-turnstile"
+                            id="turnstile-widget"
+                            data-sitekey="0x4AAAAAAC4rSTdmtynzQjIX"
+                            data-callback="onTurnstileSuccess"
+                            data-error-callback="onTurnstileError"
+                            data-expired-callback="onTurnstileExpired"
+                            data-theme="light">
+                        </div>
+                        <div id="turnstileStatus"
+                            class="turnstile-status"></div>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
                         Solicitar Asesoría Contable Gratis
                     </button>
                 </form>
@@ -135,3 +149,61 @@
         </div>
     </div>
 </section>
+
+<!-- 🎨 ESTILOS ADICIONALES PARA TURNSTILE -->
+<style>
+    .turnstile-container {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cf-turnstile {
+        transform-origin: center;
+    }
+
+    .turnstile-status {
+        display: none;
+        margin-top: 12px;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .turnstile-status.verified {
+        display: block;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .turnstile-status.error {
+        display: block;
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+    }
+
+    .turnstile-status i {
+        margin-right: 6px;
+    }
+
+    /* Deshabilitar botón hasta verificación */
+    .submit-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        background-color: #cccccc !important;
+    }
+
+    /* Responsive para el widget */
+    @media (max-width: 768px) {
+        .cf-turnstile {
+            transform: scale(0.85);
+        }
+    }
+</style>
