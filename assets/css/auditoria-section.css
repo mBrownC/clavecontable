@@ -1,0 +1,87 @@
+/* ==========================================
+   Auditoría Section Styles
+   ========================================== */
+
+.auditoria-section {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.auditoria-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #00b8bb 100%);
+}
+
+.badge-nuevo-servicio {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 206, 209, 0.4);
+}
+
+.auditoria-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    height: 100%;
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.auditoria-card:hover {
+    background: rgba(0, 206, 209, 0.08);
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.auditoria-card i {
+    color: var(--primary-color);
+}
+
+.auditoria-card h4 {
+    color: var(--light-color);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.auditoria-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Ribbon "Nuevo" en la tarjeta resumen de Servicios */
+.card-nuevo {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+}
+
+.card-nuevo .ribbon-nuevo {
+    position: absolute;
+    top: 12px;
+    right: -32px;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 2.5rem;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

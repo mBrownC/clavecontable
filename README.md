@@ -138,9 +138,9 @@ Cada sección tiene su propio archivo CSS en `assets/css/`. Variables globales e
 - Desarrollo de Software a Medida (APIs, automatización, facturación electrónica SII)
 
 ## Planes Contables
-- **Plan Inicia** - 1 UF/mes
-- **Plan Crea** - 2.5 UF/mes
-- **Pyme Pro** - 3.5 UF/mes
+- **Plan Inicia** - 1.5 UF/mes
+- **Plan Crea** - 3 UF/mes
+- **Pyme Pro** - 4 UF/mes
 
 ## Información de Contacto
 - **Email:** contacto@clavecontable.cl

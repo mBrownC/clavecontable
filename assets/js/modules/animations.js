@@ -18,17 +18,25 @@ function initAnimations() {
       ".card, .pricing-card, .news-card-full, .stats-box",
     );
 
-    cards.forEach((card, index) => {
+    cards.forEach((card) => {
+      // Delay pequeño y acotado según la posición dentro de su propia fila,
+      // no según la posición en toda la página (eso hacía que las secciones
+      // más abajo, como Planes o Clientes, tardaran mucho en aparecer).
+      const siblings = card.parentElement
+        ? Array.from(card.parentElement.children)
+        : [card];
+      const localIndex = siblings.indexOf(card);
+
       gsap.from(card, {
         scrollTrigger: {
           trigger: card,
-          start: "top 90%", // Empieza antes (era 85%)
+          start: "top 90%",
           toggleActions: "play none none none",
         },
-        y: 30, // Menos movimiento (era 50)
+        y: 20,
         opacity: 0,
-        duration: 0.4, // Más rápido (era 0.6)
-        delay: index * 0.05, // Menos delay entre tarjetas (era 0.1)
+        duration: 0.3,
+        delay: Math.min(localIndex, 4) * 0.06,
         ease: "power2.out",
       });
     });

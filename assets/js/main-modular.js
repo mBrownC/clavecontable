@@ -44,11 +44,13 @@ async function loadAllComponents() {
     ),
     loadComponent("noticias-container", "components/noticias-section.html"),
     loadComponent("servicios-container", "components/servicios-section.html"),
+    loadComponent("auditoria-container", "components/auditoria-section.html"),
     loadComponent(
       "servicios-detallados-container",
       "components/servicios-detallados.html",
     ),
     loadComponent("planes-container", "components/planes-section.html"),
+    loadComponent("clientes-container", "components/clientes-section.html"),
     loadComponent("tecnologia-container", "components/tecnologia-section.html"),
     loadComponent("contacto-container", "components/contact-section.html"),
     loadComponent("footer-container", "components/footer.html"),

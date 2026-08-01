@@ -1,0 +1,101 @@
+/* ==========================================
+   Clientes Section Styles
+   (Carrusel 3D adaptado de github.com/mBrownC/webcocacola)
+   ========================================== */
+
+#clientes {
+    background-color: #f8f9fa;
+}
+
+.content-all {
+    width: 260px;
+    height: 160px;
+    margin: 0 auto;
+    perspective: 1200px;
+    position: relative;
+}
+
+.content-carrusel {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: rotar 20s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.content-carrusel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.content-carrusel figure {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    position: absolute;
+    margin: 0;
+    border-radius: 10px;
+    background: var(--light-color);
+    box-shadow: 0 0 20px 0 rgba(0, 206, 209, 0.35);
+    transition: box-shadow var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.content-carrusel figure:hover {
+    box-shadow: 0 0 25px 5px rgba(0, 206, 209, 0.55);
+}
+
+.content-carrusel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(340px);
+}
+
+.content-carrusel figure:nth-child(2) {
+    transform: rotateY(60deg) translateZ(340px);
+}
+
+.content-carrusel figure:nth-child(3) {
+    transform: rotateY(120deg) translateZ(340px);
+}
+
+.content-carrusel figure:nth-child(4) {
+    transform: rotateY(180deg) translateZ(340px);
+}
+
+.content-carrusel figure:nth-child(5) {
+    transform: rotateY(240deg) translateZ(340px);
+}
+
+.content-carrusel figure:nth-child(6) {
+    transform: rotateY(300deg) translateZ(340px);
+}
+
+.content-carrusel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s;
+}
+
+.content-carrusel img:hover {
+    transform: scale(1.08);
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .content-carrusel {
+        animation: none;
+    }
+}
