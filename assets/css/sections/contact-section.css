@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../img/hero/hero-bg.jpg');
+    background-image: url('../../img/hero/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
@@ -85,7 +85,8 @@
     margin: 0 auto;
     padding: 0 3rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* minmax(0, 1fr): el contenido (captcha de 300px, correo largo) no puede ensanchar las tarjetas */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8rem;
     align-items: stretch;
 }
@@ -163,7 +164,12 @@
     font-weight: 500;
 }
 
+.info-item > * {
+    min-width: 0;
+}
+
 .info-item a {
+    overflow-wrap: anywhere;
     color: var(--secondary-color);
     text-decoration: none;
     font-size: 1.1rem;
@@ -263,7 +269,7 @@
 /* Responsive */
 @media (max-width: 991px) {
     .contact-content-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 2rem;
         padding: 0 2rem;
     }
@@ -296,5 +302,32 @@
     
     .form-title {
         font-size: 1.5rem;
+    }
+}
+
+/* Móvil chico (Redmi 15C y similares, ~360px): tarjetas a todo el ancho */
+@media (max-width: 575.98px) {
+    .contact-content-grid {
+        padding: 0 1rem;
+    }
+
+    .contact-info-card-left,
+    .contact-form-card-right {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .info-item {
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .info-item i {
+        font-size: 1.5rem;
+        min-width: 28px;
+    }
+
+    .info-item a,
+    .info-item p {
+        font-size: 1rem;
     }
 }

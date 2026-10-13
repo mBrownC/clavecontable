@@ -1,11 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /assets/docs/
-
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Disallow: /pages/gracias.html
 
 Sitemap: https://www.clavecontable.cl/sitemap.xml

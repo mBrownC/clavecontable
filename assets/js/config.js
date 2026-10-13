@@ -21,6 +21,10 @@ export const CONFIG = {
   schedule: {
     weekdays: "Lunes a Viernes: 9:00 - 18:00",
     // saturday: "Sábados: 10:00 - 14:00",
+    // Formato para datos estructurados (JSON-LD)
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
   },
 
   // Información de la empresa
@@ -33,8 +37,97 @@ export const CONFIG = {
   },
 };
 
+// Link de WhatsApp con mensaje (texto plano; si no se indica, usa el mensaje por defecto)
+export function whatsappUrl(mensaje) {
+  const texto = mensaje
+    ? encodeURIComponent(mensaje)
+    : CONFIG.social.whatsappMessage;
+  return `${CONFIG.social.whatsapp}?text=${texto}`;
+}
+
+// Rellena los elementos marcados en el HTML. Así ningún dato de contacto queda escrito en duro:
+//   data-contact="email | phone | schedule"  → texto (y href mailto:/tel: si es un <a>)
+//   data-whatsapp="Mensaje opcional"        → href de WhatsApp con ese mensaje
+//   data-copy-contact="email | phone"        → valor que copia un botón "Copiar"
+export function applyContactData(root = document) {
+  root.querySelectorAll("[data-contact]").forEach((el) => {
+    const tipo = el.dataset.contact;
+    if (tipo === "email") {
+      el.textContent = CONFIG.contact.email;
+      if (el.tagName === "A") el.href = `mailto:${CONFIG.contact.email}`;
+    } else if (tipo === "phone") {
+      el.textContent = CONFIG.contact.phoneDisplay;
+      if (el.tagName === "A") el.href = `tel:${CONFIG.contact.phone}`;
+    } else if (tipo === "schedule") {
+      el.textContent = CONFIG.schedule.weekdays;
+    }
+  });
+
+  root.querySelectorAll("[data-whatsapp]").forEach((el) => {
+    el.href = whatsappUrl(el.dataset.whatsapp);
+    el.target = "_blank";
+    el.rel = "noopener noreferrer";
+  });
+
+  root.querySelectorAll("[data-copy-contact]").forEach((el) => {
+    el.dataset.copy =
+      el.dataset.copyContact === "email"
+        ? CONFIG.contact.email
+        : CONFIG.contact.phone;
+  });
+}
+
+// Completa teléfono, correo, horario y redes en los JSON-LD de la página
+export function applyStructuredData() {
+  const horario = {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: CONFIG.schedule.days,
+    opens: CONFIG.schedule.opens,
+    closes: CONFIG.schedule.closes,
+  };
+
+  const completar = (nodo) => {
+    if (!nodo || typeof nodo !== "object") return;
+    if (Array.isArray(nodo)) return nodo.forEach(completar);
+
+    if (nodo["@type"] === "AccountingService") {
+      nodo.telephone = CONFIG.contact.phone;
+      nodo.email = CONFIG.contact.email;
+      // Ficha principal de la empresa (la que tiene dirección): datos completos
+      if (nodo.address) {
+        nodo.openingHoursSpecification = horario;
+        nodo.sameAs = [
+          CONFIG.social.facebook,
+          CONFIG.social.instagram,
+          CONFIG.social.linkedin,
+        ];
+        if (nodo.contactPoint) {
+          nodo.contactPoint.telephone = CONFIG.contact.phone;
+          nodo.contactPoint.email = CONFIG.contact.email;
+          nodo.contactPoint.hoursAvailable = horario;
+        }
+      }
+    }
+    Object.values(nodo).forEach(completar);
+  };
+
+  document
+    .querySelectorAll('script[type="application/ld+json"]')
+    .forEach((script) => {
+      try {
+        const datos = JSON.parse(script.textContent);
+        completar(datos);
+        script.textContent = JSON.stringify(datos);
+      } catch (error) {
+        console.error("❌ JSON-LD inválido:", error);
+      }
+    });
+}
+
 // Función para inicializar los enlaces de redes sociales
 export function initializeSocialLinks() {
+  applyContactData();
+
   // Header - Redes sociales
   const headerSocialLinks = document.querySelectorAll(".social-links-top a");
   headerSocialLinks.forEach((link) => {
@@ -163,8 +256,14 @@ export function initializeSocialLinks() {
 }
 
 // Ejecutar cuando el DOM esté listo
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeSocialLinks);
-} else {
+// (en el home se vuelve a llamar desde main-modular.js después de cargar los componentes)
+function init() {
   initializeSocialLinks();
+  applyStructuredData();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
 }

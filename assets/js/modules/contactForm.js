@@ -189,7 +189,7 @@ function setupForm() {
           turnstileToken = null;
 
           setTimeout(() => {
-            window.location.href = "/components/gracias.html";
+            window.location.href = "/pages/gracias.html";
           }, 1000);
         },
         function (error) {

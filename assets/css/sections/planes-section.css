@@ -140,6 +140,18 @@
     transform: translateY(-5px);
 }
 
+/* Responsive - Móvil: el gutter de 4.5rem desbordaba la pantalla (scroll horizontal) */
+@media (max-width: 767.98px) {
+    #planes .row {
+        --bs-gutter-x: 1.5rem;
+        --bs-gutter-y: 2.5rem;
+    }
+
+    #planes .row > div {
+        width: 100% !important;
+    }
+}
+
 /* Responsive - Tablet: Reducir margen para que quepan 3 tarjetas */
 @media (min-width: 768px) and (max-width: 1399px) {
     #planes .row {

@@ -1,0 +1,335 @@
+/* ==========================================
+   Tienda Online (Ecommerce) Section Styles
+   ========================================== */
+
+#tienda-online {
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0 4rem;
+    color: var(--light-color);
+    background:
+        radial-gradient(900px 460px at 85% 15%, rgba(0, 206, 209, 0.18), transparent 70%),
+        radial-gradient(600px 400px at 0% 100%, rgba(0, 206, 209, 0.08), transparent 70%),
+        #061414;
+    border-top: 1px solid rgba(0, 206, 209, 0.18);
+}
+
+/* Badge "Nuevo" */
+.ecom-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.4rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 206, 209, 0.45);
+    background: rgba(0, 206, 209, 0.1);
+    color: var(--primary-color);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ecom-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 0 0 0 rgba(0, 206, 209, 0.7);
+    animation: ecom-pulse 1.8s infinite;
+}
+
+@keyframes ecom-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 206, 209, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 206, 209, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 206, 209, 0); }
+}
+
+.ecom-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 1.25rem 0 1rem;
+    color: var(--light-color);
+}
+
+.ecom-title span {
+    color: var(--primary-color);
+}
+
+.ecom-lead {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.08rem;
+    margin-bottom: 1.75rem;
+}
+
+/* Puntos clave */
+.ecom-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.ecom-points li {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+}
+
+.ecom-points i {
+    flex: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 206, 209, 0.12);
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.ecom-points strong {
+    display: block;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 1rem;
+}
+
+.ecom-points span {
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.92rem;
+}
+
+/* Botones */
+.ecom-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.ecom-actions .btn {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+
+.btn-ecom-primary {
+    background: var(--primary-color);
+    color: var(--dark-color);
+    box-shadow: 0 8px 25px rgba(0, 206, 209, 0.35);
+}
+
+.btn-ecom-primary:hover {
+    background: #00b8bb;
+    color: var(--dark-color);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 206, 209, 0.45);
+}
+
+.btn-ecom-ghost {
+    background: transparent;
+    color: var(--light-color);
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.btn-ecom-ghost:hover {
+    color: var(--light-color);
+    border-color: #25d366 !important;
+    background: rgba(37, 211, 102, 0.12);
+}
+
+/* Maqueta navegador + celular */
+.ecom-stage {
+    position: relative;
+    padding: 0 0 3rem 0;
+    margin-right: 1.5rem;
+}
+
+.ecom-browser {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1d3d3d;
+    background: #0a1f1f;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 206, 209, 0.08);
+    transform: perspective(1600px) rotateY(-6deg) rotateX(2deg);
+    transition: transform var(--transition-slow);
+}
+
+.ecom-stage:hover .ecom-browser {
+    transform: perspective(1600px) rotateY(0deg) rotateX(0deg);
+}
+
+.ecom-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    background: #0f2a2a;
+    border-bottom: 1px solid #1d3d3d;
+}
+
+.ecom-browser-bar i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #1d3d3d;
+}
+
+.ecom-browser-bar span {
+    margin-left: 10px;
+    flex: 1;
+    font-size: 12px;
+    color: #9dbcbc;
+    background: #061414;
+    padding: 3px 12px;
+    border-radius: 6px;
+}
+
+.ecom-browser img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ecom-phone {
+    position: absolute;
+    right: -1.5rem;
+    bottom: 0;
+    width: 26%;
+    max-width: 190px;
+    border-radius: 22px;
+    border: 5px solid #1b2e2e;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    animation: ecom-float 6s ease-in-out infinite;
+}
+
+.ecom-phone img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Notificación flotante */
+.ecom-float {
+    position: absolute;
+    left: -1rem;
+    bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.7rem 1rem;
+    border-radius: 12px;
+    background: rgba(10, 31, 31, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 206, 209, 0.4);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    animation: ecom-float 6s ease-in-out infinite 1.5s;
+}
+
+.ecom-float i {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.ecom-float strong {
+    display: block;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.88rem;
+}
+
+.ecom-float span {
+    font-size: 0.78rem;
+    color: #9dbcbc;
+}
+
+@keyframes ecom-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Franja de integraciones */
+.ecom-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem 0.75rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 206, 209, 0.15);
+}
+
+.ecom-strip-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-right: 0.25rem;
+}
+
+.ecom-chip {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid #1d3d3d;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    #tienda-online {
+        padding: 4.5rem 0 3rem;
+    }
+
+    .ecom-stage {
+        margin-right: 0.75rem;
+    }
+
+    .ecom-browser {
+        transform: none;
+    }
+
+    .ecom-phone {
+        right: -0.75rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .ecom-actions .btn {
+        width: 100%;
+        justify-content: center;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .ecom-float {
+        left: 0;
+        bottom: 0.5rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .ecom-float strong {
+        font-size: 0.78rem;
+    }
+
+    .ecom-phone {
+        width: 30%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ecom-badge-dot,
+    .ecom-phone,
+    .ecom-float {
+        animation: none;
+    }
+
+    .ecom-browser {
+        transition: none;
+    }
+}

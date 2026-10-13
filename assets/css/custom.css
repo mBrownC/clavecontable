@@ -20,6 +20,11 @@
     box-sizing: border-box;
 }
 
+/* Ningún elemento puede ensanchar la página en móvil (clip no rompe position: sticky) */
+main {
+    overflow-x: clip;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     color: var(--dark-color);
@@ -93,6 +98,65 @@ img {
 
 .nav-link:hover {
     color: var(--primary-color) !important;
+}
+
+/* Desplegable Calculadoras */
+.dropdown-calculadoras {
+    background-color: #0a1f1f;
+    border: 1px solid rgba(0, 206, 209, 0.3);
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-calculadoras .dropdown-item {
+    color: var(--light-color);
+    border-radius: 6px;
+    padding: 0.6rem 0.9rem;
+}
+
+.dropdown-calculadoras .dropdown-item i {
+    color: var(--primary-color);
+    width: 1.1rem;
+}
+
+.dropdown-calculadoras .dropdown-item:hover,
+.dropdown-calculadoras .dropdown-item:focus {
+    background-color: rgba(0, 206, 209, 0.12);
+    color: var(--primary-color);
+}
+
+/* Mantiene el triángulo de Bootstrap en vez del subrayado de .nav-link */
+.navbar .dropdown-toggle::after,
+.navbar .dropdown-toggle:hover::after {
+    position: static;
+    width: 0;
+    height: 0;
+    background: none;
+    transform: none;
+    vertical-align: 0.2em;
+}
+
+/* Indicador "Nuevo" en el menú */
+.nav-link-new {
+    white-space: nowrap;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar .nav-link {
+        padding: 0.5rem 0.6rem !important;
+    }
+}
+
+.nav-new-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 5px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    vertical-align: super;
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
 /* === Buttons === */

@@ -52,6 +52,7 @@ async function loadAllComponents() {
     loadComponent("planes-container", "components/planes-section.html"),
     loadComponent("clientes-container", "components/clientes-section.html"),
     loadComponent("tecnologia-container", "components/tecnologia-section.html"),
+    loadComponent("ecommerce-container", "components/ecommerce-section.html"),
     loadComponent("contacto-container", "components/contact-section.html"),
     loadComponent("footer-container", "components/footer.html"),
   ]);
@@ -76,8 +77,39 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Inicializar enlaces de redes sociales desde config.js
     initializeSocialLinks();
+
+    // Llegadas desde otras páginas (ej. /index.html?servicio=tienda-online#contacto)
+    handleIncomingLink();
+
+    // Botones que llevan al formulario con un servicio ya elegido (data-servicio="plan-crea")
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest("[data-servicio]");
+      if (link) selectServicio(link.dataset.servicio);
+    });
   }, 300);
 });
+
+// Preselecciona el servicio del formulario (?servicio=) y hace scroll al ancla (#seccion).
+// Necesario porque las secciones se cargan por fetch después de que el navegador intentó saltar al ancla.
+function selectServicio(servicio) {
+  const select = document.getElementById("servicio");
+  if (servicio && select && select.querySelector(`option[value="${CSS.escape(servicio)}"]`)) {
+    select.value = servicio;
+  }
+}
+
+function handleIncomingLink() {
+  selectServicio(new URLSearchParams(window.location.search).get("servicio"));
+
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      const navbar = document.querySelector(".navbar");
+      const offset = navbar ? navbar.offsetHeight : 0;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: "smooth" });
+    }
+  }
+}
 
 // Performance Optimizations
 const optimizedScroll = throttle(function () {

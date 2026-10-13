@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-H6ZH8DN12K');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<title>Calculadora de IVA Chile 19% · Neto, IVA y Total | ClaveContable</title>
+<meta name="description" content="Calculadora de IVA gratis para Chile: obtén el valor neto, el IVA (19%) y el total con IVA incluido al instante. Fórmulas explicadas por contadores.">
+<link rel="canonical" href="https://www.clavecontable.cl/pages/calculadoras/iva.html">
+<meta property="og:title" content="Calculadora de IVA Chile (19%) | ClaveContable">
+<meta property="og:description" content="Calcula neto, IVA y total al instante. Gratis y sin registro.">
+<meta property="og:url" content="https://www.clavecontable.cl/pages/calculadoras/iva.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="ClaveContable">
+<meta property="og:image" content="https://www.clavecontable.cl/assets/img/social/og-calculadora-iva.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calculadora de IVA Chile (19%) | ClaveContable">
+<meta name="twitter:description" content="Calcula neto, IVA y total al instante. Gratis y sin registro.">
+<meta name="twitter:image" content="https://www.clavecontable.cl/assets/img/social/og-calculadora-iva.jpg">
+<meta name="theme-color" content="#061414">
+<link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Lato:wght@400;700&display=swap">
+<link rel="stylesheet" href="../../assets/css/pages/calculadoras.css">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Calculadora de IVA Chile",
+            "url": "https://www.clavecontable.cl/pages/calculadoras/iva.html",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "inLanguage": "es-CL",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
+            "provider": { "@type": "AccountingService", "name": "ClaveContable Ltda.", "url": "https://www.clavecontable.cl/" }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo calculo el IVA de un monto neto?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Multiplica el monto neto por 0,19. Por ejemplo, para $100.000 netos el IVA es $19.000 y el total es $119.000." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Cómo saco el neto de un precio con IVA incluido?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Divide el total por 1,19. Por ejemplo, $119.000 / 1,19 = $100.000 netos. No debes restar el 19% directamente al total." }
+                },
+                {
+                    "@type": "Question",
+                    "name": "¿Por qué no se puede restar el 19% al total?",
+                    "acceptedAnswer": { "@type": "Answer", "text": "Porque el 19% se calcula sobre el neto, no sobre el total. Restar el 19% a $119.000 da $96.390, cuando el neto correcto es $100.000." }
+                }
+            ]
+        }
+    ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+    <div class="wrap">
+        <a href="../../" aria-label="Ir al sitio de ClaveContable"><img src="../../assets/img/logo/ltda2.png" alt="ClaveContable Ltda. — La clave de tus cuentas"></a>
+        <div class="top-actions">
+            <a class="btn btn-ghost btn-sm back" href="../../">&larr; <span>Volver a ClaveContable</span></a>
+            <a class="btn btn-primary btn-sm" href="#contacto">Hablar con un contador</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="wrap">
+            <p class="eyebrow">Calculadoras gratuitas</p>
+            <h1>Calculadora de <em>IVA</em> Chile (19 %)</h1>
+            <p class="lead">Ingresa un monto y obtén al instante el valor neto, el IVA y el total. Sirve tanto si partes del neto como si partes de un precio con IVA incluido.</p>
+            <nav class="tabs" aria-label="Calculadoras">
+                <a href="iva.html" aria-current="page">Calculadora de IVA</a>
+                <a href="boleta-honorarios.html">Boleta de honorarios</a>
+            </nav>
+        </div>
+    </section>
+
+    <section class="calc" aria-label="Calculadora de IVA">
+        <div class="wrap">
+            <div class="calc-card">
+                <div class="field">
+                    <span class="label" id="iva-modo-label">El monto que tienes es</span>
+                    <div class="seg" role="radiogroup" aria-labelledby="iva-modo-label">
+                        <input type="radio" name="iva-modo" id="iva-modo-neto" value="neto" checked>
+                        <label for="iva-modo-neto">Neto<small>sin IVA</small></label>
+                        <input type="radio" name="iva-modo" id="iva-modo-total" value="total">
+                        <label for="iva-modo-total">Total<small>con IVA incluido</small></label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="iva-monto">Monto</label>
+                    <div class="money">
+                        <span aria-hidden="true">$</span>
+                        <input id="iva-monto" type="text" inputmode="numeric" autocomplete="off" placeholder="0" aria-describedby="iva-nota">
+                    </div>
+                </div>
+
+                <div class="results" aria-live="polite">
+                    <div class="res" id="iva-res-neto">
+                        <span class="k">Valor neto</span>
+                        <span class="v" id="iva-neto">$0</span>
+                        <button class="copy" type="button" data-copy-from="iva-neto">Copiar</button>
+                    </div>
+                    <div class="res">
+                        <span class="k">IVA (19 %)</span>
+                        <span class="v" id="iva-iva">$0</span>
+                        <button class="copy" type="button" data-copy-from="iva-iva">Copiar</button>
+                    </div>
+                    <div class="res main" id="iva-res-total">
+                        <span class="k">Total (valor bruto)</span>
+                        <span class="v" id="iva-total">$0</span>
+                        <button class="copy" type="button" data-copy-from="iva-total">Copiar</button>
+                    </div>
+                </div>
+
+                <p class="note" id="iva-nota">Montos redondeados al peso. Resultado referencial; ante dudas sobre un caso puntual, consúltanos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="block alt">
+        <div class="wrap">
+            <div class="head">
+                <p class="eyebrow">Cómo se calcula</p>
+                <h2>Fórmulas para calcular el IVA (19 %)</h2>
+            </div>
+            <div class="formulas">
+                <div class="formula">
+                    <h3>IVA de un monto neto</h3>
+                    <p>Cuando el precio no incluye IVA.</p>
+                    <code>Monto neto × 0,19 = IVA</code>
+                </div>
+                <div class="formula">
+                    <h3>Total con IVA incluido</h3>
+                    <p>El precio final que paga el cliente.</p>
+                    <code>Monto neto × 1,19 = Total</code>
+                </div>
+                <div class="formula">
+                    <h3>Neto desde un total</h3>
+                    <p>Cuando el precio ya trae el IVA incluido.</p>
+                    <code>Total ÷ 1,19 = Monto neto</code>
+                    <p class="warn">No restes el 19 % directamente al total.</p>
+                </div>
+            </div>
+            <p class="example">Ejemplo: un neto de <b>$100.000</b> tiene un IVA de <b>$19.000</b> y un total de <b>$119.000</b>. Al revés, <b>$119.000 ÷ 1,19 = $100.000</b> netos.</p>
+        </div>
+    </section>
+
+    <section class="block">
+        <div class="wrap">
+            <div class="head">
+                <p class="eyebrow">Preguntas frecuentes</p>
+                <h2>Dudas comunes sobre el IVA</h2>
+            </div>
+            <div class="faq">
+                <details>
+                    <summary>¿Cómo calculo el IVA de un monto neto?</summary>
+                    <p>Multiplica el monto neto por 0,19. Por ejemplo, para $100.000 netos el IVA es $19.000 y el total es $119.000.</p>
+                </details>
+                <details>
+                    <summary>¿Cómo saco el neto de un precio con IVA incluido?</summary>
+                    <p>Divide el total por 1,19. Por ejemplo, $119.000 ÷ 1,19 = $100.000 netos, y el IVA es la diferencia: $19.000.</p>
+                </details>
+                <details>
+                    <summary>¿Por qué no se puede restar el 19 % al total?</summary>
+                    <p>Porque el 19 % se calcula sobre el neto, no sobre el total. Si a $119.000 le restas el 19 % obtienes $96.390, pero el neto correcto es $100.000.</p>
+                </details>
+                <details>
+                    <summary>¿Qué documentos llevan IVA?</summary>
+                    <p>Las facturas y boletas afectas de venta de bienes y servicios. Las boletas de honorarios no llevan IVA: tienen retención de impuesto, que puedes calcular en nuestra <a href="boleta-honorarios.html">calculadora de boleta de honorarios</a>.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="block alt cta" id="contacto">
+        <div class="wrap">
+            <div>
+                <p class="eyebrow">¿Te ayudamos?</p>
+                <h2>Deja el IVA y el F29 en manos de contadores</h2>
+                <p class="lead">Declaración mensual F29, libros electrónicos y asesoría tributaria para PyMEs. Planes desde 1,5 UF al mes.</p>
+            </div>
+            <div class="cta-actions">
+                <a class="btn btn-wa" data-whatsapp="Hola ClaveContable, vengo de la calculadora de IVA">Escríbenos por WhatsApp</a>
+                <a class="btn btn-ghost" href="../../#planes">Ver planes contables</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="wrap">
+        <span>ClaveContable Ltda. · Santiago, Chile</span>
+        <span><a href="../../">www.clavecontable.cl</a> · <a data-contact="email"></a></span>
+    </div>
+</footer>
+
+<script type="module" src="../../assets/js/config.js"></script>
+<script src="../../assets/js/pages/calculadoras.js" defer></script>
+</body>
+</html>

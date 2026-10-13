@@ -1,0 +1,156 @@
+/* ==========================================
+   Clientes Section Styles
+   (Marquesina infinita de logos, 2 filas en sentido contrario)
+   ========================================== */
+
+#clientes {
+    padding: 5.5rem 0;
+    overflow: hidden;
+    background: #061414;
+    border-block: 1px solid rgba(0, 206, 209, 0.18);
+}
+
+.clientes-head {
+    margin-bottom: 3rem;
+}
+
+.clientes-eyebrow {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--primary-color);
+}
+
+.clientes-head h2 {
+    color: var(--light-color);
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.clientes-head p {
+    color: rgba(255, 255, 255, 0.62);
+    max-width: 56ch;
+    margin: 0 auto;
+}
+
+/* Filas: el contenido va duplicado para que el bucle no tenga cortes */
+.clientes-row {
+    --clientes-gap: 22px;
+    display: flex;
+    gap: var(--clientes-gap);
+    overflow: hidden;
+    padding-block: 10px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.clientes-row + .clientes-row {
+    margin-top: 18px;
+}
+
+.clientes-track {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--clientes-gap);
+    min-width: 100%;
+    justify-content: space-around;
+    animation: clientes-scroll 32s linear infinite;
+}
+
+.clientes-row-reverse .clientes-track {
+    animation-direction: reverse;
+    animation-duration: 38s;
+}
+
+.clientes-row:hover .clientes-track {
+    animation-play-state: paused;
+}
+
+.clientes-tile {
+    flex-shrink: 0;
+    width: 200px;
+    height: 110px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 14px;
+    background: var(--light-color);
+    box-shadow: 0 0 0 1px rgba(0, 206, 209, 0.18);
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: filter var(--transition-normal), opacity var(--transition-normal),
+        transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.clientes-tile:hover {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 24px rgba(0, 206, 209, 0.45);
+}
+
+.clientes-tile img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 74px;
+    object-fit: contain;
+}
+
+@keyframes clientes-scroll {
+    to {
+        transform: translateX(calc(-100% - var(--clientes-gap)));
+    }
+}
+
+@media (max-width: 575.98px) {
+    #clientes {
+        padding: 4rem 0;
+    }
+
+    .clientes-row {
+        --clientes-gap: 14px;
+    }
+
+    .clientes-tile {
+        width: 150px;
+        height: 84px;
+        padding: 12px;
+    }
+
+    .clientes-tile img {
+        max-height: 58px;
+    }
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .clientes-track {
+        animation: none;
+    }
+
+    .clientes-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+    .clientes-track[aria-hidden="true"],
+    .clientes-row-reverse {
+        display: none;
+    }
+
+    .clientes-track {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

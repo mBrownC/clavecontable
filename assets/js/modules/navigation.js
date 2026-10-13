@@ -11,8 +11,8 @@ function initNavbar() {
     navbar.classList.toggle("scrolled", window.scrollY > 50);
   });
 
-  // Cierra menú mobile al hacer click en un link
-  const navLinks = document.querySelectorAll(".nav-link");
+  // Cierra menú mobile al hacer click en un link (no en el toggle del desplegable)
+  const navLinks = document.querySelectorAll(".nav-link:not(.dropdown-toggle)");
   const navbarCollapse = document.querySelector(".navbar-collapse");
   const toggler = document.querySelector(".navbar-toggler");
 
