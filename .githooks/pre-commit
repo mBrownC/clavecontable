@@ -1,0 +1,5 @@
+#!/bin/sh
+# Regenera index.html (desde components/) y las versiones ?v= de CSS/JS antes de cada commit,
+# y agrega al commit los archivos que el build haya cambiado.
+python3 scripts/build.py || exit 1
+git add index.html pages assets/css/home.bundle.css assets/js/main-modular.js

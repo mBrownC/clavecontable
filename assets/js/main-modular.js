@@ -4,93 +4,45 @@
 
 "use strict";
 
-import { initNavbar } from "./modules/navigation.js";
-import { initAnimations } from "./modules/animations.js";
-import { initSwiper } from "./modules/swiperConfig.js";
-import { initFormValidation } from "./modules/formValidation.js";
-import { initSmoothScroll } from "./modules/smoothScroll.js";
-import { initServiceFilters } from "./modules/serviceFilters.js";
-import { initNoticiasToggle } from "./modules/noticiasToggle.js";
-import { initContactForm } from "./modules/contactForm.js";
-import { initializeSocialLinks } from "./config.js";
-
-// Component Loader
-async function loadComponent(containerId, componentPath) {
-  try {
-    const response = await fetch(componentPath);
-    if (!response.ok)
-      throw new Error(`Error loading ${componentPath}: ${response.status}`);
-    const html = await response.text();
-    const container = document.getElementById(containerId);
-    if (container) {
-      container.innerHTML = html;
-    } else {
-      console.error(`❌ Container no encontrado: ${containerId}`);
-    }
-  } catch (error) {
-    console.error(`❌ Error cargando ${componentPath}:`, error);
-  }
-}
-
-// Load all components
-async function loadAllComponents() {
-  await Promise.all([
-    loadComponent("navbar-container", "components/navbar.html"),
-    loadComponent("hero-container", "components/hero-section.html"),
-    loadComponent("nosotros-container", "components/nosotros-section.html"),
-    loadComponent(
-      "vision-mision-container",
-      "components/vision-mision-section.html",
-    ),
-    loadComponent("noticias-container", "components/noticias-section.html"),
-    loadComponent("servicios-container", "components/servicios-section.html"),
-    loadComponent("auditoria-container", "components/auditoria-section.html"),
-    loadComponent(
-      "servicios-detallados-container",
-      "components/servicios-detallados.html",
-    ),
-    loadComponent("planes-container", "components/planes-section.html"),
-    loadComponent("clientes-container", "components/clientes-section.html"),
-    loadComponent("tecnologia-container", "components/tecnologia-section.html"),
-    loadComponent("ecommerce-container", "components/ecommerce-section.html"),
-    loadComponent("contacto-container", "components/contact-section.html"),
-    loadComponent("footer-container", "components/footer.html"),
-  ]);
-}
+import { initNavbar } from "./modules/navigation.js?v=0d7f5730dc";
+import { initAnimations } from "./modules/animations.js?v=9a1a3d846e";
+import { initSwiper } from "./modules/swiperConfig.js?v=d52498db60";
+import { initFormValidation } from "./modules/formValidation.js?v=0b34dd4f83";
+import { initSmoothScroll } from "./modules/smoothScroll.js?v=0627cacb44";
+import { initServiceFilters } from "./modules/serviceFilters.js?v=0e667809d6";
+import { initNoticiasToggle } from "./modules/noticiasToggle.js?v=85f98932a1";
+import { initContactForm } from "./modules/contactForm.js?v=e15d21d980";
+import { initializeSocialLinks } from "./config.js?v=2061172969";
 
 // Document Ready
-document.addEventListener("DOMContentLoaded", async function () {
-  // Load components first
-  await loadAllComponents();
+// El contenido del home ya viene completo en index.html (lo arma scripts/build.py),
+// así que los módulos se inicializan apenas el documento está listo.
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize modules
+  initNavbar();
+  initAnimations();
+  initSwiper();
+  initFormValidation();
+  initSmoothScroll();
+  initServiceFilters();
+  initNoticiasToggle();
+  initContactForm();
 
-  // Esperar a que los componentes se renderizen completamente
-  setTimeout(() => {
-    // Initialize modules
-    initNavbar();
-    initAnimations();
-    initSwiper();
-    initFormValidation();
-    initSmoothScroll();
-    initServiceFilters();
-    initNoticiasToggle();
-    initContactForm();
+  // Inicializar enlaces de redes sociales desde config.js
+  initializeSocialLinks();
 
-    // Inicializar enlaces de redes sociales desde config.js
-    initializeSocialLinks();
+  // Llegadas desde otras páginas (ej. /index.html?servicio=tienda-online#contacto)
+  handleIncomingLink();
 
-    // Llegadas desde otras páginas (ej. /index.html?servicio=tienda-online#contacto)
-    handleIncomingLink();
-
-    // Botones que llevan al formulario con un servicio ya elegido (data-servicio="plan-crea")
-    document.addEventListener("click", (e) => {
-      const link = e.target.closest("[data-servicio]");
-      if (link) selectServicio(link.dataset.servicio);
-    });
-  }, 300);
+  // Botones que llevan al formulario con un servicio ya elegido (data-servicio="plan-crea")
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-servicio]");
+    if (link) selectServicio(link.dataset.servicio);
+  });
 });
 
-// Preselecciona el servicio del formulario (?servicio=) y hace scroll al ancla (#seccion).
-// Necesario porque las secciones se cargan por fetch después de que el navegador intentó saltar al ancla.
+// Preselecciona el servicio del formulario (?servicio=) y ajusta el scroll al ancla (#seccion)
+// descontando la altura del navbar fijo.
 function selectServicio(servicio) {
   const select = document.getElementById("servicio");
   if (servicio && select && select.querySelector(`option[value="${CSS.escape(servicio)}"]`)) {

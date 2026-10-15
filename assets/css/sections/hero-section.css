@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../../img/hero/hero-bg.jpg');
+    background-image: url('../../img/hero/hero-bg.webp');
     background-size: cover;
     background-position: center;
     opacity: 0.15;
@@ -133,7 +133,7 @@
     box-shadow: 0 4px 10px rgba(0, 206, 209, 0.3);
 }
 
-.news-card h4 {
+.news-card h2 {
     color: var(--secondary-color);
     font-size: 1.75rem;
     font-weight: 700;
@@ -207,7 +207,7 @@
         height: 330px;
     }
     
-    .news-card h4 {
+    .news-card h2 {
         font-size: 1.5rem;
     }
     
@@ -245,7 +245,7 @@
         height: 310px;
     }
     
-    .news-card h4 {
+    .news-card h2 {
         font-size: 1.25rem;
     }
     

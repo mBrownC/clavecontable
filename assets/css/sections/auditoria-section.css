@@ -51,7 +51,7 @@
     color: var(--primary-color);
 }
 
-.auditoria-card h4 {
+.auditoria-card h3 {
     color: var(--light-color);
     font-size: 1.25rem;
     margin-bottom: 0.75rem;

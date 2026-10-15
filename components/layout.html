@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es-CL" style="scroll-behavior: smooth;">
+
+    <head>
+        <meta charset="UTF-8">
+
+        <!-- Google Analytics GA4: gtag.js se descarga después, para no competir
+             con el contenido (los eventos se encolan en dataLayer) -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-H6ZH8DN12K');
+            // Se carga con la primera interacción del visitante o a los 5 s, lo que ocurra primero
+            (function () {
+                var listo = false;
+                var eventos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+                var cargar = function () {
+                    if (listo) return;
+                    listo = true;
+                    eventos.forEach(function (e) { removeEventListener(e, cargar); });
+                    var s = document.createElement('script');
+                    s.async = true;
+                    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K';
+                    document.head.appendChild(s);
+                };
+                eventos.forEach(function (e) { addEventListener(e, cargar, { once: true, passive: true }); });
+                setTimeout(cargar, 5000);
+            })();
+        </script>
+
+        <!-- Meta Tags Básicos -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="robots" content="index, follow">
+        <meta name="google-site-verification"
+            content="Dv9qewx1zESjcYukhxiJGfijITE3BO9mxCMRc-KopcE" />
+
+        <!-- SEO Meta Tags -->
+        <title>ClaveContable Ltda. | Contabilidad, Auditoría y Tienda Online
+            para PyMEs en Chile · Desde 1,5 UF</title>
+        <meta name="description"
+            content="Servicios contables y tecnológicos para PyMEs en Chile desde 1,5 UF: asesoría tributaria, remuneraciones, auditoría, tiendas online con Webpay y software a medida. Calculadoras gratis de IVA y boleta de honorarios.">
+        <meta name="theme-color" content="#000000">
+        <meta name="author" content="ClaveContable">
+
+        <!-- Canonical -->
+        <link rel="canonical" href="https://www.clavecontable.cl/">
+
+        <!-- Open Graph -->
+        <meta property="og:title"
+            content="ClaveContable - Servicios Contables y Tecnológicos para PyMEs">
+        <meta property="og:description"
+            content="Contabilidad, remuneraciones, auditoría, tiendas online y software a medida para PyMEs en Chile. Planes desde 1,5 UF.">
+        <meta property="og:image"
+            content="https://www.clavecontable.cl/assets/img/social/og-home.jpg">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:image:alt"
+            content="ClaveContable: servicios contables y tecnológicos para PyMEs">
+        <meta property="og:url" content="https://www.clavecontable.cl/">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_CL">
+        <meta property="og:site_name" content="ClaveContable">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title"
+            content="ClaveContable - Servicios Contables y Tecnológicos para PyMEs">
+        <meta name="twitter:description"
+            content="Contabilidad, auditoría, tiendas online y software a medida para PyMEs en Chile. Planes desde 1,5 UF.">
+        <meta name="twitter:image"
+            content="https://www.clavecontable.cl/assets/img/social/og-home.jpg">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon"
+            href="assets/img/favicon/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="assets/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16"
+            href="assets/img/favicon/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+            href="assets/img/favicon/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <!-- Geo Tags -->
+        <meta name="geo.region" content="CL-RM">
+        <meta name="geo.placename" content="Santiago, Chile">
+        <meta name="geo.position" content="-33.4489;-70.6693">
+        <meta name="ICBM" content="-33.4489, -70.6693">
+
+        <!-- Preconnect recursos externos -->
+        <!-- Fuentes propias: se precargan las que se ven al abrir la página -->
+        <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font"
+            type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/lato-400.woff2" as="font"
+            type="font/woff2" crossorigin>
+
+        <!-- Librerías (servidas desde el propio sitio) -->
+        <link rel="stylesheet" href="assets/vendor/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css">
+
+        <!-- Estilos del sitio: el build los une en assets/css/home.bundle.css (un solo archivo).
+             Para agregar uno, súmalo dentro del bloque @bundle. -->
+        <!-- @bundle assets/css/home.bundle.css -->
+        <link rel="stylesheet" href="assets/css/fonts.css">
+        <link rel="stylesheet" href="assets/css/icons.css">
+        <link rel="stylesheet" href="assets/css/custom.css">
+        <link rel="stylesheet" href="assets/css/sections/hero-section.css">
+        <link rel="stylesheet" href="assets/css/sections/nosotros-section.css">
+        <link rel="stylesheet" href="assets/css/sections/vision-mision-section.css">
+        <link rel="stylesheet" href="assets/css/sections/noticias-section.css">
+        <link rel="stylesheet" href="assets/css/sections/servicios-section.css">
+        <link rel="stylesheet" href="assets/css/sections/auditoria-section.css">
+        <link rel="stylesheet" href="assets/css/sections/planes-section.css">
+        <link rel="stylesheet" href="assets/css/sections/clientes-section.css">
+        <link rel="stylesheet" href="assets/css/sections/tecnologia-section.css">
+        <link rel="stylesheet" href="assets/css/sections/ecommerce-section.css">
+        <link rel="stylesheet" href="assets/css/sections/contact-section.css">
+        <!-- @endbundle -->
+
+        <!-- Schema Markup JSON-LD -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "AccountingService",
+            "name": "ClaveContable",
+            "alternateName": "Clave Contable Chile",
+            "slogan": "La Clave de Tus Cuentas",
+            "url": "https://www.clavecontable.cl",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.clavecontable.cl/assets/img/logo/logo-full.png"
+            },
+            "image": "https://www.clavecontable.cl/assets/img/social/og-home.jpg",
+            "description": "Servicios contables y tecnológicos para PyMEs en Chile. Planes desde 1,5 UF. Asesoría tributaria, remuneraciones, auditoría, tiendas online y software a medida.",
+            "priceRange": "desde 1,5 UF",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Santiago",
+                "addressRegion": "Región Metropolitana",
+                "addressCountry": "CL"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -33.4489,
+                "longitude": -70.6693
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "Chile"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servicios contables y tecnológicos",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Asesoría Tributaria"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Gestión de Remuneraciones"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Declaración de Impuestos"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Inicio de Actividades"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Auditoría Contable para Empresas"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Creación de Páginas Web"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Administración de Servidores"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Desarrollo de Software a Medida"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "url": "https://www.clavecontable.cl/pages/tienda-online.html",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Tienda Online para PyMEs (Ecommerce)"
+                        }
+                    }
+                ]
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "contactOption": "TollFree",
+                "areaServed": "CL",
+                "availableLanguage": "Spanish"
+            },
+            "@id": "https://www.clavecontable.cl/#empresa",
+            "legalName": "ClaveContable Ltda."
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://www.clavecontable.cl/#sitio",
+            "name": "ClaveContable",
+            "url": "https://www.clavecontable.cl/",
+            "inLanguage": "es-CL",
+            "publisher": {
+                "@id": "https://www.clavecontable.cl/#empresa"
+            },
+            "hasPart": [
+                {
+                    "@type": "WebPage",
+                    "name": "Tienda Online para PyMEs",
+                    "url": "https://www.clavecontable.cl/pages/tienda-online.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "name": "Calculadora de IVA Chile",
+                    "url": "https://www.clavecontable.cl/pages/calculadoras/iva.html"
+                },
+                {
+                    "@type": "WebPage",
+                    "name": "Calculadora de Boleta de Honorarios",
+                    "url": "https://www.clavecontable.cl/pages/calculadoras/boleta-honorarios.html"
+                }
+            ]
+        }
+        </script>
+    </head>
+
+    <body>
+        <header role="banner">
+            <!-- @include components/navbar.html -->
+        </header>
+
+        <main role="main" id="main-content">
+            <!-- @include components/hero-section.html -->
+            <!-- @include components/nosotros-section.html -->
+            <!-- @include components/vision-mision-section.html -->
+            <!-- @include components/ecommerce-section.html -->
+            <!-- @include components/noticias-section.html -->
+            <!-- @include components/servicios-section.html -->
+            <!-- @include components/auditoria-section.html -->
+            <!-- @include components/servicios-detallados.html -->
+            <!-- @include components/tecnologia-section.html -->
+            <!-- @include components/planes-section.html -->
+            <!-- @include components/clientes-section.html -->
+            <!-- @include components/contact-section.html -->
+        </main>
+
+        <!-- @include components/footer.html -->
+
+        <script src="assets/vendor/bootstrap.bundle.min.js" defer></script>
+        <script src="assets/vendor/gsap.min.js" defer></script>
+        <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+        <script src="assets/vendor/swiper-bundle.min.js" defer></script>
+        <script type="module" src="assets/js/main-modular.js"></script>
+    </body>
+
+</html>

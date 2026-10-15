@@ -1,15 +1,30 @@
 <!doctype html>
 <html lang="es-CL">
 <head>
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K"></script>
+<meta charset="utf-8">
+<!-- Google Analytics GA4: gtag.js se descarga después, para no competir con el contenido -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-H6ZH8DN12K');
+// Se carga con la primera interacción del visitante o a los 5 s, lo que ocurra primero
+(function () {
+    var listo = false;
+    var eventos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+    var cargar = function () {
+        if (listo) return;
+        listo = true;
+        eventos.forEach(function (e) { removeEventListener(e, cargar); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K';
+        document.head.appendChild(s);
+    };
+    eventos.forEach(function (e) { addEventListener(e, cargar, { once: true, passive: true }); });
+    setTimeout(cargar, 5000);
+})();
 </script>
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
 <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico">
@@ -32,10 +47,10 @@ gtag('config', 'G-H6ZH8DN12K');
 <meta name="twitter:description" content="Tu propia tienda online lista para vender: Webpay, Getnet, Mercado Pago, Starken y boletas o facturas.">
 <meta name="twitter:image" content="https://www.clavecontable.cl/assets/img/social/og-tienda-online.jpg">
 <meta name="theme-color" content="#061414">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Lato:wght@400;700&family=Cinzel:wght@500&display=swap">
-<link rel="stylesheet" href="../assets/css/pages/tienda-online.css">
+<link rel="preload" href="../assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/fonts.css?v=64b16430d8">
+<link rel="stylesheet" href="../assets/css/pages/tienda-online.css?v=cdc80e4b5b">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -58,7 +73,7 @@ gtag('config', 'G-H6ZH8DN12K');
 <body>
 <header class="top">
   <div class="wrap">
-    <a href="../" aria-label="Ir al sitio de ClaveContable"><img src="../assets/img/ecommerce/logo.png" alt="ClaveContable Ltda. — La clave de tus cuentas"></a>
+    <a href="../" aria-label="Ir al sitio de ClaveContable"><img src="../assets/img/logo/logo.webp" width="450" height="232" alt="ClaveContable Ltda. — La clave de tus cuentas"></a>
     <div class="top-actions">
       <a class="btn btn-ghost btn-sm back" href="../">&larr; <span>Volver a ClaveContable</span></a>
       <a class="btn btn-primary btn-sm" href="#contacto">Cotizar mi tienda</a>
@@ -82,9 +97,9 @@ gtag('config', 'G-H6ZH8DN12K');
       <div class="stage">
         <div class="browser">
           <div class="bar"><i></i><i></i><i></i><span>tutienda.cl</span></div>
-          <img src="../assets/img/ecommerce/home.webp" alt="Página de inicio de una tienda creada con la plataforma" width="1600" height="1000">
+          <img src="../assets/img/ecommerce/home-800.webp" srcset="../assets/img/ecommerce/home-800.webp 800w, ../assets/img/ecommerce/home.webp 1600w" sizes="(min-width: 960px) 600px, 92vw" alt="Página de inicio de una tienda creada con la plataforma" width="1600" height="1000" fetchpriority="high">
         </div>
-        <div class="phone"><img src="../assets/img/ecommerce/m-home.webp" alt="La misma tienda vista en un celular" width="520" height="1125"></div>
+        <div class="phone"><img src="../assets/img/ecommerce/m-home-260.webp" srcset="../assets/img/ecommerce/m-home-260.webp 260w, ../assets/img/ecommerce/m-home.webp 520w" sizes="190px" alt="La misma tienda vista en un celular" width="520" height="1125"></div>
       </div>
     </div>
   </section>
@@ -169,7 +184,7 @@ gtag('config', 'G-H6ZH8DN12K');
       </div>
       <div class="journey">
         <div class="step">
-          <div class="shot"><img src="../assets/img/ecommerce/home.webp" alt="Inicio de la tienda con productos destacados"></div>
+          <div class="shot"><img src="../assets/img/ecommerce/home-800.webp" alt="Inicio de la tienda con productos destacados" width="800" height="500" loading="lazy"></div>
           <h3>Descubre</h3>
           <p>Portada con destacados, categorías y buscador.</p>
         </div>
@@ -217,7 +232,7 @@ gtag('config', 'G-H6ZH8DN12K');
           <span>Empresa</span><span>Usuarios</span><span>Respaldos</span>
         </nav>
         <div class="main">
-          <h4>Órdenes recientes <small class="ex">Datos de ejemplo</small></h4>
+          <h3>Órdenes recientes <small class="ex">Datos de ejemplo</small></h3>
           <div class="mods">
             <div class="mod"><div><strong>#1048 · $36.980</strong><small>Webpay · Despacho Starken</small></div><span class="pill ok">Pagada</span></div>
             <div class="mod"><div><strong>#1047 · $14.990</strong><small>Producto digital · Descarga enviada</small></div><span class="pill ok">Entregada</span></div>
@@ -259,7 +274,7 @@ gtag('config', 'G-H6ZH8DN12K');
         <p class="lead" style="margin-top: 14px;">Funciona perfecto en celular, que es donde compra la mayoría de tus clientes, con botón de WhatsApp para atenderlos al momento.</p>
       </div>
       <div class="phones">
-        <div class="phone"><img src="../assets/img/ecommerce/m-home.webp" alt="Portada de la tienda en celular" width="520" height="1125"></div>
+        <div class="phone"><img src="../assets/img/ecommerce/m-home.webp" alt="Portada de la tienda en celular" width="520" height="1125" loading="lazy"></div>
         <div class="phone"><img src="../assets/img/ecommerce/m-producto.webp" alt="Ficha de producto en celular" width="520" height="1125"></div>
       </div>
     </div>
@@ -304,7 +319,7 @@ gtag('config', 'G-H6ZH8DN12K');
   </div>
 </footer>
 
-<script type="module" src="../assets/js/config.js"></script>
-<script src="../assets/js/pages/tienda-online.js" defer></script>
+<script type="module" src="../assets/js/config.js?v=2061172969"></script>
+<script src="../assets/js/pages/tienda-online.js?v=528f2c8d4d" defer></script>
 </body>
 </html>

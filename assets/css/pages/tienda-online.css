@@ -104,7 +104,7 @@ section.block { padding-block: clamp(56px, 8vw, 104px); }
 .console nav span { padding: 5px 8px; border-radius: 6px; color: var(--fg); }
 .console nav span.on { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
 .console .main { padding: 18px; display: grid; gap: 14px; align-content: start; min-width: 0; }
-.console .main h4 { margin: 0; font-family: var(--display); font-size: 15px; }
+.console .main h3 { margin: 0; font-family: var(--display); font-size: 15px; line-height: 1.6; letter-spacing: normal; }
 .mods { display: grid; gap: 8px; }
 .mod { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); }
 .mod div { min-width: 0; }
@@ -114,7 +114,7 @@ section.block { padding-block: clamp(56px, 8vw, 104px); }
 .pill.ok { color: var(--accent); border-color: rgba(0, 206, 209, 0.45); background: var(--accent-soft); }
 .pill.warn { color: var(--warn); border-color: rgba(255, 193, 7, 0.45); background: rgba(255, 193, 7, 0.1); }
 .pill.go { color: var(--fg); border-color: var(--muted); }
-.console .main h4 { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.console .main h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .ex { font: 400 12px var(--body); color: var(--muted); }
 .admin-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 28px; margin-top: 28px; }
 .admin-list div { min-width: 0; }

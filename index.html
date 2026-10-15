@@ -1,19 +1,37 @@
 <!DOCTYPE html>
+<!-- ARCHIVO GENERADO por scripts/build.py: no editar a mano.
+     Edita components/layout.html y components/*.html, y se regenera en cada commit. -->
 <html lang="es-CL" style="scroll-behavior: smooth;">
 
     <head>
-        <!-- Google Analytics GA4 -->
-        <script async
-            src="https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K"></script>
+        <meta charset="UTF-8">
+
+        <!-- Google Analytics GA4: gtag.js se descarga después, para no competir
+             con el contenido (los eventos se encolan en dataLayer) -->
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-H6ZH8DN12K');
+            // Se carga con la primera interacción del visitante o a los 5 s, lo que ocurra primero
+            (function () {
+                var listo = false;
+                var eventos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+                var cargar = function () {
+                    if (listo) return;
+                    listo = true;
+                    eventos.forEach(function (e) { removeEventListener(e, cargar); });
+                    var s = document.createElement('script');
+                    s.async = true;
+                    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K';
+                    document.head.appendChild(s);
+                };
+                eventos.forEach(function (e) { addEventListener(e, cargar, { once: true, passive: true }); });
+                setTimeout(cargar, 5000);
+            })();
         </script>
 
         <!-- Meta Tags Básicos -->
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="robots" content="index, follow">
@@ -74,43 +92,19 @@
         <meta name="ICBM" content="-33.4489, -70.6693">
 
         <!-- Preconnect recursos externos -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://cdn.jsdelivr.net">
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-        <link rel="preconnect" href="https://www.googletagmanager.com">
+        <!-- Fuentes propias: se precargan las que se ven al abrir la página -->
+        <link rel="preload" href="assets/fonts/inter-tight.woff2" as="font"
+            type="font/woff2" crossorigin>
+        <link rel="preload" href="assets/fonts/lato-400.woff2" as="font"
+            type="font/woff2" crossorigin>
 
-        <!-- Bootstrap -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-            rel="stylesheet">
+        <!-- Librerías (servidas desde el propio sitio) -->
+        <link rel="stylesheet" href="assets/vendor/bootstrap.min.css?v=38ba4e3f15">
+        <link rel="stylesheet" href="assets/vendor/swiper-bundle.min.css?v=eb21d0f005">
 
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=Lato:wght@400;700&display=swap"
-            rel="stylesheet">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-        <!-- Swiper CSS -->
-        <link rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="assets/css/custom.css">
-        <link rel="stylesheet" href="assets/css/sections/hero-section.css">
-        <link rel="stylesheet" href="assets/css/sections/nosotros-section.css">
-        <link rel="stylesheet" href="assets/css/sections/vision-mision-section.css">
-        <link rel="stylesheet" href="assets/css/sections/noticias-section.css">
-        <link rel="stylesheet" href="assets/css/sections/servicios-section.css">
-        <link rel="stylesheet" href="assets/css/sections/auditoria-section.css">
-        <link rel="stylesheet" href="assets/css/sections/planes-section.css">
-        <link rel="stylesheet" href="assets/css/sections/clientes-section.css">
-        <link rel="stylesheet" href="assets/css/sections/tecnologia-section.css">
-        <link rel="stylesheet" href="assets/css/sections/ecommerce-section.css">
-        <link rel="stylesheet" href="assets/css/sections/contact-section.css">
+        <!-- Estilos del sitio: el build los une en assets/css/home.bundle.css (un solo archivo).
+             Para agregar uno, súmalo dentro del bloque @bundle. -->
+        <link rel="stylesheet" href="assets/css/home.bundle.css?v=d0490188d5">
 
         <!-- Schema Markup JSON-LD -->
         <script type="application/ld+json">
@@ -258,44 +252,1786 @@
 
     <body>
         <header role="banner">
-            <nav id="navbar-container"
-                aria-label="Navegación principal"
-                role="navigation">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+                aria-label="Navegación principal">
+                <div class="container">
+
+                    <a class="navbar-brand" href="#inicio"
+                        aria-label="ClaveContable - Ir al inicio">
+                        <img
+                            src="assets/img/logo/logo.webp"
+                            alt="ClaveContable - La Clave de Tus Cuentas"
+                            width="150" height="77"
+                            style="width: 150px; height: auto;"
+                            loading="eager"
+                            fetchpriority="high">
+                    </a>
+
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Abrir menú de navegación">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto" role="list">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#inicio"
+                                    aria-current="page">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#nosotros">Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link-new" href="#tienda-online">Tienda
+                                    Online<span class="nav-new-dot"
+                                        aria-label="Nuevo"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#servicios">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#auditoria">Auditoría</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#planes">Planes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#tecnologia">Tecnología</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#noticias">Noticias</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false"
+                                    id="calculadorasMenu">Calculadoras</a>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-calculadoras"
+                                    aria-labelledby="calculadorasMenu">
+                                    <li><a class="dropdown-item" href="pages/calculadoras/iva.html"><i
+                                                class="fas fa-percent me-2"
+                                                aria-hidden="true"></i>Calculadora de
+                                            IVA</a></li>
+                                    <li><a class="dropdown-item"
+                                            href="pages/calculadoras/boleta-honorarios.html"><i
+                                                class="fas fa-file-invoice-dollar me-2"
+                                                aria-hidden="true"></i>Boleta de
+                                            honorarios</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contacto">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </header>
 
         <main role="main" id="main-content">
-            <div id="hero-container"></div>
-            <div id="nosotros-container"></div>
-            <div id="vision-mision-container"></div>
-            <div id="ecommerce-container"></div>
-            <div id="noticias-container"></div>
-            <div id="servicios-container"></div>
-            <div id="auditoria-container"></div>
-            <div id="servicios-detallados-container"></div>
-            <div id="tecnologia-container"></div>
-            <div id="planes-container"></div>
-            <div id="clientes-container"></div>
-            <div id="contacto-container"></div>
+            <section id="inicio" class="hero-section">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
+                            <h1 class="display-2 fw-bold mb-4">
+                                ClaveContable
+                                <span class="d-block fs-3 mt-2 fw-normal">Servicios
+                                    Contables y Tecnológicos para PyMEs en Chile</span>
+                            </h1>
+                            <p class="lead mb-3">La Clave de Tus Cuentas</p>
+                            <p class="fs-5 mb-3">Asesoría tributaria, remuneraciones y
+                                declaración de impuestos. Planes desde 1.5 UF.</p>
+                            <p class="fs-5 mb-5">Desarrollo web, administración de
+                                servidores
+                                y software a medida para hacer crecer tu negocio.</p>
+                            <div
+                                class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-lg-start">
+                                <a href="#contacto"
+                                    class="btn btn-primary btn-lg px-5">Cotiza Gratis</a>
+                                <a href="#servicios"
+                                    class="btn btn-outline-light btn-lg px-5">Ver
+                                    Servicios</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="news-slider swiper">
+                                <div class="swiper-wrapper">
+                                    <!-- Slide 0: Nuevo - Tienda Online (Ecommerce) -->
+                                    <div class="swiper-slide">
+                                        <a href="#tienda-online" class="text-decoration-none">
+                                            <div class="news-card">
+                                                <div class="news-badge">Nuevo</div>
+                                                <div class="d-flex justify-content-center align-items-center mb-3"
+                                                    style="min-height: 100px;">
+                                                    <i class="fas fa-cart-shopping fa-4x text-primary"></i>
+                                                </div>
+                                                <h2 class="h4">Tu Propia Tienda Online</h2>
+                                                <p class="small">Vende con Webpay, Getnet y
+                                                    Mercado Pago, despacha a todo Chile y
+                                                    deja cada venta lista para su boleta o
+                                                    factura.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <!-- Slide 1: Nuevo Servicio - Auditoría Contable -->
+                                    <div class="swiper-slide">
+                                        <a href="#auditoria" class="text-decoration-none">
+                                            <div class="news-card">
+                                                <div class="news-badge">Nuevo Servicio</div>
+                                                <div class="d-flex justify-content-center align-items-center mb-3"
+                                                    style="min-height: 100px;">
+                                                    <i class="fas fa-magnifying-glass-dollar fa-4x text-primary"></i>
+                                                </div>
+                                                <h2 class="h4">Auditoría Contable para Empresas</h2>
+                                                <p class="small">Estados financieros, control
+                                                    interno y cumplimiento SII. Cotización a
+                                                    medida para tu empresa.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <!-- Slide 1: Servicios de Tecnología y Desarrollo -->
+                                    <div class="swiper-slide">
+                                        <div class="news-card">
+                                            <div class="news-badge">Servicios</div>
+                                            <div
+                                                class="d-flex justify-content-around align-items-center mb-3"
+                                                style="min-height: 100px;">
+                                                <i
+                                                    class="fas fa-globe fa-3x text-primary"></i>
+                                                <i
+                                                    class="fas fa-server fa-3x text-primary"></i>
+                                                <i
+                                                    class="fas fa-code fa-3x text-primary"></i>
+                                            </div>
+                                            <h2 class="h4">Servicios de Tecnología y Desarrollo</h2>
+                                            <p class="small">Soluciones digitales
+                                                profesionales para potenciar tu negocio en
+                                                Chile</p>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 2: Anotaciones más comunes SII -->
+                                    <div class="swiper-slide">
+                                        <a href="https://aprende.gomaxxa.com/anotaciones-del-sii"
+                                            target="_blank" rel="noopener noreferrer"
+                                            class="text-decoration-none">
+                                            <div class="news-card">
+                                                <div class="news-badge">Guía SII</div>
+                                                <img src="assets/img/institucionales/SII.png"
+                                                    alt="SII Chile - Anotaciones más comunes"
+                                                    class="news-image"
+                                                    width="100" height="100" loading="eager">
+                                                <h2 class="h4">Anotaciones más comunes</h2>
+                                                <p class="small">Conoce las anotaciones más
+                                                    comunes del SII y cómo evitarlas o
+                                                    regularizarlas.</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <!-- Slide 3: Indicadores Previred -->
+                                    <div class="swiper-slide">
+                                        <div class="news-card">
+                                            <div class="news-badge">Mes Actual</div>
+                                            <img
+                                                src="assets/img/institucionales/logo-previred.webp"
+                                                alt="Previred - Indicadores Previsionales Julio 2026"
+                                                class="news-image"
+                                                width="100" height="100" loading="eager">
+                                            <h2 class="h4">Indicadores Previsionales Julio 2026</h2>
+                                            <p class="small">Nueva tasa SIS: 2,00%. Tope
+                                                AFP: $3.676.031. Sueldo mínimo:
+                                                $553.553.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 4: 40 horas -->
+                                    <div class="swiper-slide">
+                                        <div class="news-card">
+                                            <div class="news-badge">Urgente</div>
+                                            <img src="assets/img/institucionales/dt.svg"
+                                                alt="Dirección del Trabajo Chile - Segunda etapa 40 horas desde 26 abril"
+                                                class="news-image"
+                                                width="100" height="100" loading="eager">
+                                            <h2 class="h4">Segunda etapa 40 horas semanales</h2>
+                                            <p class="small">Entra en vigencia desde el 26
+                                                de abril de 2026. Ajusta contratos y
+                                                registros.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Nosotros -->
+            <section id="nosotros" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Bienvenidos a ClaveContable Ltda. —
+                        Contadores y Desarrolladores Expertos en Chile</h2>
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-6">
+                            <p class="lead">¿Tienes un emprendimiento y no sabes llevarlo al
+                                siguiente nivel?<br>En ClaveContable Ltda. te guiamos en
+                                todos
+                                los procesos contables, tributarios y tecnológicos para que
+                                tu sueño de tener una empresa se haga realidad.</p>
+                            <p>Somos expertos en servicios contables, de recursos humanos y
+                                desarrollo tecnológico en Chile, brindando soluciones
+                                profesionales adaptadas a las necesidades de tu PyME o
+                                emprendimiento.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i
+                                        class="fas fa-check text-primary-color me-2"></i>
+                                    Más de 10 años de experiencia en contabilidad</li>
+                                <li class="mb-2"><i
+                                        class="fas fa-check text-primary-color me-2"></i>
+                                    Desarrollo web y software a medida</li>
+                                <li class="mb-2"><i
+                                        class="fas fa-check text-primary-color me-2"></i>
+                                    Planes flexibles desde 1.5 UF</li>
+                                <li class="mb-2"><i
+                                        class="fas fa-check text-primary-color me-2"></i>
+                                    Atención personalizada para PyMEs</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <div
+                                        class="stats-box bg-primary-color p-4 rounded text-center">
+                                        <h3
+                                            class="display-4 mb-0 fw-bold text-dark">1000+</h3>
+                                        <p class="mb-0 text-dark">Clientes Satisfechos</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div
+                                        class="stats-box bg-secondary-color p-4 rounded text-center">
+                                        <h3
+                                            class="display-4 mb-0 fw-bold text-white">10+</h3>
+                                        <p class="mb-0 text-white">Años de Experiencia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Visión y Misión Section -->
+            <section id="vision-mision" class="vision-mision-section">
+                <div class="container">
+
+                    <!-- Título Principal -->
+                    <div class="section-header text-center">
+                        <h2 class="section-title">Nuestro Compromiso</h2>
+                        <p class="section-subtitle">Precisión, lealtad y confiabilidad en
+                            cada servicio contable, tributario y tecnológico</p>
+                    </div>
+
+                    <!-- Grid de Visión y Misión -->
+                    <div class="vision-mision-grid">
+
+                        <!-- Visión Card -->
+                        <div class="vm-card vision-card">
+                            <div class="vm-logo">
+                                <img
+                                    src="assets/img/logo/logo-icono.webp"
+                                    alt="ClaveContable - Firma Contable en Chile"
+                                    width="120"
+                                    height="80"
+                                    loading="lazy">
+                            </div>
+                            <h3 class="vm-title">Visión</h3>
+                            <div class="vm-content">
+                                <p>Ser la empresa de referencia en Chile en servicios
+                                    contables y tecnológicos, reconocida por nuestra
+                                    <strong>precisión inquebrantable</strong>,
+                                    <strong>lealtad absoluta</strong> con nuestros clientes
+                                    y <strong>cero tolerancia al error</strong> en el manejo
+                                    de información crítica para el negocio.</p>
+                            </div>
+                        </div>
+
+                        <!-- Misión Card -->
+                        <div class="vm-card mision-card">
+                            <div class="vm-logo">
+                                <img
+                                    src="assets/img/logo/logo-icono.webp"
+                                    alt="ClaveContable - Servicios Contables y RRHH para PyMEs"
+                                    width="120"
+                                    height="80"
+                                    loading="lazy">
+                            </div>
+                            <h3 class="vm-title">Misión</h3>
+                            <div class="vm-content">
+                                <p>Asesoramos a pequeñas y medianas empresas en materias
+                                    contables, tributarias, de recursos humanos y
+                                    tecnológicas con un compromiso radical hacia la
+                                    exactitud y la confiabilidad.</p>
+
+                                <div class="commitment-list">
+                                    <div class="commitment-item">
+                                        <i class="fas fa-shield-halved"
+                                            aria-hidden="true"></i>
+                                        <span>Cada dato contable se protege como un activo
+                                            crítico</span>
+                                    </div>
+                                    <div class="commitment-item">
+                                        <i class="fas fa-calendar-check"
+                                            aria-hidden="true"></i>
+                                        <span>Cada declaración tributaria se presenta en
+                                            tiempo y forma</span>
+                                    </div>
+                                    <div class="commitment-item">
+                                        <i class="fas fa-calculator" aria-hidden="true"></i>
+                                        <span>Cada cifra refleja la realidad exacta</span>
+                                    </div>
+                                    <div class="commitment-item">
+                                        <i class="fas fa-code" aria-hidden="true"></i>
+                                        <span>Cada solución tecnológica se entrega con
+                                            calidad profesional</span>
+                                    </div>
+                                    <div class="commitment-item">
+                                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                                        <span>Cada consulta se atiende con lealtad y
+                                            dedicación</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Mensaje Final -->
+                    <div class="vm-footer">
+                        <p class="vm-tagline">
+                            <i class="fas fa-quote-left" aria-hidden="true"></i>
+                            Porque en contabilidad, RRHH y tecnología no hay margen para el
+                            error:
+                            <strong>tu tranquilidad es nuestra responsabilidad</strong>
+                            <i class="fas fa-quote-right" aria-hidden="true"></i>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Tienda Online (Ecommerce) -->
+            <section id="tienda-online" class="ecommerce-section">
+                <div class="container">
+                    <div class="row g-5 align-items-center">
+
+                        <!-- Texto -->
+                        <div class="col-lg-5">
+                            <span class="ecom-badge"><span class="ecom-badge-dot"
+                                    aria-hidden="true"></span>Nuevo · Área de
+                                Desarrollo</span>
+                            <h2 class="ecom-title">Tu propia tienda online,
+                                <span>lista para vender</span> desde el primer día</h2>
+                            <p class="ecom-lead">Vende productos físicos y digitales con tu
+                                marca. Cobra con los medios de pago chilenos, despacha a
+                                todo Chile y deja cada venta lista para su boleta o
+                                factura.</p>
+
+                            <ul class="ecom-points">
+                                <li><i class="fas fa-credit-card" aria-hidden="true"></i>
+                                    <div><strong>Pagos chilenos integrados</strong>
+                                        <span>Webpay, Getnet, Mercado Pago y
+                                            transferencia.</span></div>
+                                </li>
+                                <li><i class="fas fa-truck-fast" aria-hidden="true"></i>
+                                    <div><strong>Despacho a todo Chile</strong>
+                                        <span>Starken, Chilexpress o reparto propio por
+                                            comuna.</span></div>
+                                </li>
+                                <li><i class="fas fa-file-invoice-dollar"
+                                        aria-hidden="true"></i>
+                                    <div><strong>Ventas y contabilidad conectadas</strong>
+                                        <span>Cada venta pagada queda lista para emitir su
+                                            boleta o factura.</span></div>
+                                </li>
+                                <li><i class="fas fa-shield-halved" aria-hidden="true"></i>
+                                    <div><strong>Segura y en regla</strong>
+                                        <span>Panel de administración, respaldos y Ley
+                                            21.719.</span></div>
+                                </li>
+                            </ul>
+
+                            <div class="ecom-actions">
+                                <a href="pages/tienda-online.html" target="_blank" rel="noopener"
+                                    class="btn btn-ecom-primary"
+                                    aria-label="Ver la tienda online (abre en una pestaña nueva)">
+                                    Ver la tienda online <i
+                                        class="fas fa-arrow-up-right-from-square ms-2"
+                                        aria-hidden="true"></i>
+                                </a>
+                                <a data-whatsapp="Hola ClaveContable, quiero cotizar una tienda online"
+                                    class="btn btn-ecom-ghost">
+                                    <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>
+                                    Cotizar por WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Maqueta -->
+                        <div class="col-lg-7">
+                            <div class="ecom-stage">
+                                <div class="ecom-browser">
+                                    <div class="ecom-browser-bar" aria-hidden="true">
+                                        <i></i><i></i><i></i><span>tutienda.cl</span>
+                                    </div>
+                                    <img src="assets/img/ecommerce/home-800.webp"
+                                        srcset="assets/img/ecommerce/home-800.webp 800w, assets/img/ecommerce/home.webp 1600w"
+                                        sizes="(min-width: 992px) 640px, 92vw"
+                                        alt="Página de inicio de una tienda online creada por ClaveContable"
+                                        width="1600" height="1000" loading="lazy">
+                                </div>
+                                <div class="ecom-phone">
+                                    <img src="assets/img/ecommerce/m-home-260.webp"
+                                        srcset="assets/img/ecommerce/m-home-260.webp 260w, assets/img/ecommerce/m-home.webp 520w"
+                                        sizes="190px"
+                                        alt="La misma tienda online vista en un celular"
+                                        width="520" height="1125" loading="lazy">
+                                </div>
+                                <div class="ecom-float ecom-float-sale" aria-hidden="true">
+                                    <i class="fas fa-circle-check"></i>
+                                    <div><strong>Pedido #1048 pagado</strong>
+                                        <span>Webpay · $36.980</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integraciones -->
+                    <div class="ecom-strip">
+                        <span class="ecom-strip-label">Funciona con</span>
+                        <span class="ecom-chip">Webpay · Transbank</span>
+                        <span class="ecom-chip">Getnet</span>
+                        <span class="ecom-chip">Mercado Pago</span>
+                        <span class="ecom-chip">Transferencia</span>
+                        <span class="ecom-chip">Starken</span>
+                        <span class="ecom-chip">Chilexpress</span>
+                        <span class="ecom-chip">Productos digitales</span>
+                        <span class="ecom-chip">Boleta y factura</span>
+                    </div>
+                </div>
+            </section>
+            <!-- Noticias y Actualizaciones -->
+            <section id="noticias" class="py-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <h2 class="mb-3">Noticias Tributarias y Actualizaciones
+                            Contables</h2>
+                        <p class="lead">Mantente informado sobre cambios tributarios,
+                            laborales y novedades del SII</p>
+                    </div>
+
+                    <div id="noticias-grid" class="noticias-grid-custom">
+                        <!-- Noticia 1 - Anotaciones más comunes SII (SIEMPRE VISIBLE) -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/SII.png"
+                                        alt="SII Chile - Anotaciones más comunes"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-primary-color text-dark">Guía SII</span>
+                                        <small class="text-muted">Anotaciones</small>
+                                    </div>
+                                    <h3 class="card-title h5">Anotaciones más comunes</h3>
+                                    <p class="card-text">Conoce cuáles son las anotaciones
+                                        más comunes del SII, qué significan y cómo evitarlas
+                                        o regularizarlas a tiempo.</p>
+                                    <a href="https://aprende.gomaxxa.com/anotaciones-del-sii"
+                                        target="_blank" rel="noopener noreferrer"
+                                        class="btn btn-primary btn-sm">Ver más</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 2 - Indicadores Previred Julio 2026 (SIEMPRE VISIBLE) -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/logo-previred.webp"
+                                        alt="Previred - Indicadores Previsionales Julio 2026"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-primary-color text-dark">Mes Actual</span>
+                                        <small class="text-muted">Jul 2026</small>
+                                    </div>
+                                    <h3 class="card-title h5">Indicadores Previsionales Julio
+                                        2026</h3>
+                                    <p class="card-text">Nueva tasa SIS: 2,00%. Tope
+                                        imponible AFP: $3.676.031. Sueldo mínimo: $553.553.
+                                        UF: $40.844,79. Valores vigentes para cotizaciones
+                                        de agosto 2026.</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm">Consultar cambios</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 3 - Dirección del Trabajo (OCULTA EN MOBILE) -->
+                        <div class="col-md-6 col-lg-4 news-item-hidden">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/dt.svg"
+                                        alt="Dirección del Trabajo Chile - Ley 40 horas"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-danger text-white">Urgente</span>
+                                        <small class="text-muted">Desde 26 Abr 2026</small>
+                                    </div>
+                                    <h3 class="card-title h5">Segunda etapa de 40 horas
+                                        semanales</h3>
+                                    <p class="card-text">A partir del 26 de abril de 2026
+                                        entra en vigencia la segunda fase de reducción de
+                                        jornada laboral. Las empresas deben ajustar
+                                        contratos y registros de asistencia.</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm">Asesoría laboral</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 4 - Preparación Operación Renta AT 2027 (OCULTA EN MOBILE) -->
+                        <div class="col-md-6 col-lg-4 news-item-hidden">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/SII.png"
+                                        alt="SII Chile - Preparación Operación Renta AT 2027"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-primary-color text-dark">Asesoría</span>
+                                        <small class="text-muted">15 Abr 2026</small>
+                                    </div>
+                                    <h3 class="card-title h5">Preparación Operación Renta AT
+                                        2027</h3>
+                                    <p class="card-text">Nosotros te preparamos para que
+                                        sepas cuánto impuesto deberás pagar en la próxima
+                                        Operación Renta 2027.</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm">Agendar asesoría</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 5 - TGR Convenios (OCULTA EN MOBILE) -->
+                        <div class="col-md-6 col-lg-4 news-item-hidden">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/tgr-logo-horizontal-2025.png"
+                                        alt="TGR - Tesorería General de la República"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-primary-color text-dark">TGR</span>
+                                        <small class="text-muted">15 Abr 2026</small>
+                                    </div>
+                                    <h3 class="card-title h5">TGR: Realización de Convenios</h3>
+                                    <p class="card-text">Si tienes deudas o multas, podemos
+                                        armar convenios de pago que más se acomoden a tu
+                                        bolsillo.</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm">Solicitar
+                                        convenio</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Noticia 6 - Promoción (OCULTA EN MOBILE) -->
+                        <div class="col-md-6 col-lg-4 news-item-hidden">
+                            <div class="card h-100 news-card-full">
+                                <div class="news-image-container">
+                                    <img src="assets/img/institucionales/SII.png"
+                                        alt="ClaveContable - Inicio de Actividades SII gratis"
+                                        class="card-img-top"
+                                        width="200" height="100"
+                                        loading="lazy">
+                                </div>
+                                <div class="card-body">
+                                    <div
+                                        class="d-flex justify-content-between align-items-start mb-3">
+                                        <span
+                                            class="badge bg-warning text-dark">Promoción</span>
+                                        <small class="text-muted">15 Abr 2026</small>
+                                    </div>
+                                    <h3 class="card-title h5">Inicio de actividades
+                                        gratuito</h3>
+                                    <p class="card-text">Contrata nuestros servicios
+                                        contables y obtén el inicio de actividades sin costo
+                                        adicional. Oferta válida hasta fin de mes.</p>
+                                    <a href="#contacto"
+                                        class="btn btn-primary btn-sm">¡Aprovechar
+                                        ahora!</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Botón Ver más (solo visible en mobile/tablet) -->
+                    <div class="text-center mt-4">
+                        <button id="btn-ver-mas-noticias" class="btn btn-primary btn-lg">
+                            Ver más noticias <i class="fas fa-chevron-down ms-2"
+                                aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <!-- Servicios -->
+            <section id="servicios" class="py-5 bg-light">
+                <div class="container">
+                    <h2 class="text-center mb-5">Nuestros Servicios Contables y de RRHH en
+                        Chile</h2>
+                    <div class="row g-4">
+
+                        <!-- Servicio 1 - Inicio de Actividades -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 card-clickable" data-filter="planes">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i
+                                            class="fas fa-file-invoice fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Inicio de Actividades
+                                        en el SII</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Tramitación completa
+                                            SII</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Obtención de RUT</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Timbraje de
+                                            documentos</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Asesoría inicial</li>
+                                    </ul>
+                                    <div class="text-center mt-3">
+                                        <span class="text-primary-color fw-bold">Ver más
+                                            detalles <i class="fas fa-arrow-down"
+                                                aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 2 - Servicios Contables -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 card-clickable" data-filter="contables">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i
+                                            class="fas fa-calculator fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Servicios Contables y
+                                        Tributarios</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Declaración mensual
+                                            F29</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Libros
+                                            electrónicos</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Balance anual</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Asesoría tributaria
+                                            SII</li>
+                                    </ul>
+                                    <div class="text-center mt-3">
+                                        <span class="text-primary-color fw-bold">Ver más
+                                            detalles <i class="fas fa-arrow-down"
+                                                aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 3 - Recursos Humanos -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card h-100 card-clickable" data-filter="rrhhs">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i class="fas fa-users fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Recursos Humanos y
+                                        Remuneraciones</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Contratos
+                                            laborales</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Liquidaciones de
+                                            sueldo</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Carga Previred</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Finiquitos</li>
+                                    </ul>
+                                    <div class="text-center mt-3">
+                                        <span class="text-primary-color fw-bold">Ver más
+                                            detalles <i class="fas fa-arrow-down"
+                                                aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 4 - Auditoría Contable -->
+                        <div class="col-md-6 col-lg-3">
+                            <a href="#auditoria" class="text-decoration-none text-dark">
+                                <div class="card h-100 card-clickable card-nuevo">
+                                    <span class="ribbon-nuevo">Nuevo</span>
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            <i
+                                                class="fas fa-magnifying-glass-dollar fa-3x text-primary-color"
+                                                aria-hidden="true"></i>
+                                        </div>
+                                        <h3 class="card-title text-center">Auditoría Contable
+                                            para Empresas</h3>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i
+                                                    class="fas fa-check text-primary-color me-2"
+                                                    aria-hidden="true"></i>Estados
+                                                financieros</li>
+                                            <li class="mb-2"><i
+                                                    class="fas fa-check text-primary-color me-2"
+                                                    aria-hidden="true"></i>Control interno</li>
+                                            <li class="mb-2"><i
+                                                    class="fas fa-check text-primary-color me-2"
+                                                    aria-hidden="true"></i>Cumplimiento SII</li>
+                                            <li class="mb-2"><i
+                                                    class="fas fa-check text-primary-color me-2"
+                                                    aria-hidden="true"></i>Créditos
+                                                bancarios</li>
+                                        </ul>
+                                        <div class="text-center mt-3">
+                                            <span class="text-primary-color fw-bold">Ver más
+                                                detalles <i class="fas fa-arrow-down"
+                                                    aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Auditoría Contable -->
+            <section id="auditoria" class="auditoria-section py-5">
+                <div class="container">
+                    <div class="text-center mb-5">
+                        <span class="badge-nuevo-servicio">
+                            <i class="fas fa-wand-magic-sparkles me-1" aria-hidden="true"></i>Nuevo Servicio
+                        </span>
+                        <h2 class="text-white mt-3 mb-3">Auditoría Contable para Empresas</h2>
+                        <p class="lead text-white-50 mx-auto" style="max-width: 700px;">
+                            Sin importar el tamaño o rubro de tu empresa, evaluamos tus estados
+                            financieros, controles internos y cumplimiento normativo con una
+                            mirada independiente y profesional. Cotización a medida según las
+                            necesidades de tu negocio.
+                        </p>
+                    </div>
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-file-invoice-dollar fa-2x mb-3"
+                                    aria-hidden="true"></i>
+                                <h3 class="h4">Auditoría de Estados Financieros</h3>
+                                <p>Revisión exhaustiva de balances, estados de resultados y
+                                    flujo de caja para garantizar exactitud y transparencia.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-shield-halved fa-2x mb-3" aria-hidden="true"></i>
+                                <h3 class="h4">Auditoría de Control Interno</h3>
+                                <p>Evaluación de procesos y controles internos para prevenir
+                                    errores, fraudes y riesgos operacionales.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-landmark fa-2x mb-3" aria-hidden="true"></i>
+                                <h3 class="h4">Cumplimiento Tributario SII</h3>
+                                <p>Revisión de cumplimiento normativo y tributario para
+                                    reducir el riesgo de observaciones y multas del SII.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-hand-holding-dollar fa-2x mb-3"
+                                    aria-hidden="true"></i>
+                                <h3 class="h4">Auditoría para Créditos Bancarios</h3>
+                                <p>Informes de respaldo financiero para procesos de
+                                    evaluación crediticia ante bancos e instituciones
+                                    financieras.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-laptop-code fa-2x mb-3" aria-hidden="true"></i>
+                                <h3 class="h4">Auditoría de Sistemas</h3>
+                                <p>Revisión de los sistemas y procesos tecnológicos que
+                                    soportan la información financiera de tu empresa.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="auditoria-card">
+                                <i class="fas fa-clipboard-check fa-2x mb-3"
+                                    aria-hidden="true"></i>
+                                <h3 class="h4">Auditorías a Medida</h3>
+                                <p>¿Necesitas un tipo de auditoría distinto? Diseñamos un
+                                    plan de trabajo según los requerimientos específicos de
+                                    tu empresa.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="#contacto" class="btn btn-primary btn-lg px-5">
+                            Cotiza tu Auditoría
+                        </a>
+                        <p class="text-white-50 small mt-3 mb-0">
+                            Cotización personalizada — sin importar el tamaño de tu empresa
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- Servicios Detallados con Filtros -->
+            <section id="servicios-detallados" class="py-5" style="display: none;">
+                <div class="container">
+                    <div class="text-center mb-4">
+                        <button class="btn-filter active" data-filter="todos">Todos los
+                            Servicios</button>
+                        <button class="btn-filter" data-filter="planes">Planes
+                            Contables</button>
+                        <button class="btn-filter" data-filter="contables">Servicios
+                            Contables</button>
+                        <button class="btn-filter" data-filter="rrhhs">Servicios
+                            RR.HH.</button>
+                    </div>
+
+                    <div class="servicios-grid row g-4">
+
+                        <!-- PLANES -->
+                        <div class="col-md-6 col-lg-3 servicio-item"
+                            data-categoria="planes">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Plan Inicia — Contabilidad desde
+                                        1.5 UF</h3>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Inicio de Actividades
+                                            SII</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Declaración mensual
+                                            F29</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Libros
+                                            Electrónicos</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Compras, Ventas y
+                                            Honorarios</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <p class="h4 text-primary-color fw-bold">1.5 UF</p>
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3 servicio-item"
+                            data-categoria="planes">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Plan Crea — Contabilidad PyME 3
+                                        UF</h3>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Todo lo del Plan
+                                            Inicia</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Asesoría
+                                            Contable</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Declaración de
+                                            Rentas</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Balance Anual</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Remuneraciones (2
+                                            trabajadores)</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Emisión de Facturas
+                                            (hasta 5/mes)</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <p class="h4 text-primary-color fw-bold">3 UF</p>
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3 servicio-item"
+                            data-categoria="planes">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Pyme Pro — Plan Contable Empresas
+                                        4 UF</h3>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Todo lo del Plan
+                                            Crea</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Declaración Socio
+                                            DN8</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Pre-Balance</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Remuneraciones (20
+                                            trabajadores)</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Emisión de Facturas
+                                            (hasta 20/mes)</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <p class="h4 text-primary-color fw-bold">4 UF</p>
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Plan</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-3 servicio-item"
+                            data-categoria="planes">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Servicios Contables
+                                        Adicionales</h3>
+                                    <ul class="list-unstyled small">
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Asesoría Contable 1
+                                            Hora - $35.000</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Remuneraciones 1
+                                            Trabajador - $10.000</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Término de Giro -
+                                            Desde $100.000</li>
+                                        <li><i class="fas fa-check text-primary-color me-1"
+                                                aria-hidden="true"></i>Constitución Empresas
+                                            - $50.000</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SERVICIOS CONTABLES -->
+                        <div class="col-md-6 col-lg-4 servicio-item"
+                            data-categoria="contables">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Servicios Contables Mensuales
+                                        Chile</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Libros de Compra,
+                                            Venta y Honorarios</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Realización de
+                                            Formulario 29</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Asesoría
+                                            Constante</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Emisión de
+                                            Facturas</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 servicio-item"
+                            data-categoria="contables">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Declaración Anual de Renta
+                                        Personas</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Declaración Anual
+                                            Personal</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Formulario 22</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Rectificatorias
+                                            F22</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 servicio-item"
+                            data-categoria="contables">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Declaración Anual de Renta
+                                        Empresas</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Declaración Anual
+                                            Empresas</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Declaraciones
+                                            Juradas</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Formulario 22</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Balance y Estado de
+                                            Resultados</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Rectificación de
+                                            declaraciones juradas</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Rectificación
+                                            F22</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SERVICIOS RRHH -->
+                        <div class="col-md-6 col-lg-4 servicio-item" data-categoria="rrhhs">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Gestión de Remuneraciones y
+                                        RRHH</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Contratos
+                                            laborales</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Liquidaciones de
+                                            Sueldos</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Carga Previred</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Finiquitos</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Libro de
+                                            Remuneraciones</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4 servicio-item" data-categoria="rrhhs">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title h4">Dirección del Trabajo —
+                                        Documentación Laboral</h3>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Libro de
+                                            Remuneraciones</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Contratos
+                                            Electrónicos</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Anexos de
+                                            Contrato</li>
+                                        <li><i class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Finiquitos
+                                            Electrónicos</li>
+                                    </ul>
+                                    <div class="mt-3 text-center">
+                                        <a href="#contacto"
+                                            class="btn btn-primary btn-sm w-100">Solicita tu
+                                            Servicio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Tecnología y Desarrollo -->
+            <section id="tecnologia" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-2">Servicios de Tecnología y Desarrollo</h2>
+                    <p class="text-center text-muted mb-5">Soluciones digitales
+                        profesionales para potenciar tu negocio en Chile</p>
+                    <div class="row g-4">
+
+                        <!-- Servicio Tecnología 1 - Páginas Web -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 card-clickable tecnologia-card">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i class="fas fa-globe fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Creación de Páginas
+                                        Web</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Diseño profesional y
+                                            responsive</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Landing pages y
+                                            sitios institucionales</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Portfolios y tiendas
+                                            online</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Hosting y dominio
+                                            incluido (opcional)</li>
+                                    </ul>
+                                    <div class="text-center mt-auto pt-3">
+                                        <a href="#contacto"
+                                            class="btn btn-tecnologia"
+                                            aria-label="Cotizar creación de página web">
+                                            Cotizar <i class="fas fa-arrow-right ms-1"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio Tecnología 2 - Administración de Servidores -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 card-clickable tecnologia-card">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i class="fas fa-server fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Administración de
+                                        Servidores</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Configuración y
+                                            mantención Linux</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Despliegue con Docker
+                                            y contenedores</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Seguridad, backups y
+                                            monitoreo</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-shield-alt text-primary-color me-2"
+                                                aria-hidden="true"></i><strong>Hardening y
+                                                seguridad avanzada de servidor</strong></li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Soporte técnico
+                                            continuo</li>
+                                    </ul>
+                                    <div class="text-center mt-auto pt-3">
+                                        <a href="#contacto"
+                                            class="btn btn-tecnologia"
+                                            aria-label="Cotizar administración de servidores">
+                                            Cotizar <i class="fas fa-arrow-right ms-1"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio Tecnología 3 - Desarrollo de Software -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card h-100 card-clickable tecnologia-card">
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i class="fas fa-code fa-3x text-primary-color"
+                                            aria-hidden="true"></i>
+                                    </div>
+                                    <h3 class="card-title text-center">Desarrollo de
+                                        Software a Medida</h3>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Sistemas de gestión
+                                            internos</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>APIs e integraciones
+                                            entre plataformas</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Automatización de
+                                            procesos</li>
+                                        <li class="mb-2"><i
+                                                class="fas fa-check text-primary-color me-2"
+                                                aria-hidden="true"></i>Módulos facturación
+                                            electrónica SII</li>
+                                    </ul>
+                                    <div class="text-center mt-auto pt-3">
+                                        <a href="#contacto"
+                                            class="btn btn-tecnologia"
+                                            aria-label="Cotizar desarrollo de software a medida">
+                                            Cotizar <i class="fas fa-arrow-right ms-1"
+                                                aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Planes -->
+            <section id="planes" class="py-5">
+                <div class="container">
+                    <h2 class="text-center mb-5">Planes y Tarifas de Contabilidad para PyMEs
+                        en Chile</h2>
+                    <div class="row g-5 justify-content-center">
+
+                        <!-- Plan Inicia -->
+                        <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="pricing-card w-100">
+                                <h3>Plan Inicia</h3>
+                                <div class="price">
+                                    1.5 <span>UF/mes</span>
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Inicio de Actividades SII</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Declaración mensual F29</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Libros Electrónicos</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Compras, Ventas y Honorarios</li>
+                                </ul>
+                                <a href="#contacto" data-servicio="plan-inicia" class="btn btn-primary w-100">Contratar
+                                    Plan Inicia</a>
+                            </div>
+                        </div>
+
+                        <!-- Plan Crea -->
+                        <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="pricing-card featured w-100">
+                                <span class="ribbon-popular">Más Popular</span>
+                                <h3>Plan Crea</h3>
+                                <div class="price">
+                                    3 <span>UF/mes</span>
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i> Todo
+                                        lo del Plan Inicia</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Asesoría Contable</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Declaración de Rentas</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Balance Anual</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Remuneraciones (2 trabajadores)</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Emisión de Facturas (hasta 5/mes)</li>
+                                </ul>
+                                <a href="#contacto" data-servicio="plan-crea" class="btn btn-light w-100">Contratar
+                                    Plan Crea</a>
+                            </div>
+                        </div>
+
+                        <!-- Plan Pyme Pro -->
+                        <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                            <div class="pricing-card w-100">
+                                <h3>Pyme Pro</h3>
+                                <div class="price">
+                                    4 <span>UF/mes</span>
+                                </div>
+                                <ul>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i> Todo
+                                        lo del Plan Crea</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Declaración Socio DN8</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Pre-Balance</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Remuneraciones (20 trabajadores)</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Emisión de Facturas (hasta 20/mes)</li>
+                                    <li><i class="fas fa-check" aria-hidden="true"></i>
+                                        Asesoría tributaria especializada</li>
+                                </ul>
+                                <a href="#contacto" data-servicio="pyme-pro" class="btn btn-primary w-100">Contratar
+                                    Plan Pyme Pro</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Clientes -->
+            <section id="clientes" class="clientes-section">
+                <div class="container">
+                    <div class="clientes-head text-center">
+                        <span class="clientes-eyebrow">Nuestros clientes</span>
+                        <h2>Empresas que confían en ClaveContable</h2>
+                        <p>PyMEs y profesionales de distintos rubros que llevan su
+                            contabilidad y tecnología con nosotros.</p>
+                    </div>
+                </div>
+
+                <div class="clientes-marquee">
+                    <div class="clientes-row">
+                        <div class="clientes-track">
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-jdc-cars.webp" alt="JDC Cars - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-marjada.webp" alt="Marjada - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-centro-veterinario-kentucky.webp" alt="Centro Veterinario Kentucky - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-los-sauces.webp" alt="Los Sauces - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-fonocrea-sin-fondo.webp" alt="FonoCrea - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-lilia.webp" alt="Dra. Lilia V. Abud L. - Cliente ClaveContable"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="clientes-track" aria-hidden="true">
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-jdc-cars.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-marjada.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-centro-veterinario-kentucky.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-los-sauces.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-fonocrea-sin-fondo.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-lilia.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clientes-row clientes-row-reverse" aria-hidden="true">
+                        <div class="clientes-track" aria-hidden="true">
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-lilia.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-fonocrea-sin-fondo.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-los-sauces.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-centro-veterinario-kentucky.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-marjada.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-jdc-cars.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="clientes-track" aria-hidden="true">
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-lilia.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-fonocrea-sin-fondo.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-los-sauces.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-centro-veterinario-kentucky.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-marjada.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                            <div class="clientes-tile">
+                                <img src="assets/img/clientes/logo-jdc-cars.webp" alt=""
+                                    loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Contacto Section - Diseño Completo con Cloudflare Turnstile -->
+            <section id="contacto" class="contact-section-complete">
+
+                <!-- Redes Sociales en la parte superior -->
+                <div class="social-header">
+                    <h2 class="h4">Síguenos en Redes Sociales</h2>
+                    <div class="social-links">
+                        <a href="javascript:void(0)" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="Visitar ClaveContable Ltda. en Facebook">
+                            <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0)" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="Visitar ClaveContable Ltda. en Instagram">
+                            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0)" target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-link"
+                            aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+                            <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contenedor sin mapa -->
+                <div class="contact-container-with-map">
+
+                    <!-- Grid con Información y Formulario -->
+                    <div class="contact-content-grid">
+
+                        <!-- Lado Izquierdo - Información -->
+                        <div class="contact-info-card-left">
+                            <h2>Contáctanos<br>y nos tomamos un café</h2>
+
+                            <div class="info-items">
+                                <div class="info-item">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)">Cargando...</a>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fas fa-phone" aria-hidden="true"></i>
+                                    <a href="javascript:void(0)">Cargando...</a>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fas fa-clock" aria-hidden="true"></i>
+                                    <div>
+                                        <p><strong>Horario de Atención</strong></p>
+                                        <p class="schedule-weekdays">Cargando...</p>
+                                        <p class="schedule-saturday">Cargando...</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                    <div>
+                                        <p><strong>Respuesta rápida garantizada</strong></p>
+                                        <p>Te contactaremos en menos de 24 horas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lado Derecho - Formulario -->
+                        <div class="contact-form-card-right">
+                            <h2 class="form-title">Cotiza tu Servicio</h2>
+
+                            <form class="contact-form" id="contactForm" method="POST"
+                                aria-label="Formulario de contacto ClaveContable Ltda.">
+
+                                <div class="form-group">
+                                    <label for="nombre">Nombre:</label>
+                                    <input type="text" id="nombre" name="nombre"
+                                        placeholder="Nombre Completo"
+                                        autocomplete="name"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email"
+                                        placeholder="correo@ejemplo.com"
+                                        autocomplete="email"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono:</label>
+                                    <input type="tel" id="telefono" name="telefono"
+                                        placeholder="+56 9 XXXX XXXX"
+                                        autocomplete="tel"
+                                        required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="servicio">Servicio de Interés:</label>
+                                    <select id="servicio" name="servicio" required>
+                                        <option value>Seleccione un servicio</option>
+                                        <option value="plan-inicia">Plan Inicia - 1.5
+                                            UF/mes</option>
+                                        <option value="plan-crea">Plan Crea - 3
+                                            UF/mes</option>
+                                        <option value="pyme-pro">Pyme Pro - 4
+                                            UF/mes</option>
+                                        <option value="contabilidad">Servicios
+                                            Contables</option>
+                                        <option value="auditoria">Auditoría Contable</option>
+                                        <option value="tienda-online">Tienda Online
+                                            (Ecommerce)</option>
+                                        <option value="rrhh">Servicios RRHH</option>
+                                        <option value="web">Creación de Página Web</option>
+                                        <option value="servidores">Administración de
+                                            Servidores</option>
+                                        <option value="software">Desarrollo de Software a
+                                            Medida</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="mensaje">Mensaje:</label>
+                                    <textarea id="mensaje" name="mensaje" rows="3"
+                                        placeholder="Cuéntanos sobre tu empresa y qué servicio necesitas"
+                                        required></textarea>
+                                </div>
+
+                                <!-- 🔐 CLOUDFLARE TURNSTILE WIDGET -->
+                                <div class="form-group turnstile-container">
+                                    <div class="cf-turnstile"
+                                        id="turnstile-widget"
+                                        data-sitekey="0x4AAAAAAC4rSTdmtynzQjIX"
+                                        data-callback="onTurnstileSuccess"
+                                        data-error-callback="onTurnstileError"
+                                        data-expired-callback="onTurnstileExpired"
+                                        data-theme="light">
+                                    </div>
+                                    <div id="turnstileStatus"
+                                        class="turnstile-status"></div>
+                                </div>
+
+                                <button type="submit" class="submit-btn" id="submitBtn">
+                                    Solicitar Asesoría Contable Gratis
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </main>
 
-        <footer role="contentinfo">
-            <div id="footer-container"></div>
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h2 class="mb-3 h5">ClaveContable Ltda.</h2>
+                        <p>La Clave de Tus Cuentas</p>
+                        <p class="small">Servicios contables, tecnológicos y de recursos
+                            humanos para PyMEs en Chile. Asesoría tributaria,
+                            remuneraciones, desarrollo web y software a medida.</p>
+                    </div>
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h2 class="mb-3 h5">Servicios</h2>
+                        <ul class="list-unstyled small">
+                            <li><a href="#servicios" class="text-white-50">Inicio de
+                                    Actividades SII</a></li>
+                            <li><a href="#servicios" class="text-white-50">Servicios
+                                    Contables</a></li>
+                            <li><a href="#servicios" class="text-white-50">Declaración
+                                    F29</a></li>
+                            <li><a href="#auditoria" class="text-white-50">Auditoría
+                                    Contable</a></li>
+                            <li><a href="#servicios" class="text-white-50">Gestión de
+                                    Remuneraciones</a></li>
+                            <li><a href="#tecnologia" class="text-white-50">Creación de
+                                    Páginas Web</a></li>
+                            <li><a href="#tecnologia"
+                                    class="text-white-50">Administración
+                                    de Servidores</a></li>
+                            <li><a href="#tecnologia" class="text-white-50">Desarrollo
+                                    de
+                                    Software</a></li>
+                            <li><a href="#planes" class="text-white-50">Ver Planes y
+                                    Tarifas</a></li>
+                            <li><a href="pages/calculadoras/iva.html"
+                                    class="text-white-50">Calculadora de IVA</a></li>
+                            <li><a href="pages/calculadoras/boleta-honorarios.html"
+                                    class="text-white-50">Calculadora Boleta de
+                                    Honorarios</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="mb-3 h5">Síguenos</h2>
+                        <div class="social-links">
+                            <a href="javascript:void(0)" target="_blank"
+                                class="social-link"
+                                aria-label="ClaveContable Ltda. en Facebook">
+                                <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
+                            </a>
+                            <a href="javascript:void(0)" target="_blank"
+                                class="social-link"
+                                aria-label="ClaveContable Ltda. en Instagram">
+                                <i class="fab fa-instagram fa-2x"
+                                    aria-hidden="true"></i>
+                            </a>
+                            <a href="javascript:void(0)" target="_blank"
+                                class="social-link"
+                                aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+                                <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4 bg-light">
+                <div class="text-center">
+                    <p class="mb-0"></p>
+                </div>
+            </div>
         </footer>
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-            defer></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-            defer></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
-            defer></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
-            defer></script>
-        <script type="module" src="assets/js/main-modular.js"></script>
+        <!-- WhatsApp Float Button -->
+        <a href="javascript:void(0)" class="whatsapp-float" target="_blank"
+            aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+
+        <script src="assets/vendor/bootstrap.bundle.min.js?v=6196d53d76" defer></script>
+        <script src="assets/vendor/gsap.min.js?v=448deef673" defer></script>
+        <script src="assets/vendor/ScrollTrigger.min.js?v=9f0592f874" defer></script>
+        <script src="assets/vendor/swiper-bundle.min.js?v=f20d664f14" defer></script>
+        <script type="module" src="assets/js/main-modular.js?v=68445e21ee"></script>
     </body>
 
 </html>

@@ -1,15 +1,30 @@
 <!doctype html>
 <html lang="es-CL">
 <head>
-<!-- Google Analytics GA4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K"></script>
+<meta charset="utf-8">
+<!-- Google Analytics GA4: gtag.js se descarga después, para no competir con el contenido -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-H6ZH8DN12K');
+// Se carga con la primera interacción del visitante o a los 5 s, lo que ocurra primero
+(function () {
+    var listo = false;
+    var eventos = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+    var cargar = function () {
+        if (listo) return;
+        listo = true;
+        eventos.forEach(function (e) { removeEventListener(e, cargar); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-H6ZH8DN12K';
+        document.head.appendChild(s);
+    };
+    eventos.forEach(function (e) { addEventListener(e, cargar, { once: true, passive: true }); });
+    setTimeout(cargar, 5000);
+})();
 </script>
-<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
 <title>Calculadora de IVA Chile 19% · Neto, IVA y Total | ClaveContable</title>
@@ -32,10 +47,10 @@ gtag('config', 'G-H6ZH8DN12K');
 <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicon/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Lato:wght@400;700&display=swap">
-<link rel="stylesheet" href="../../assets/css/pages/calculadoras.css">
+<link rel="preload" href="../../assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/lato-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/fonts.css?v=64b16430d8">
+<link rel="stylesheet" href="../../assets/css/pages/calculadoras.css?v=d4b790d2d5">
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -77,7 +92,7 @@ gtag('config', 'G-H6ZH8DN12K');
 <body>
 <header class="top">
     <div class="wrap">
-        <a href="../../" aria-label="Ir al sitio de ClaveContable"><img src="../../assets/img/logo/ltda2.png" alt="ClaveContable Ltda. — La clave de tus cuentas"></a>
+        <a href="../../" aria-label="Ir al sitio de ClaveContable"><img src="../../assets/img/logo/logo.webp" width="450" height="232" alt="ClaveContable Ltda. — La clave de tus cuentas"></a>
         <div class="top-actions">
             <a class="btn btn-ghost btn-sm back" href="../../">&larr; <span>Volver a ClaveContable</span></a>
             <a class="btn btn-primary btn-sm" href="#contacto">Hablar con un contador</a>
@@ -219,7 +234,7 @@ gtag('config', 'G-H6ZH8DN12K');
     </div>
 </footer>
 
-<script type="module" src="../../assets/js/config.js"></script>
-<script src="../../assets/js/pages/calculadoras.js" defer></script>
+<script type="module" src="../../assets/js/config.js?v=2061172969"></script>
+<script src="../../assets/js/pages/calculadoras.js?v=d9efe30bf7" defer></script>
 </body>
 </html>

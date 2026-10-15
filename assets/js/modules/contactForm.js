@@ -98,18 +98,41 @@ function loadTurnstileScript() {
 }
 
 function initContactForm() {
-  // 🔐 Cargar Turnstile primero
-  loadTurnstileScript();
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-  // Cargar EmailJS
-  const script = document.createElement("script");
-  script.src =
-    "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
-  script.onload = function () {
-    emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
-    setupForm();
+  // Turnstile y EmailJS pesan ~700 KB: se cargan solo cuando el visitante se acerca
+  // al formulario (o lo toca), no al abrir la página.
+  let cargado = false;
+  const cargar = () => {
+    if (cargado) return;
+    cargado = true;
+    observer?.disconnect();
+
+    // 🔐 Cargar Turnstile primero
+    loadTurnstileScript();
+
+    // Cargar EmailJS
+    const script = document.createElement("script");
+    script.src =
+      "https://cdn.jsdelivr.net/npm/@emailjs/browser@3.12.1/dist/email.min.js";
+    script.onload = function () {
+      emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+      setupForm();
+    };
+    document.head.appendChild(script);
   };
-  document.head.appendChild(script);
+
+  const observer =
+    "IntersectionObserver" in window
+      ? new IntersectionObserver(
+          (entradas) => entradas.some((e) => e.isIntersecting) && cargar(),
+          { rootMargin: "800px 0px" },
+        )
+      : null;
+  if (observer) observer.observe(form);
+  else cargar();
+  form.addEventListener("focusin", cargar, { once: true });
 }
 
 function setupForm() {

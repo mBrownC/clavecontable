@@ -5,24 +5,27 @@ Sitio web profesional para ClaveContable Ltda., empresa de servicios contables, 
 
 ## Stack Tecnológico
 - **HTML5** - Estructura semántica optimizada para SEO
-- **Bootstrap 5.3** - Framework CSS responsive
-- **GSAP 3.x** - Animaciones profesionales y contadores numéricos
-- **Swiper.js** - Slider de noticias del hero
+- **Bootstrap 5.3.0** - Framework CSS responsive (servido desde `assets/vendor/`)
+- **GSAP 3.12.2** - Animaciones y contadores numéricos (`assets/vendor/`)
+- **Swiper 10.3.1** - Slider de noticias del hero (`assets/vendor/`)
 - **JavaScript Vanilla (ES Modules)** - Funcionalidad modular
-- **Font Awesome 6.4** - Iconos
-- **EmailJS + Cloudflare Turnstile** - Formulario de contacto con protección anti-bots
+- **Íconos Font Awesome Free 6.4** - Como SVG en `assets/css/icons.css` (solo los que se usan)
+- **Fuentes Inter Tight, Lato y Cinzel** - Servidas localmente desde `assets/fonts/`
+- **EmailJS + Cloudflare Turnstile** - Formulario de contacto con protección anti-bots (se cargan al acercarse al formulario)
+- **Python 3** - Script de build (`scripts/build.py`), sin dependencias externas
 
 ## Estructura del Proyecto
 ```
 ClaveContable/
-├── index.html                      # Home: único index del sitio (carga los componentes por fetch)
+├── index.html                      # Home: único index del sitio (GENERADO por scripts/build.py)
 ├── pages/                          # Páginas completas e independientes
 │   ├── tienda-online.html          # Landing del ecommerce
 │   ├── gracias.html                # Confirmación del formulario de contacto (noindex)
 │   └── calculadoras/
 │       ├── iva.html
 │       └── boleta-honorarios.html
-├── components/                     # Solo fragmentos HTML del home (no son páginas)
+├── components/                     # Fuente del home: layout + fragmentos (no son páginas)
+│   ├── layout.html                 # Estructura del home: <head>, SEO y orden de secciones (@include)
 │   ├── navbar.html
 │   ├── hero-section.html
 │   ├── nosotros-section.html
@@ -40,6 +43,9 @@ ClaveContable/
 ├── assets/
 │   ├── css/
 │   │   ├── custom.css              # Variables, navbar, botones y estilos globales
+│   │   ├── fonts.css               # @font-face de las fuentes locales
+│   │   ├── icons.css               # Íconos SVG (GENERADO por scripts/icons.py)
+│   │   ├── home.bundle.css         # CSS del home unido en un archivo (GENERADO por scripts/build.py)
 │   │   ├── sections/               # Un CSS por sección del home (*-section.css)
 │   │   └── pages/                  # Un CSS por página de /pages
 │   │       ├── tienda-online.css
@@ -47,13 +53,15 @@ ClaveContable/
 │   │       └── gracias.css
 │   ├── js/
 │   │   ├── config.js               # Datos de contacto y redes centralizados
-│   │   ├── main-modular.js         # Carga de componentes e inicialización del home
+│   │   ├── main-modular.js         # Inicialización del home
 │   │   ├── modules/                # Módulos JS del home
 │   │   └── pages/                  # Un JS por página de /pages
 │   │       ├── tienda-online.js
 │   │       ├── calculadoras.js     # Lógica y TASAS (IVA y retención de honorarios)
 │   │       └── gracias.js
-│   └── img/
+│   ├── vendor/                     # Librerías de terceros con versión fija (Bootstrap, GSAP, Swiper)
+│   ├── fonts/                      # Fuentes woff2 (solo set latino)
+│   └── img/                        # Imágenes en WebP, del tamaño en que se muestran
 │       ├── clientes/               # Logos de la marquesina de clientes
 │       ├── ecommerce/              # Capturas reales de la tienda online
 │       ├── favicon/                # favicon, apple-touch-icon, android-chrome 192/512
@@ -61,6 +69,11 @@ ClaveContable/
 │       ├── institucionales/
 │       ├── logo/
 │       └── social/                 # Imágenes Open Graph 1200x630
+├── scripts/
+│   ├── build.py                    # Arma index.html, une el CSS del home y versiona CSS/JS (?v=)
+│   └── icons.py                    # Regenera assets/css/icons.css con los íconos usados
+├── .githooks/
+│   └── pre-commit                  # Corre el build en cada commit
 ├── site.webmanifest
 ├── sitemap.xml
 ├── robots.txt
@@ -69,7 +82,8 @@ ClaveContable/
 
 ### Convenciones
 - **Un solo `index.html`** (el home). Toda página adicional va en `pages/` con nombre propio.
-- **`components/`** contiene solo fragmentos que se insertan en el home; nunca páginas completas.
+- **`components/`** contiene solo el layout y los fragmentos del home; nunca páginas completas.
+- **No editar a mano los archivos generados**: `index.html`, `assets/css/home.bundle.css` y `assets/css/icons.css`.
 - **Sin `<style>` ni `<script>` embebidos** en las páginas: cada página tiene su CSS en `assets/css/pages/` y su JS en `assets/js/pages/` (la única excepción es el snippet oficial de Google Analytics y los bloques JSON-LD).
 - Nombres de archivos y carpetas en minúsculas y con guiones (`boleta-honorarios.html`).
 - **Datos de contacto nunca en duro en el HTML**: teléfono, correo, WhatsApp, horario y redes salen solo de `assets/js/config.js` (ver "Configuración centralizada").
@@ -79,7 +93,8 @@ Hero (slider de noticias) → Nosotros → Visión y Misión ("Nuestro Compromis
 
 ## Características
 - Diseño responsive (mobile-first), sin scroll horizontal desde 360px (verificado en Redmi 15C)
-- Arquitectura modular con componentes HTML
+- Arquitectura modular con componentes HTML, armados en un `index.html` estático por el build (sin `fetch`)
+- Rendimiento: CSS del home en un archivo, librerías y fuentes propias, imágenes WebP con `srcset`, versionado de caché `?v=`, carga diferida de Analytics, Turnstile y EmailJS
 - Animaciones suaves con GSAP y ScrollTrigger
 - Contadores numéricos animados (stats 500+, 10+)
 - Sección **Tienda Online** con maqueta navegador + celular y CTA a la landing (pestaña nueva)
@@ -95,33 +110,71 @@ Hero (slider de noticias) → Nosotros → Visión y Misión ("Nuestro Compromis
 
 ## Instalación
 1. Clonar el repositorio
-2. Abrir con Live Server (VS Code) o servidor local (`python3 -m http.server`)
-3. No requiere instalación de dependencias (usa CDN)
+2. **Activar el hook de build (una sola vez por clon):**
+   ```bash
+   git config core.hooksPath .githooks
+   ```
+3. Abrir con Live Server (VS Code) o un servidor local (`python3 -m http.server`)
 
-> ⚠️ Abrir directamente con `file://` no funciona por el fetch de componentes. Requiere servidor HTTP.
+No requiere instalar dependencias: todo está en el repo. El build solo necesita Python 3.
 
 ## Despliegue
-El sitio está en un **servidor propio** detrás de Cloudflare (ya no en Webuzo).
+El sitio corre en un **servidor propio con nginx**, detrás de **Cloudflare** (proxy, caché y certificado de origen).
 
-> ⚠️ `.github/workflows/deploy.yml`, `.deploy.json` y `.htaccess` corresponden al hosting anterior (Webuzo/Apache) y deben revisarse según el nuevo servidor.
+- El server tiene un clon de este repo, y nginx lo sirve directamente como raíz del sitio.
+- **Para publicar:** hacer commit (el hook corre el build), push a `main` y luego, en el server:
+  ```bash
+  cd ~/apps/clavecontable && git pull --ff-only
+  ```
+  El server no necesita Python ni ningún paso extra: el `index.html` ya va armado en el repo.
+- **Caché:** los CSS y JS llevan `?v=<hash>`, así que al cambiar un archivo cambia su URL y todos reciben la versión nueva sin purgar. Las **imágenes no llevan versión**: si se reemplaza una imagen, conviene usar un **nombre de archivo nuevo** (o purgar: Cloudflare → Caching → Configuration → **Purge Everything**).
+
+### Configuración de nginx (obligatoria)
+Como nginx sirve la carpeta del repo, debe bloquear los archivos internos. Si no lo hace, `.git` (todo el historial) y el README quedan públicos. El bloque `server` (443) debe incluir:
+```nginx
+location ~ /\.(?!well-known) { return 404; }          # .git y otros archivos ocultos
+location ~* ^/(README\.md|LICENSE)$ { return 404; }   # archivos del repo que no son del sitio
+
+add_header X-Content-Type-Options "nosniff" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header X-Frame-Options "SAMEORIGIN" always;
+```
+Para aplicar cambios: `sudo nginx -t && sudo systemctl reload nginx`.
 
 ### URLs y nombres de archivo
 - Solo existe un `index.html` (el home). Las demás páginas tienen nombre propio y se publican con `.html`
-  (ej. `/pages/tienda-online.html`, `/pages/calculadoras/iva.html`), lo que funciona en cualquier servidor sin configuración extra.
-- Si se quisieran URLs sin `.html`, configurarlo en el servidor (en nginx: `try_files $uri $uri.html $uri/ =404;`)
+  (ej. `/pages/tienda-online.html`, `/pages/calculadoras/iva.html`), lo que funciona sin configuración extra.
+- Si se quisieran URLs sin `.html`, cambiar en nginx `try_files $uri $uri/ =404;` por `try_files $uri $uri.html $uri/ =404;`
   y actualizar canonical, `og:url`, JSON-LD, sitemap, menú y footer.
 
 ## Desarrollo
 
-### Componentes del Home
-Los componentes HTML se cargan dinámicamente vía `fetch()` en `main-modular.js`. Para agregar un nuevo componente:
-1. Crear el archivo HTML en `/components/`
-2. Crear su CSS en `/assets/css/sections/` y enlazarlo en `index.html`
-3. Agregar el contenedor en `index.html` (en el orden deseado)
-4. Registrar la carga en `loadAllComponents()` en `main-modular.js`
+### Build del home (`scripts/build.py`)
+El home **no** se arma en el navegador: `scripts/build.py` genera `index.html` a partir de `components/layout.html`, reemplazando cada marca `<!-- @include components/x.html -->` por ese componente. Así la página llega completa desde el servidor (mejor rendimiento y SEO).
+
+El build además:
+- une los CSS del bloque `<!-- @bundle … --> … <!-- @endbundle -->` del layout en `assets/css/home.bundle.css`;
+- agrega `?v=<hash>` a los CSS y JS de `index.html`, de `pages/**/*.html` y a los `import` de los módulos JS;
+- avisa si se usa un ícono que no está en `assets/css/icons.css`.
+
+**Se ejecuta solo en cada `git commit`** (hook `.githooks/pre-commit`). Para ver los cambios en Live Server antes de commitear:
+```bash
+python3 scripts/build.py
+```
+
+### Agregar una sección al home
+1. Crear el HTML en `components/` y su CSS en `assets/css/sections/`
+2. En `components/layout.html`: agregar `<!-- @include components/nueva-section.html -->` en el orden deseado y su `<link>` dentro del bloque `@bundle`
+3. Correr `python3 scripts/build.py` (o simplemente commitear)
+
+### Íconos
+Se escriben igual que con Font Awesome: `<i class="fas fa-check"></i>` (tamaños `fa-2x`, `fa-3x`, `fa-4x`). Solo existen los íconos usados en el sitio; al usar uno nuevo de [Font Awesome Free 6.4](https://fontawesome.com/v6/search?o=r&m=free), correr:
+```bash
+python3 scripts/icons.py
+```
 
 ### Páginas independientes (`pages/`)
-No usan Bootstrap ni el loader de componentes: son HTML autónomos con la misma línea visual (fondo `#061414`, acento `#00CED1`, fuentes Inter Tight + Lato). Cada una tiene su GA4, canonical, Open Graph, Twitter Card y botón "Volver a ClaveContable".
+No usan el build de componentes (son HTML autónomos; el build solo les pone `?v=` a sus CSS/JS) con la misma línea visual (fondo `#061414`, acento `#00CED1`, fuentes Inter Tight + Lato). Cada una tiene su GA4, canonical, Open Graph, Twitter Card y botón "Volver a ClaveContable".
 
 ### Calculadoras: actualizar tasas
 Todas las tasas están al inicio de `assets/js/pages/calculadoras.js`:
