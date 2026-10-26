@@ -1,0 +1,34 @@
+# ClaveContable Ltda.
+
+> Firma de servicios contables y tecnológicos para PyMEs en Chile, con planes de contabilidad desde 1,5 UF al mes. Contabilidad, impuestos (F29, Operación Renta), remuneraciones, auditoría, tiendas online y software a medida, con contabilidad y tecnología en el mismo equipo.
+
+Atiende a PyMEs, emprendedores y profesionales independientes de todo Chile desde Pasaje 15 Oriente 6400, La Granja, Santiago (Región Metropolitana). Más de 10 años de experiencia.
+
+- Teléfono y WhatsApp: +56 9 5674 6853 (https://wa.me/56956746853)
+- Correo: contacto@clavecontable.cl
+- Horario: Lunes a Viernes: 9:00 - 18:00
+- Redes: [Facebook](https://www.facebook.com/share/1A8UKXC39C/) · [Instagram](https://www.instagram.com/clavecontablechile/) · [LinkedIn](https://www.linkedin.com/company/clavecontable)
+
+## Planes de contabilidad
+
+- [Plan Inicia — 1,5 UF/mes](https://www.clavecontable.cl/#planes): inicio de actividades SII, declaración mensual F29, libros electrónicos y registro de compras, ventas y honorarios.
+- [Plan Crea — 3 UF/mes](https://www.clavecontable.cl/#planes): todo lo del Plan Inicia más asesoría contable, declaración de renta, balance anual, remuneraciones (hasta 2 trabajadores) y emisión de facturas (hasta 5 al mes).
+- [Pyme Pro — 4 UF/mes](https://www.clavecontable.cl/#planes): todo lo del Plan Crea más declaración de socios DN8, pre-balance, remuneraciones (hasta 20 trabajadores), emisión de facturas (hasta 20 al mes) y asesoría tributaria especializada.
+
+## Servicios
+
+- [Servicios contables y tributarios](https://www.clavecontable.cl/#servicios): inicio de actividades en el SII, F29, libros electrónicos, balance anual y asesoría tributaria.
+- [Recursos humanos y remuneraciones](https://www.clavecontable.cl/#servicios): contratos laborales, liquidaciones de sueldo, carga en Previred y finiquitos.
+- [Auditoría contable para empresas](https://www.clavecontable.cl/#auditoria): estados financieros, control interno, cumplimiento tributario SII, auditoría para créditos bancarios y de sistemas.
+- [Tienda online para PyMEs](https://www.clavecontable.cl/pages/tienda-online.html): tienda propia con Webpay, Getnet, Mercado Pago y transferencia; despacho con Starken, Chilexpress o reparto propio; productos físicos y digitales; boletas y facturas.
+- [Tecnología y desarrollo](https://www.clavecontable.cl/#tecnologia): páginas web, administración de servidores (Linux, Docker) y software a medida (APIs, automatización, facturación electrónica SII).
+
+## Calculadoras gratuitas
+
+- [Calculadora de IVA Chile (19 %)](https://www.clavecontable.cl/pages/calculadoras/iva.html): valor neto, IVA y total, desde un monto neto o con IVA incluido.
+- [Calculadora de boleta de honorarios](https://www.clavecontable.cl/pages/calculadoras/boleta-honorarios.html): retención 2026 de 15,25 %; cuánto anotar en la boleta para recibir un líquido y cuánto se recibe de un bruto.
+
+## Preguntas frecuentes
+
+- [Preguntas frecuentes de contabilidad](https://www.clavecontable.cl/pages/preguntas-frecuentes.html): precios de los planes (exentos de IVA), qué plan conviene, inicio de actividades (1 UF), Operación Renta (desde 3 UF), remuneraciones, auditoría, atención en todo Chile y cómo cambiarse de contador.
+- [Preguntas frecuentes de la tienda online](https://www.clavecontable.cl/pages/preguntas-frecuentes-tienda.html): precio y plazos, medios de pago, contratos con Transbank, Getnet y Mercado Pago, despachos con Starken y Chilexpress, productos digitales, boletas y facturas, y administración de la tienda.

@@ -213,3 +213,11 @@ footer .slogan { font-family: var(--brand); color: var(--accent); letter-spacing
 
 /* Botón al formulario de contacto del sitio */
 .form-link { justify-content: center; }
+
+/* Franja de preguntas frecuentes (botón a pages/preguntas-frecuentes-tienda.html) */
+.faq-band-wrap { padding-block: clamp(40px, 6vw, 72px); border-block: 1px solid var(--line); background: var(--panel); }
+.faq-band { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px; }
+.faq-band > div { flex: 1 1 420px; min-width: 0; display: grid; gap: 10px; }
+.faq-band h2 { font-size: clamp(1.6rem, 3.2vw, 2.3rem); font-weight: 800; }
+.faq-band .btn { flex: none; }
+@media (max-width: 620px) { .faq-band .btn { width: 100%; justify-content: center; } }

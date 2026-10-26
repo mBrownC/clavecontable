@@ -1,0 +1,73 @@
+/* ==========================================
+   Calculadoras ClaveContable (IVA y Boleta de Honorarios)
+   Lo común (barra superior, hero, botones, FAQ, CTA, footer) está en base.css.
+   ========================================== */
+
+/* Pestañas entre calculadoras */
+.tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); margin-top: 28px; flex-wrap: wrap; }
+.tabs a { font-family: var(--display); font-weight: 700; font-size: 14px; color: var(--muted); text-decoration: none; padding: 9px 16px; border-radius: 9px; }
+.tabs a:hover { color: var(--fg); }
+.tabs a[aria-current="page"] { background: var(--accent); color: var(--ink); }
+
+/* Tarjeta de cálculo */
+.calc { padding-block: 8px clamp(48px, 7vw, 88px); }
+.calc-card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 4vw, 40px); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); display: grid; gap: 22px; }
+.calc-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; align-items: end; }
+.field { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; min-width: 0; }
+.field label, .field .label { font-family: var(--display); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.money { min-width: 0; display: flex; align-items: center; gap: 10px; background: var(--ink); border: 1px solid var(--line); border-radius: 12px; padding: 14px 20px; transition: border-color .15s ease, box-shadow .15s ease; }
+.money:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.money span { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: var(--accent); }
+.money input { flex: 1; width: 100%; min-width: 0; background: transparent; border: 0; outline: none; color: var(--fg); font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; }
+.money input::placeholder { color: #3e6363; }
+.money input:focus-visible { outline: none; }
+select { appearance: none; background: var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2300ced1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 14px center; border: 1px solid var(--line); border-radius: 12px; color: var(--fg); font: 700 15px var(--display); padding: 14px 40px 14px 16px; cursor: pointer; }
+
+/* Selector neto / total */
+.seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 12px; background: var(--ink); border: 1px solid var(--line); }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label { text-align: center; font-family: var(--display); font-weight: 700; font-size: 14.5px; padding: 11px 12px; border-radius: 9px; color: var(--muted); cursor: pointer; text-transform: none; letter-spacing: 0; }
+.seg label small { display: block; font-weight: 400; font-size: 12.5px; }
+.seg input:checked + label { background: var(--accent); color: var(--ink); }
+.seg input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Resultados */
+.results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.results.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.res { background: var(--panel-2); padding: 20px 22px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.res .k { font-family: var(--display); font-size: 12.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.res .v { font-family: var(--display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; overflow-wrap: anywhere; }
+.res.main { background: linear-gradient(160deg, rgba(0, 206, 209, 0.14), transparent 70%), var(--panel-2); }
+.res.main .v { color: var(--accent); }
+.res p { color: var(--muted); font-size: 15px; }
+.res p b { color: var(--fg); font-family: var(--display); }
+.res h3 { font-size: 1.15rem; }
+.breakdown { display: grid; gap: 8px; margin-top: 8px; padding-top: 14px; border-top: 1px dashed var(--line); }
+.breakdown div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; }
+.breakdown span { color: var(--muted); }
+.breakdown b { font-family: var(--display); }
+.breakdown .hl b { color: var(--accent); }
+.copy { justify-self: start; margin-top: 6px; font: 600 13px var(--display); color: var(--fg); background: transparent; border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.copy:hover { border-color: var(--accent); }
+.note { font-size: 13.5px; color: var(--muted); }
+
+
+/* Explicación y fórmulas */
+.formulas { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.formula { border: 1px solid var(--line); border-radius: 14px; padding: 22px; background: var(--ink); display: grid; gap: 10px; align-content: start; }
+.formula h3 { font-size: 1.1rem; }
+.formula p { color: var(--muted); font-size: 15px; }
+.formula code { display: block; font-family: var(--display); font-weight: 700; font-size: 15.5px; color: var(--accent); background: var(--accent-soft); border-radius: 8px; padding: 10px 12px; }
+.formula .warn { color: #ffc107; font-size: 14px; }
+.example { margin-top: 22px; border-left: 3px solid var(--accent); padding: 4px 0 4px 16px; color: var(--muted); }
+.example b { color: var(--fg); }
+
+@media (max-width: 860px) {
+    .results, .results.two { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 620px) {
+    .calc-row { grid-template-columns: minmax(0, 1fr); }
+    .tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+    .tabs a { text-align: center; padding: 9px 8px; }
+}

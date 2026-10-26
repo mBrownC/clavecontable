@@ -1,0 +1,37 @@
+/* ==========================================
+   Páginas de preguntas frecuentes
+   (pages/preguntas-frecuentes.html y pages/preguntas-frecuentes-tienda.html)
+   Lo común (barra superior, hero, acordeón, CTA, footer) está en base.css.
+   ========================================== */
+
+.hero .lead a { color: var(--accent); }
+
+/* Atajos a cada tema */
+.temas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.temas a { font-family: var(--display); font-weight: 700; font-size: 14px; color: var(--fg); text-decoration: none; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); transition: border-color .15s ease, color .15s ease; }
+.temas a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Grupos de preguntas */
+.grupo .faq { max-width: 860px; }
+.grupo .faq-answer a { color: var(--accent); }
+.alt .faq details { background: var(--ink); }
+
+.aviso { margin-top: 24px; color: var(--muted); font-size: 15px; }
+.aviso a { color: var(--accent); font-weight: 700; }
+
+/* Enlaces de anclas: dejar espacio para la barra superior fija */
+.grupo { scroll-margin-top: 80px; }
+
+/* Secciones blancas: se alternan con las oscuras, igual que en el home.
+   Basta con redefinir los colores base; el acordeón y los textos los toman solos. */
+.claro {
+    --fg: #0a1f1f;
+    --muted: #4f5b5a;
+    --line: #dfe7e7;
+    --panel: #ffffff;
+    --accent: #00797b;
+    background: #f8f9fa;
+    color: var(--fg);
+}
+.claro .faq details[open] { border-color: #00ced1; box-shadow: 0 10px 30px rgba(0, 206, 209, 0.12); }
+.claro .faq summary::after { color: #00898b; }

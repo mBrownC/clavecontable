@@ -1,0 +1,3 @@
+# Carpetas temporales del build (scripts/build.js)
+.dist-tmp-*/
+.dist-old-*/

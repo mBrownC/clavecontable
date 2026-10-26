@@ -1,0 +1,23 @@
+{
+    "name": "ClaveContable Ltda.",
+    "short_name": "ClaveContable",
+    "description": "Servicios contables y tecnológicos para PyMEs en Chile.",
+    "lang": "es-CL",
+    "start_url": "/",
+    "scope": "/",
+    "display": "browser",
+    "background_color": "#061414",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "/assets/img/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/img/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

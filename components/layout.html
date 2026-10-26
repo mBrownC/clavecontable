@@ -37,10 +37,9 @@
             content="Dv9qewx1zESjcYukhxiJGfijITE3BO9mxCMRc-KopcE" />
 
         <!-- SEO Meta Tags -->
-        <title>ClaveContable Ltda. | Contabilidad, Auditoría y Tienda Online
-            para PyMEs en Chile · Desde 1,5 UF</title>
+        <title>Contador para PyMEs en Chile desde 1,5 UF | ClaveContable</title>
         <meta name="description"
-            content="Servicios contables y tecnológicos para PyMEs en Chile desde 1,5 UF: asesoría tributaria, remuneraciones, auditoría, tiendas online con Webpay y software a medida. Calculadoras gratis de IVA y boleta de honorarios.">
+            content="Contabilidad, F29, remuneraciones y auditoría para PyMEs en Chile desde 1,5 UF. También tiendas online y software a medida. Cotiza gratis.">
         <meta name="theme-color" content="#000000">
         <meta name="author" content="ClaveContable">
 
@@ -84,10 +83,11 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <!-- Geo Tags -->
-        <meta name="geo.region" content="CL-RM">
-        <meta name="geo.placename" content="Santiago, Chile">
-        <meta name="geo.position" content="-33.4489;-70.6693">
-        <meta name="ICBM" content="-33.4489, -70.6693">
+        <!-- Los {{…}} los completa el build con los datos de assets/js/config.js -->
+        <meta name="geo.region" content="{{region}}">
+        <meta name="geo.placename" content="{{comuna}}, {{ciudad}}, Chile">
+        <meta name="geo.position" content="{{lat}};{{lng}}">
+        <meta name="ICBM" content="{{lat}}, {{lng}}">
 
         <!-- Preconnect recursos externos -->
         <!-- Fuentes propias: se precargan las que se ven al abrir la página -->
@@ -116,6 +116,7 @@
         <link rel="stylesheet" href="assets/css/sections/clientes-section.css">
         <link rel="stylesheet" href="assets/css/sections/tecnologia-section.css">
         <link rel="stylesheet" href="assets/css/sections/ecommerce-section.css">
+        <link rel="stylesheet" href="assets/css/sections/faq-section.css">
         <link rel="stylesheet" href="assets/css/sections/contact-section.css">
         <!-- @endbundle -->
 
@@ -135,17 +136,7 @@
             "image": "https://www.clavecontable.cl/assets/img/social/og-home.jpg",
             "description": "Servicios contables y tecnológicos para PyMEs en Chile. Planes desde 1,5 UF. Asesoría tributaria, remuneraciones, auditoría, tiendas online y software a medida.",
             "priceRange": "desde 1,5 UF",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Santiago",
-                "addressRegion": "Región Metropolitana",
-                "addressCountry": "CL"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -33.4489,
-                "longitude": -70.6693
-            },
+            "address": {},
             "areaServed": {
                 "@type": "Country",
                 "name": "Chile"
@@ -257,6 +248,16 @@
                     "@type": "WebPage",
                     "name": "Calculadora de Boleta de Honorarios",
                     "url": "https://www.clavecontable.cl/pages/calculadoras/boleta-honorarios.html"
+                },
+                {
+                    "@type": "FAQPage",
+                    "name": "Preguntas frecuentes de ClaveContable",
+                    "url": "https://www.clavecontable.cl/pages/preguntas-frecuentes.html"
+                },
+                {
+                    "@type": "FAQPage",
+                    "name": "Preguntas frecuentes de la tienda online",
+                    "url": "https://www.clavecontable.cl/pages/preguntas-frecuentes-tienda.html"
                 }
             ]
         }
@@ -280,6 +281,7 @@
             <!-- @include components/tecnologia-section.html -->
             <!-- @include components/planes-section.html -->
             <!-- @include components/clientes-section.html -->
+            <!-- @include components/faq-section.html -->
             <!-- @include components/contact-section.html -->
         </main>
 

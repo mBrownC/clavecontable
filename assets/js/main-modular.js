@@ -4,15 +4,15 @@
 
 "use strict";
 
-import { initNavbar } from "./modules/navigation.js?v=0d7f5730dc";
-import { initAnimations } from "./modules/animations.js?v=9a1a3d846e";
-import { initSwiper } from "./modules/swiperConfig.js?v=d52498db60";
-import { initFormValidation } from "./modules/formValidation.js?v=0b34dd4f83";
-import { initSmoothScroll } from "./modules/smoothScroll.js?v=0627cacb44";
-import { initServiceFilters } from "./modules/serviceFilters.js?v=0e667809d6";
-import { initNoticiasToggle } from "./modules/noticiasToggle.js?v=85f98932a1";
-import { initContactForm } from "./modules/contactForm.js?v=e15d21d980";
-import { initializeSocialLinks } from "./config.js?v=2061172969";
+import { initNavbar } from "./modules/navigation.js";
+import { initAnimations } from "./modules/animations.js";
+import { initSwiper } from "./modules/swiperConfig.js";
+import { initFormValidation } from "./modules/formValidation.js";
+import { initSmoothScroll } from "./modules/smoothScroll.js";
+import { initServiceFilters } from "./modules/serviceFilters.js";
+import { initNoticiasToggle } from "./modules/noticiasToggle.js";
+import { initContactForm } from "./modules/contactForm.js";
+import { initializeSocialLinks } from "./config.js";
 
 // Document Ready
 // El contenido del home ya viene completo en index.html (lo arma scripts/build.py),

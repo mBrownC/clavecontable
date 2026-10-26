@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- ARCHIVO GENERADO por scripts/build.py: no editar a mano.
-     Edita components/layout.html y components/*.html, y se regenera en cada commit. -->
+<!-- ARCHIVO GENERADO por scripts/build.js: no editar a mano.
+     Edita components/layout.html y components/*.html. -->
 <html lang="es-CL" style="scroll-behavior: smooth;">
 
     <head>
@@ -39,10 +39,9 @@
             content="Dv9qewx1zESjcYukhxiJGfijITE3BO9mxCMRc-KopcE" />
 
         <!-- SEO Meta Tags -->
-        <title>ClaveContable Ltda. | Contabilidad, Auditoría y Tienda Online
-            para PyMEs en Chile · Desde 1,5 UF</title>
+        <title>Contador para PyMEs en Chile desde 1,5 UF | ClaveContable</title>
         <meta name="description"
-            content="Servicios contables y tecnológicos para PyMEs en Chile desde 1,5 UF: asesoría tributaria, remuneraciones, auditoría, tiendas online con Webpay y software a medida. Calculadoras gratis de IVA y boleta de honorarios.">
+            content="Contabilidad, F29, remuneraciones y auditoría para PyMEs en Chile desde 1,5 UF. También tiendas online y software a medida. Cotiza gratis.">
         <meta name="theme-color" content="#000000">
         <meta name="author" content="ClaveContable">
 
@@ -86,10 +85,11 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <!-- Geo Tags -->
+        <!-- Los {{…}} los completa el build con los datos de assets/js/config.js -->
         <meta name="geo.region" content="CL-RM">
-        <meta name="geo.placename" content="Santiago, Chile">
-        <meta name="geo.position" content="-33.4489;-70.6693">
-        <meta name="ICBM" content="-33.4489, -70.6693">
+        <meta name="geo.placename" content="La Granja, Santiago, Chile">
+        <meta name="geo.position" content="-33.5224;-70.6246">
+        <meta name="ICBM" content="-33.5224, -70.6246">
 
         <!-- Preconnect recursos externos -->
         <!-- Fuentes propias: se precargan las que se ven al abrir la página -->
@@ -104,7 +104,7 @@
 
         <!-- Estilos del sitio: el build los une en assets/css/home.bundle.css (un solo archivo).
              Para agregar uno, súmalo dentro del bloque @bundle. -->
-        <link rel="stylesheet" href="assets/css/home.bundle.css?v=d0490188d5">
+        <link rel="stylesheet" href="assets/css/home.bundle.css?v=d500113156">
 
         <!-- Schema Markup JSON-LD -->
         <script type="application/ld+json">
@@ -124,14 +124,10 @@
             "priceRange": "desde 1,5 UF",
             "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Santiago",
+                "streetAddress": "Pasaje 15 Oriente 6400",
+                "addressLocality": "La Granja",
                 "addressRegion": "Región Metropolitana",
                 "addressCountry": "CL"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": -33.4489,
-                "longitude": -70.6693
             },
             "areaServed": {
                 "@type": "Country",
@@ -212,12 +208,51 @@
                 "contactType": "customer service",
                 "contactOption": "TollFree",
                 "areaServed": "CL",
-                "availableLanguage": "Spanish"
+                "availableLanguage": "Spanish",
+                "telephone": "+56956746853",
+                "email": "contacto@clavecontable.cl",
+                "hoursAvailable": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                        "Monday",
+                        "Tuesday",
+                        "Wednesday",
+                        "Thursday",
+                        "Friday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                }
             },
             "@id": "https://www.clavecontable.cl/#empresa",
-            "legalName": "ClaveContable Ltda."
+            "legalName": "ClaveContable Ltda.",
+            "telephone": "+56956746853",
+            "email": "contacto@clavecontable.cl",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": -33.5224,
+                "longitude": -70.6246
+            },
+            "hasMap": "https://www.google.com/maps/search/?api=1&query=Pasaje%2015%20Oriente%206400%2C%20La%20Granja%2C%20Santiago%2C%20Chile",
+            "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+            },
+            "sameAs": [
+                "https://www.facebook.com/share/1A8UKXC39C/",
+                "https://www.instagram.com/clavecontablechile/",
+                "https://www.linkedin.com/company/clavecontable"
+            ]
         }
-        </script>
+    </script>
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -244,10 +279,20 @@
                     "@type": "WebPage",
                     "name": "Calculadora de Boleta de Honorarios",
                     "url": "https://www.clavecontable.cl/pages/calculadoras/boleta-honorarios.html"
+                },
+                {
+                    "@type": "FAQPage",
+                    "name": "Preguntas frecuentes de ClaveContable",
+                    "url": "https://www.clavecontable.cl/pages/preguntas-frecuentes.html"
+                },
+                {
+                    "@type": "FAQPage",
+                    "name": "Preguntas frecuentes de la tienda online",
+                    "url": "https://www.clavecontable.cl/pages/preguntas-frecuentes-tienda.html"
                 }
             ]
         }
-        </script>
+    </script>
     </head>
 
     <body>
@@ -671,7 +716,7 @@
                                         aria-hidden="true"></i>
                                 </a>
                                 <a data-whatsapp="Hola ClaveContable, quiero cotizar una tienda online"
-                                    class="btn btn-ecom-ghost">
+                                    class="btn btn-ecom-ghost" href="https://wa.me/56956746853?text=Hola%20ClaveContable%2C%20quiero%20cotizar%20una%20tienda%20online" target="_blank" rel="noopener noreferrer">
                                     <i class="fab fa-whatsapp me-2" aria-hidden="true"></i>
                                     Cotizar por WhatsApp
                                 </a>
@@ -1795,6 +1840,26 @@
                     </div>
                 </div>
             </section>
+            <!-- Preguntas frecuentes: franja con botón a la página completa (se abre en pestaña nueva) -->
+            <section id="preguntas-frecuentes" class="faq-section">
+                <div class="container">
+                    <div class="faq-band">
+                        <div class="faq-band-text">
+                            <span class="faq-eyebrow">Preguntas frecuentes</span>
+                            <h2>¿Tienes dudas antes de contratar?</h2>
+                            <p>Precios, planes, inicio de actividades, Operación Renta y cómo
+                                cambiarte de contador, respondidos en un solo lugar.</p>
+                        </div>
+                        <a href="pages/preguntas-frecuentes.html" target="_blank"
+                            rel="noopener" class="btn btn-faq"
+                            aria-label="Ver preguntas frecuentes (abre en una pestaña nueva)">
+                            Ver preguntas frecuentes <i
+                                class="fas fa-arrow-up-right-from-square ms-2"
+                                aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
             <!-- Contacto Section - Diseño Completo con Cloudflare Turnstile -->
             <section id="contacto" class="contact-section-complete">
 
@@ -1802,22 +1867,19 @@
                 <div class="social-header">
                     <h2 class="h4">Síguenos en Redes Sociales</h2>
                     <div class="social-links">
-                        <a href="javascript:void(0)" target="_blank"
-                            rel="noopener noreferrer"
+                        <a data-social="facebook"
                             class="social-link"
-                            aria-label="Visitar ClaveContable Ltda. en Facebook">
+                            aria-label="Visitar ClaveContable Ltda. en Facebook" href="https://www.facebook.com/share/1A8UKXC39C/" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0)" target="_blank"
-                            rel="noopener noreferrer"
+                        <a data-social="instagram"
                             class="social-link"
-                            aria-label="Visitar ClaveContable Ltda. en Instagram">
+                            aria-label="Visitar ClaveContable Ltda. en Instagram" href="https://www.instagram.com/clavecontablechile/" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
                         </a>
-                        <a href="javascript:void(0)" target="_blank"
-                            rel="noopener noreferrer"
+                        <a data-social="whatsapp"
                             class="social-link"
-                            aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+                            aria-label="Contactar ClaveContable Ltda. por WhatsApp" href="https://wa.me/56956746853?text=Hola%20ClaveContable%20quisiera%20cotizar%20un%20servicio" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -1836,20 +1898,25 @@
                             <div class="info-items">
                                 <div class="info-item">
                                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                                    <a href="javascript:void(0)">Cargando...</a>
+                                    <a data-contact="email" href="mailto:contacto@clavecontable.cl">contacto@clavecontable.cl</a>
                                 </div>
 
                                 <div class="info-item">
                                     <i class="fas fa-phone" aria-hidden="true"></i>
-                                    <a href="javascript:void(0)">Cargando...</a>
+                                    <a data-contact="phone" href="tel:+56956746853">+56 9 5674 6853</a>
+                                </div>
+
+                                <div class="info-item">
+                                    <i class="fas fa-location-dot" aria-hidden="true"></i>
+                                    <a data-contact="address" target="_blank"
+                                        rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&amp;query=Pasaje%2015%20Oriente%206400%2C%20La%20Granja%2C%20Santiago%2C%20Chile">Pasaje 15 Oriente 6400, La Granja, Santiago</a>
                                 </div>
 
                                 <div class="info-item">
                                     <i class="fas fa-clock" aria-hidden="true"></i>
                                     <div>
                                         <p><strong>Horario de Atención</strong></p>
-                                        <p class="schedule-weekdays">Cargando...</p>
-                                        <p class="schedule-saturday">Cargando...</p>
+                                        <p data-contact="schedule">Lunes a Viernes: 9:00 - 18:00</p>
                                     </div>
                                 </div>
 
@@ -1961,6 +2028,9 @@
                         <p class="small">Servicios contables, tecnológicos y de recursos
                             humanos para PyMEs en Chile. Asesoría tributaria,
                             remuneraciones, desarrollo web y software a medida.</p>
+                        <p class="small mb-0"><i class="fas fa-location-dot me-2"
+                                aria-hidden="true"></i><span
+                                data-contact="address">Pasaje 15 Oriente 6400, La Granja, Santiago</span></p>
                     </div>
                     <div class="col-md-4 mb-4 mb-md-0">
                         <h2 class="mb-3 h5">Servicios</h2>
@@ -1990,25 +2060,28 @@
                             <li><a href="pages/calculadoras/boleta-honorarios.html"
                                     class="text-white-50">Calculadora Boleta de
                                     Honorarios</a></li>
+                            <li><a href="pages/preguntas-frecuentes.html" target="_blank"
+                                    rel="noopener" class="text-white-50">Preguntas
+                                    Frecuentes</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <h2 class="mb-3 h5">Síguenos</h2>
                         <div class="social-links">
-                            <a href="javascript:void(0)" target="_blank"
+                            <a data-social="facebook"
                                 class="social-link"
-                                aria-label="ClaveContable Ltda. en Facebook">
+                                aria-label="ClaveContable Ltda. en Facebook" href="https://www.facebook.com/share/1A8UKXC39C/" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-facebook fa-2x" aria-hidden="true"></i>
                             </a>
-                            <a href="javascript:void(0)" target="_blank"
+                            <a data-social="instagram"
                                 class="social-link"
-                                aria-label="ClaveContable Ltda. en Instagram">
+                                aria-label="ClaveContable Ltda. en Instagram" href="https://www.instagram.com/clavecontablechile/" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-instagram fa-2x"
                                     aria-hidden="true"></i>
                             </a>
-                            <a href="javascript:void(0)" target="_blank"
+                            <a data-social="whatsapp"
                                 class="social-link"
-                                aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+                                aria-label="Contactar ClaveContable Ltda. por WhatsApp" href="https://wa.me/56956746853?text=Hola%20ClaveContable%20quisiera%20cotizar%20un%20servicio" target="_blank" rel="noopener noreferrer">
                                 <i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i>
                             </a>
                         </div>
@@ -2016,14 +2089,14 @@
                 </div>
                 <hr class="my-4 bg-light">
                 <div class="text-center">
-                    <p class="mb-0"></p>
+                    <p class="mb-0" data-contact="copyright">© 2026 ClaveContable Ltda. Todos los derechos reservados | Diseñado por MBrownC, Exoweb_chile®</p>
                 </div>
             </div>
         </footer>
 
         <!-- WhatsApp Float Button -->
-        <a href="javascript:void(0)" class="whatsapp-float" target="_blank"
-            aria-label="Contactar ClaveContable Ltda. por WhatsApp">
+        <a data-whatsapp="" class="whatsapp-float"
+            aria-label="Contactar ClaveContable Ltda. por WhatsApp" href="https://wa.me/56956746853?text=Hola%20ClaveContable%20quisiera%20cotizar%20un%20servicio" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
 
@@ -2031,7 +2104,7 @@
         <script src="assets/vendor/gsap.min.js?v=448deef673" defer></script>
         <script src="assets/vendor/ScrollTrigger.min.js?v=9f0592f874" defer></script>
         <script src="assets/vendor/swiper-bundle.min.js?v=f20d664f14" defer></script>
-        <script type="module" src="assets/js/main-modular.js?v=0c76ace5be"></script>
+        <script type="module" src="assets/js/main-modular.js?v=7f3ad3c66c"></script>
     </body>
 
 </html>

@@ -1,0 +1,81 @@
+/* ==========================================
+   Preguntas frecuentes (franja con botón a pages/preguntas-frecuentes.html)
+   ========================================== */
+
+#preguntas-frecuentes {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+}
+
+.faq-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2.25rem 2.5rem;
+    border-radius: 16px;
+    background: var(--light-color);
+    border: 1px solid #dfe7e7;
+    box-shadow: 0 10px 30px rgba(10, 31, 31, 0.06);
+}
+
+.faq-band-text {
+    flex: 1 1 380px;
+    min-width: 0;
+}
+
+.faq-eyebrow {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #00898b;
+}
+
+.faq-band h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.faq-band p {
+    margin: 0;
+    color: #55605f;
+}
+
+.btn-faq {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    background: var(--primary-color);
+    color: var(--dark-color);
+    box-shadow: 0 6px 20px rgba(0, 206, 209, 0.3);
+}
+
+.btn-faq:hover {
+    background: #00b8bb;
+    color: var(--dark-color);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 575.98px) {
+    #preguntas-frecuentes {
+        padding: 3rem 0;
+    }
+
+    .faq-band {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .btn-faq {
+        width: 100%;
+        justify-content: center;
+    }
+}

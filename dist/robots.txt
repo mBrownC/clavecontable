@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /pages/gracias.html
+
+Sitemap: https://www.clavecontable.cl/sitemap.xml
