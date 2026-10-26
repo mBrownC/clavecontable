@@ -4,5 +4,5 @@
 
 // Redirección automática después de 10 segundos
 setTimeout(() => {
-    window.location.href = '../index.html';
+    window.location.href = '../';
 }, 10000);

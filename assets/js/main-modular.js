@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inicializar enlaces de redes sociales desde config.js
   initializeSocialLinks();
 
-  // Llegadas desde otras páginas (ej. /index.html?servicio=tienda-online#contacto)
+  // Llegadas desde otras páginas (ej. /#cotizar-tienda-online)
   handleIncomingLink();
 
   // Botones que llevan al formulario con un servicio ya elegido (data-servicio="plan-crea")
@@ -50,17 +50,30 @@ function selectServicio(servicio) {
   }
 }
 
+// El servicio va en el ancla (#cotizar-<servicio>) y no en "?servicio=", porque Google
+// ignora lo que va después del # y así no indexa URLs duplicadas del home.
+// Se mantiene ?servicio= por compatibilidad con links antiguos.
 function handleIncomingLink() {
-  selectServicio(new URLSearchParams(window.location.search).get("servicio"));
+  let hash = window.location.hash;
+  let servicio = new URLSearchParams(window.location.search).get("servicio");
 
-  if (window.location.hash) {
-    const target = document.querySelector(window.location.hash);
-    if (target) {
-      const navbar = document.querySelector(".navbar");
-      const offset = navbar ? navbar.offsetHeight : 0;
-      window.scrollTo({ top: target.offsetTop - offset, behavior: "smooth" });
-    }
+  if (hash.startsWith("#cotizar-")) {
+    servicio = hash.slice("#cotizar-".length);
+    hash = "#contacto";
   }
+  selectServicio(servicio);
+
+  const target = hash && document.querySelector(hash);
+  if (!target) return;
+
+  // Se espera al evento load: si se hace antes, el navegador cancela el scroll al terminar de cargar
+  const ir = () => {
+    const navbar = document.querySelector(".navbar");
+    const offset = navbar ? navbar.offsetHeight : 0;
+    window.scrollTo({ top: target.offsetTop - offset, behavior: "smooth" });
+  };
+  if (document.readyState === "complete") ir();
+  else window.addEventListener("load", ir, { once: true });
 }
 
 // Performance Optimizations
